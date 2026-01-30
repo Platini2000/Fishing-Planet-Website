@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platini2000 - Lone Star Guide</title>
+    <!-- CSS staat in dezelfde map -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>FISHING PLANET</h1>
+        <h2>Lone Star Lake Guide</h2>
+    </header>
+
+    <nav>
+        <!-- Link naar zichzelf -->
+        <a href="index.html" class="active">Lone Star</a>        
+        <a href="Emerald/index.html">Emerald</a>
+        <a href="#" title="Komt binnenkort">Mudwater</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- --- HOOFDMENU LONE STAR --- -->
+        <div id="fish-menu">
+            <h3 style="text-align: left; padding-left: 300px;">
+                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 10px;"></i> Kies een vissoort:
+            </h3>
+            <div class="menu-list">
+                <button onclick="openFish('bass')">Spotted Bass</button>
+                <button onclick="openFish('buffalo')">Smallmouth Buffalo</button>
+                <button onclick="openFish('pickerel')">Grass Pickerel</button>
+                <button onclick="openFish('crappie')">White Crappie</button>
+                <button onclick="openFish('catfish')">Channel Catfish</button>
+                <button onclick="openFish('sunfish')">Bluegill & Sunfish</button>
+                <button onclick="openFish('shiner')">Shiners (Aasvis)</button>
+            </div>
+        </div>
+
+        <!-- --- VIS INFO SCHERMEN --- -->
+        <!-- LET OP: Alle plaatjes hebben nu 'Lone Star/' ervoor staan! -->
+        <div id="fish-details">
+            
+            <!-- 1. BASS -->
+            <div id="bass" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/bass.jpg" alt="Spotted Bass" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Spotted Bass</h3>
+                        <p class="fish-bio">
+                            Een agressieve rover die zich graag ophoudt bij structuren. In Lone Star jagen ze rond de leliebladen en de brugpijlers.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Loop over de houten brug. Ga naar de linkerhoek en gooi richting de leliebladen.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2000</span></div>
+                                <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Fluoro 0.23mm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
+                        <div class="detail-text">
+                            <strong>Kunstaas:</strong> Casting Spoon (9g) #1/0<br>
+                            <em>(Kleur: Goud of Zilver)</em><br><br>
+                            <strong>Alternatief:</strong> Bass Jig (9g) + Craw<br>
+                            <strong>Levend Aas:</strong> Small Minnows
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Young, Common & Trophy<br>
+                            <strong>Haakmaat:</strong> #2, #1 of #1/0<br>
+                            <strong>Tijden:</strong> Ochtendpiek & Namiddag<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            De beste plek is vanaf de brug (Bridge Dock).
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Bridge Dock</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-16.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">52.50</span></div>
+                                <div class="gear-row"><span class="gear-label">Richting:</span> <span class="gear-val">Naar lelies</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> <span class="action-tag">Twitch</span> of <span class="action-tag">Stop&Go</span> (Snelheid 2).
+                </div>
+            </div>
+
+            <!-- 2. BUFFALO -->
+            <div id="buffalo" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/buffalo.jpg" alt="Buffalo" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Smallmouth Buffalo</h3>
+                        <p class="fish-bio">
+                            Deze sterke bodemvis lijkt op een karper maar is een zuigkarper. Hij zoekt met zijn bek de bodem af.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Startsteiger (House Dock). Gooi recht vooruit naar het diepste punt.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">CreekPro 240</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CrucianHunter 3000</span></div>
+                                <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.25mm+</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Voer</h4>
+                        <div class="detail-text">
+                            <strong>Top Aas:</strong> Semolina Balls, Doughballs<br>
+                            <strong>Alternatief:</strong> Mais (Corn), Brood<br><br>
+                            <strong>Lokvoer:</strong> Basis Karpervoer<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Young, Common & Trophy<br>
+                            <strong>Haakmaat:</strong> #6 tot #2<br>
+                            <strong>Diepte:</strong> Maximaal (Bodem)<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Vis in het midden van het meer.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">House Dock</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">8.50</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">-8.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">35m - 45m</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Statisch op de bodem. Gooi in, zet hengel op steun.
+                </div>
+            </div>
+
+            <!-- 3. PICKEREL -->
+            <div id="pickerel" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/pickerel.jpg" alt="Pickerel" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Grass Pickerel</h3>
+                        <p class="fish-bio">
+                            Het kleine neefje van de snoek. Ze verschuilen zich graag in dichte vegetatie (riet) en vallen bliksemsnel aan.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Linkerkant ("Swampy Area"). Vis strak tegen het <strong>riet</strong> aan in de doorgangen.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2000</span></div>
+                                <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Titanium 0.14</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
+                        <div class="detail-text">
+                            <strong>Kunstaas:</strong> Nano Spoons (6g)<br>
+                            <strong>Alternatief:</strong> Kleine Shads, Spinners<br><br>
+                            <strong>Levend Aas:</strong> Small Minnows
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Haakmaat:</strong> #2 tot #1/0<br>
+                            <strong>Gedrag:</strong> Zeer agressief<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Loop helemaal naar links het pad af.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Swampy Area</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">58.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">-22.50</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Rietkragen</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> <span class="action-tag">Slow Straight</span> of <span class="action-tag">Stop&Go</span>.
+                </div>
+            </div>
+
+            <!-- 4. CRAPPIE -->
+            <div id="crappie" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/crappie.jpg" alt="Crappie" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">White Crappie</h3>
+                        <p class="fish-bio">
+                            Een populaire Amerikaanse panfish. Ze leven in scholen rondom onderwaterstructuren zoals omgevallen bomen.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Rechts bij de omgevallen boom (The Snag). Gooi zo dicht mogelijk tegen de takken.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 1200</span></div>
+                                <div class="gear-row"><span class="gear-label">Dobber:</span> <span class="gear-val">Chubby (Slank)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
+                        <div class="detail-text">
+                            <strong>Top Aas:</strong> Marshmallows, Maden<br>
+                            <strong>Alternatief:</strong> Wax Worms, Bloedwormen<br><br>
+                            <strong>Kunstaas:</strong> Tube Jigs (Wit/Roze)
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Haakmaat:</strong> #8 tot #6<br>
+                            <strong>Diepte:</strong> 50cm - 90cm<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Rechts van de steiger, bij de dode boom.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Dock of Snag</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-20.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">60.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Tussen takken</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobbervissen. Direct aanslaan (R-Klik) bij beweging.
+                </div>
+            </div>
+
+            <!-- 5. CATFISH -->
+            <div id="catfish" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/catfish.jpg" alt="Catfish" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Channel Catfish</h3>
+                        <p class="fish-bio">
+                            De koning van Lone Star Lake. Deze meervallen jagen op geur in de diepste gaten. Ze zijn vooral 's nachts actief.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Diepste gat, iets richting de dam. Zoek de donkerblauwe vlek op de kaart.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CallistoXS 1400</span></div>
+                                <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.20mm+</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas (Geurend)</h4>
+                        <div class="detail-text">
+                            <strong>Favoriet:</strong> Pet Food (Hondenbrokken)<br>
+                            <strong>Alternatief:</strong> Kaas, Stukjes vis<br><br>
+                            <strong>Tip:</strong> Aas dat sterk ruikt werkt het best.
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Young & Common<br>
+                            <strong>Haakmaat:</strong> #4 tot #1<br>
+                            <strong>Diepte:</strong> Maximaal (Bodem)<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Het diepste gat nabij de dam.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Dam Road</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">12.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">-15.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Geduld. Wacht op harde aanbeet.
+                </div>
+            </div>
+
+            <!-- 6. SUNFISH -->
+            <div id="sunfish" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/sunfish.jpg" alt="Sunfish" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Bluegill & Sunfish</h3>
+                        <p class="fish-bio">
+                            Verzamelnaam voor kleine, kleurrijke zonnebaarzen. Ze zijn brutaal en bijten op bijna alles. Perfect voor snel geld.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Overal langs de oevers, 5-10m uit de kant. Vlak voor de start-steiger is perfect.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
+                                <div class="gear-row"><span class="gear-label">Dobber:</span> <span class="gear-val">Ovaal (Klein)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Kosten</h4>
+                        <div class="detail-text">
+                            <strong>Top Aas:</strong> Brood (Bread), Deegballen<br>
+                            <strong>Alternatief:</strong> Maden, Wormen<br><br>
+                            <strong>Kosten:</strong> Goedkoop aas, ideaal om geld te farmen.
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Soorten:</strong> Bluegill, Redear, Green Sunfish<br>
+                            <strong>Haakmaat:</strong> #10 tot #6<br>
+                            <strong>Diepte:</strong> Ondiep (30cm - 60cm)
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Eigenlijk overal, maar hier vang je ze snel:
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">House Dock</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-2.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">18.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">8m - 10m</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Actief dobbervissen. Veel werpen, veel vangen.
+                </div>
+            </div>
+
+            <!-- 7. SHINERS -->
+            <div id="shiner" class="fish-card hidden">
+                <div class="top-section">
+                    <img src="Lone Star/shiner.jpg" alt="Shiner" class="fish-img-uniform">
+                    <div class="header-info">
+                        <h3 class="fish-title">Golden & Blacktail</h3>
+                        <p class="fish-bio">
+                            Zeer kleine zilverkleurige visjes die in scholen leven in ondiep water. Je vangt ze om te gebruiken als levend aas.
+                        </p>
+                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="detail-block">
+                        <h4>📍 Locatie & Setup</h4>
+                        <div class="detail-text">
+                            Zeer ondiep langs de kant bij planten. Zoek naar kleine rimpelingen.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
+                                <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
+                                <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.12mm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Doel</h4>
+                        <div class="detail-text">
+                            <strong>Top Aas:</strong> Deegballen, stukjes Brood<br>
+                            <strong>Alternatief:</strong> Semolina<br><br>
+                            <strong>Doel:</strong> Levend aas voor Bass en Snoek.
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>⚖️ Vis Info</h4>
+                        <div class="detail-text">
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Haakmaat:</strong> #12 tot #10 (Micro)<br>
+                            <strong>Diepte:</strong> Zeer ondiep (20cm - 40cm)<br>
+                        </div>
+                    </div>
+                    <div class="detail-block">
+                        <h4>🎯 Coördinaten & Spot</h4>
+                        <div class="detail-text">
+                            Ondiep langs de rietkragen aan de kant.
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Swampy Area</span></div>
+                                <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">45.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">-10.00</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Ondiep (30cm)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Precisie. Gebruik de kleinste haken die je hebt (#12).
+                </div>
+            </div>
+
+        </div> <!-- Einde Fish Details -->
+    </div>
+
+    <footer>
+        &copy; 2026 Platini2000 Fishing Guides
+    </footer>
+
+    <!-- Script staat in dezelfde map -->
+    <script src="script.js"></script>
+</body>
+</html>
