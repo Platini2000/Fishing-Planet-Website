@@ -240,28 +240,3 @@ footer {
     padding: 0;
 }
 
-/* --- VERTICALE VERDELING VAN DE KNOPPEN --- */
-
-/* 1. Zorg dat de hoofdcontainer minstens 75% van het scherm inneemt */
-.container {
-    min-height: 75vh; 
-    display: flex;
-    flex-direction: column;
-}
-
-/* 2. Zorg dat het menu-blok de ruimte mag opvullen */
-#fish-menu {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* 3. Verdeel de knoppen netjes over de beschikbare hoogte */
-.menu-list {
-    flex: 1;                       /* Laat de lijst groeien */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; /* Verdeel ruimte TUSSEN de knoppen */
-    gap: 15px;                     /* Minimale ruimte tussen knoppen */
-    padding-bottom: 20px;          /* Beetje lucht aan de onderkant */
-}
