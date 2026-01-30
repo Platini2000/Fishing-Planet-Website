@@ -85,7 +85,7 @@ nav a:hover, nav a.active {
 }
 
 .menu-list button:hover {
-    background-color: #4ca1af;
+    background-color: rgba(44, 62, 80, 0.75);
     transform: scale(1.02);
 }
 
