@@ -231,3 +231,9 @@ footer {
     border-top: 1px solid #333;
 }
 
+.<h3 {
+    display: flex;
+    justify-content: center; /* Centreert horizontaal */
+    align-items: center;     /* Lijnt icoon en tekst netjes uit */
+    width: 100%;             /* Zorgt dat de container de volle breedte pakt */
+}
