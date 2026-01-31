@@ -77,8 +77,8 @@ nav a.active {
 .menu-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-    max-width: 900px;
+    gap: 50px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -106,12 +106,13 @@ nav a.active {
 }
 
 .menu-list button img {
-    width: 100%;
-    height: 135px;   /* was 190px */
+    width: 80%;
+    height: 90px;   /* was 190px */
     object-fit: cover;
     display: block;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     filter: saturate(0.9) contrast(0.95);
+    margin-top: 40px;
 }
 
 /* Tekst */
@@ -253,7 +254,7 @@ nav a.active {
 
 .technique-box {
     margin-top: 30px;
-    background-color: #2c3e50;
+    background-color: rgba(44, 62, 80, 0.25); 
     color: white;
     padding: 20px;
     text-align: center;
