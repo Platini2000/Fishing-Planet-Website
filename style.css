@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 18px; /* Tekst is nu standaard groter */
+    font-size: 18px;
     line-height: 1.6;
 }
 
@@ -46,48 +46,82 @@ nav a:hover, nav a.active {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 30px auto;
     padding: 0 20px;
     min-height: 60vh;
 }
 
-/* --- MENU STIJL (Lijst met knoppen) --- */
+/* --- MENU STIJL (2 KOLOMMEN GRID MET FOTOS) --- */
 #fish-menu {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 #fish-menu h3 {
     color: #4ca1af;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 2.0em;
+    margin-bottom: 30px;
 }
 
+/* De lijst: Precies 2 kolommen naast elkaar */
 .menu-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1fr 1fr = 2 gelijke kolommen */
+    gap: 25px; /* Ruimte tussen de knoppen */
     margin: 0 auto;
 }
 
+/* De knop zelf: Nu een grote kaart */
 .menu-list button {
-    background-color: rgba(44, 62, 80, 0.45);
+    background-color: #333;
     color: white;
-    border: 2px solid #4ca1af;
-    padding: 20px;
-    font-size: 2.0em;
-    font-weight: bold;
+    border: 1px solid #444;
+    border-left: 6px solid #4ca1af; /* Accentkleur links */
+    border-radius: 12px;
+    padding: 40; /* Geen padding, zodat foto de rand raakt */
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s;
-    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    /* Flexbox om foto boven en tekst onder te zetten */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Zorgt voor ronde hoeken bij de foto */
+    width: 100%; /* Vult de kolom */
 }
 
 .menu-list button:hover {
-    background-color: rgba(44, 62, 80, 0.75);
-    transform: scale(1.02);
+    background-color: #3d3d3d;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
 }
+
+/* De foto in het menu */
+.menu-list button img {
+    width: 100%;
+    height: 260px; /* Vaste hoogte voor strakke uitlijning */
+    object-fit: cover; /* Foto vult het vak netjes op */
+    border-bottom: 3px solid #4ca1af;
+    margin: 0;
+    display: block; /* Voorkomt witruimte onder foto */
+}
+
+/* De tekst onder de foto */
+.menu-list button span {
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+/* Op mobiel: Onder elkaar (1 kolom) */
+@media (max-width: 600px) {
+    .menu-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* --- VIS DETAILS STIJL --- */
 .hidden {
@@ -112,12 +146,12 @@ nav a:hover, nav a.active {
     padding-bottom: 20px;
 }
 
-/* DE AFBEELDING STIJL - BELANGRIJK */
+/* DE GROTE AFBEELDING BIJ DETAILS */
 .fish-img-uniform {
     width: 100%;
-    max-width: 500px;  /* Niet te breed */
-    height: 300px;     /* Vaste hoogte voor uniformiteit */
-    object-fit: cover; /* Zorgt dat de foto niet uitrekt/vervormt */
+    max-width: 600px;
+    height: 350px;     
+    object-fit: cover; 
     border-radius: 10px;
     border: 3px solid #4ca1af;
     margin-bottom: 20px;
@@ -125,19 +159,19 @@ nav a:hover, nav a.active {
 }
 
 .header-info {
-    max-width: 700px;
+    max-width: 800px;
 }
 
 .fish-title {
     color: #4ca1af;
-    font-size: 2.2em;
+    font-size: 2.5em;
     margin: 10px 0;
 }
 
 .fish-bio {
     font-style: italic;
     color: #ccc;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 20px;
 }
 
@@ -178,11 +212,11 @@ nav a:hover, nav a.active {
     border-bottom: 1px solid #555;
     padding-bottom: 10px;
     margin-bottom: 15px;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .detail-text {
-    font-size: 1em;
+    font-size: 1.05em;
     color: #ddd;
 }
 
@@ -211,7 +245,7 @@ nav a:hover, nav a.active {
     padding: 20px;
     text-align: center;
     border-radius: 8px;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .action-tag {
@@ -230,15 +264,3 @@ footer {
     margin-top: 50px;
     border-top: 1px solid #333;
 }
-
-#fish-menu h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 2.7em;
-    margin-bottom: 50px;
-    line-height: 1.8;
-    padding: 0;
-}
-

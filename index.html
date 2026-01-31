@@ -18,25 +18,61 @@
     <nav>
         <!-- Link naar zichzelf -->
         <a href="index.html" class="active">Lone Star</a>        
-        <a href="Emerald/index.html">Emerald</a>
+        <a href="Emerald/index.html">Emerald</a>  
         <a href="Mudwater/index.html">Mudwater</a>
     </nav>
 
     <div class="container">
 
-        <!-- --- HOOFDMENU LONE STAR --- -->
+        <!-- --- HOOFDMENU LONE STAR (AANGEPAST) --- -->
+        <!-- Dit menu gebruikt nu plaatjes en werkt met de nieuwe style.css -->
         <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
+            <h3>
                 <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
             </h3>
+            
             <div class="menu-list">
-                <button onclick="openFish('bass')">Spotted Bass</button>
-                <button onclick="openFish('buffalo')">Smallmouth Buffalo</button>
-                <button onclick="openFish('pickerel')">Grass Pickerel</button>
-                <button onclick="openFish('crappie')">White Crappie</button>
-                <button onclick="openFish('catfish')">Channel Catfish</button>
-                <button onclick="openFish('sunfish')">Bluegill & Sunfish</button>
-                <button onclick="openFish('shiner')">Shiners (Aasvis)</button>
+                <!-- 1. Bass -->
+                <button onclick="openFish('bass')">
+                    <img src="Lone Star/bass.jpg" alt="Spotted Bass">
+                    <span>Spotted Bass</span>
+                </button>
+
+                <!-- 2. Buffalo -->
+                <button onclick="openFish('buffalo')">
+                    <img src="Lone Star/buffalo.jpg" alt="Smallmouth Buffalo">
+                    <span>Smallmouth Buffalo</span>
+                </button>
+
+                <!-- 3. Pickerel -->
+                <button onclick="openFish('pickerel')">
+                    <img src="Lone Star/pickerel.jpg" alt="Grass Pickerel">
+                    <span>Grass Pickerel</span>
+                </button>
+
+                <!-- 4. Crappie -->
+                <button onclick="openFish('crappie')">
+                    <img src="Lone Star/crappie.jpg" alt="White Crappie">
+                    <span>White Crappie</span>
+                </button>
+
+                <!-- 5. Catfish -->
+                <button onclick="openFish('catfish')">
+                    <img src="Lone Star/catfish.jpg" alt="Channel Catfish">
+                    <span>Channel Catfish</span>
+                </button>
+
+                <!-- 6. Sunfish -->
+                <button onclick="openFish('sunfish')">
+                    <img src="Lone Star/sunfish.jpg" alt="Bluegill & Sunfish">
+                    <span>Bluegill & Sunfish</span>
+                </button>
+
+                <!-- 7. Shiner -->
+                <button onclick="openFish('shiner')">
+                    <img src="Lone Star/shiner.jpg" alt="Shiners">
+                    <span>Shiners</span>
+                </button>
             </div>
         </div>
 

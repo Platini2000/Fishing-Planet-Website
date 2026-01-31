@@ -19,6 +19,7 @@ function openFish(fishId) {
         // Scroll naar boven zodat de gebruiker direct de info ziet
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    
 }
 
 // Functie om terug te keren naar het menu
