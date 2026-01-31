@@ -10,7 +10,6 @@ body {
 }
 
 header {
-
     background: linear-gradient(
         to right,
         rgba(44, 62, 80, 0.1),
@@ -22,9 +21,18 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
-header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
+header h2 {
+    margin: 5px 0 0 0;
+    font-weight: 300;
+    color: #a8d8e6;
+}
 
 nav {
     background-color: #0f0f10;
@@ -59,8 +67,7 @@ nav a.active {
     min-height: 60vh;
 }
 
-/* --- MENU STIJL (2 KOLOMMEN GRID MET FOTOS) --- */
-/* --- MENU STIJL (RUSTIG & MODERN) --- */
+/* --- VIS MENU --- */
 #fish-menu {
     text-align: center;
     margin-bottom: 60px;
@@ -73,7 +80,7 @@ nav a.active {
     letter-spacing: 1px;
 }
 
-/* 2 kolommen */
+/* DESKTOP: 2 KOLOMMEN */
 .menu-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -82,7 +89,7 @@ nav a.active {
     margin: 0 auto;
 }
 
-/* Kaarten */
+/* VIS MAP KAARTEN */
 .menu-list button {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
@@ -98,7 +105,6 @@ nav a.active {
     backdrop-filter: blur(4px);
 }
 
-/* Hover rustig */
 .menu-list button:hover {
     transform: translateY(-3px) scale(1.01);
     background: rgba(255,255,255,0.07);
@@ -107,7 +113,7 @@ nav a.active {
 
 .menu-list button img {
     width: 80%;
-    height: 90px;   /* was 190px */
+    height: 90px;
     object-fit: cover;
     display: block;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -115,29 +121,42 @@ nav a.active {
     margin-top: 40px;
 }
 
-/* Tekst */
+/* VIS NAAM */
 .menu-list button span {
-    padding: 16px 10px 18px;
-    font-size: 1.8em;
+    padding: 18px 14px 22px;
+    font-size: 1.6em;
     font-weight: 600;
     color: #e6e6e6;
     letter-spacing: 0.6px;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
 }
 
-/* Mobiel */
+/* --- MOBIEL: HORIZONTAAL SCROLLEN --- */
 @media (max-width: 600px) {
     .menu-list {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 10px 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu-list button {
+        flex: 0 0 auto;
+        width: 260px;
+        scroll-snap-align: start;
     }
 
     .menu-list button img {
-        height: 200px;
+        height: 160px;
     }
 }
 
-
-
-/* --- VIS DETAILS STIJL --- */
+/* --- VIS DETAILS --- */
 .hidden {
     display: none;
 }
@@ -160,12 +179,11 @@ nav a.active {
     padding-bottom: 20px;
 }
 
-/* DE GROTE AFBEELDING BIJ DETAILS */
 .fish-img-uniform {
     width: 100%;
     max-width: 600px;
-    height: 350px;     
-    object-fit: cover; 
+    height: 350px;
+    object-fit: cover;
     border-radius: 10px;
     border: 3px solid #4ca1af;
     margin-bottom: 20px;
@@ -200,17 +218,20 @@ nav a.active {
     margin-top: 10px;
 }
 
-.back-btn:hover { background-color: #c9302c; }
+.back-btn:hover {
+    background-color: #c9302c;
+}
 
-/* GRID VOOR INFO BLOKKEN */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
-@media(min-width: 700px) {
-    .info-grid { grid-template-columns: 1fr 1fr; }
+@media (min-width: 700px) {
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .detail-block {
@@ -249,12 +270,20 @@ nav a.active {
     padding-bottom: 4px;
 }
 
-.gear-label { color: #aaa; font-size: 0.9em; }
-.gear-val { color: #fff; font-weight: bold; text-align: right;}
+.gear-label {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.gear-val {
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+}
 
 .technique-box {
     margin-top: 30px;
-    background-color: rgba(44, 62, 80, 0.25); 
+    background-color: rgba(44, 62, 80, 0.25);
     color: white;
     padding: 20px;
     text-align: center;
