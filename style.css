@@ -60,75 +60,80 @@ nav a.active {
 }
 
 /* --- MENU STIJL (2 KOLOMMEN GRID MET FOTOS) --- */
+/* --- MENU STIJL (RUSTIG & MODERN) --- */
 #fish-menu {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 #fish-menu h3 {
-    color: #4ca1af;
-    font-size: 2.0em;
-    margin-bottom: 30px;
+    color: #9fd3dc;
+    font-size: 2em;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
 }
 
-/* De lijst: Precies 2 kolommen naast elkaar */
+/* 2 kolommen */
 .menu-list {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 1fr 1fr = 2 gelijke kolommen */
-    gap: 25px; /* Ruimte tussen de knoppen */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* De knop zelf: Nu een grote kaart */
+/* Kaarten */
 .menu-list button {
-    background-color: #333;
-    color: white;
-    border: 1px solid #444;
-    border-left: 6px solid #4ca1af; /* Accentkleur links */
-    border-radius: 12px;
-    padding: 40; /* Geen padding, zodat foto de rand raakt */
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    
-    /* Flexbox om foto boven en tekst onder te zetten */
+    transition: all 0.25s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* Zorgt voor ronde hoeken bij de foto */
-    width: 100%; /* Vult de kolom */
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    backdrop-filter: blur(4px);
 }
 
+/* Hover rustig */
 .menu-list button:hover {
-    background-color: #3d3d3d;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+    transform: translateY(-3px) scale(1.01);
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
 }
 
-/* De foto in het menu */
 .menu-list button img {
     width: 100%;
-    height: 260px; /* Vaste hoogte voor strakke uitlijning */
-    object-fit: cover; /* Foto vult het vak netjes op */
-    border-bottom: 3px solid #4ca1af;
-    margin: 0;
-    display: block; /* Voorkomt witruimte onder foto */
+    height: 135px;   /* was 190px */
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    filter: saturate(0.9) contrast(0.95);
 }
 
-/* De tekst onder de foto */
+/* Tekst */
 .menu-list button span {
-    font-size: 2.4em;
-    color: #4ca1af;
-    font-weight: bold;
-    padding: 20px;
-    text-transform: capitalize;
+    padding: 16px 10px 18px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #e6e6e6;
+    letter-spacing: 0.6px;
 }
 
-/* Op mobiel: Onder elkaar (1 kolom) */
+/* Mobiel */
 @media (max-width: 600px) {
     .menu-list {
         grid-template-columns: 1fr;
     }
+
+    .menu-list button img {
+        height: 200px;
+    }
 }
+
 
 
 /* --- VIS DETAILS STIJL --- */
