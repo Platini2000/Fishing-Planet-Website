@@ -10,6 +10,7 @@ body {
 }
 
 header {
+
     background: linear-gradient(
         to right,
         rgba(44, 62, 80, 0.1),
@@ -21,43 +22,84 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
 
-header h2 {
-    margin: 5px 0 0 0;
-    font-weight: 300;
-    color: #a8d8e6;
-}
+header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
+header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 
+/* --- NAVIGATIE BALK (AANGEPAST) --- */
 nav {
-    background-color: #0f0f10;
+    background-color: #0f0f10; /* Vaste, donkere achtergrond zodat niets erdoorheen schijnt */
+    
+    /* Flexbox instellingen */
     display: flex;
-    justify-content: center;
-    padding: 15px 0;
+    align-items: center;
+    flex-wrap: nowrap; /* Forceert alles op 1 regel */
+    
+    /* Scroll instellingen */
+    overflow-x: auto;  /* Alleen scrollbalk tonen als het niet past */
+    -webkit-overflow-scrolling: touch; /* Soepel scrollen op iPhone/Android */
+    
+    /* Zorgt dat de balk bovenaan blijft plakken en BOVEN alles ligt */
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* Zorgt dat hij nooit achter de header verdwijnt */
+    
+    padding: 15px 10px;
+    border-bottom: 2px solid #333; /* Duidelijke afscheiding met de pagina */
+    
+    /* Standaard: Centreren (voor PC waar het past) */
+    justify-content: center; 
+    
+    /* Verberg lelijke scrollbalken maar blijf wel scrollbaar */
+    scrollbar-width: none; 
 }
 
+/* Scrollbalk verbergen voor Chrome/Safari */
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- MOBIEL: LINKS UITLIJNEN ALS HET TE BREED IS --- */
+@media (max-width: 900px) {
+    nav {
+        /* Op kleinere schermen (als de tekst te lang is) links beginnen 
+           zodat je kunt swipen. Centreren werkt hier slecht bij overflow. */
+        justify-content: flex-start; 
+    }
+}
+
+/* --- DE KNOPPEN --- */
 nav a {
-    color: white;
+    color: #b0b0b0;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.3s;
+    margin: 0 5px; /* Iets minder marge zodat er meer past */
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 10px 18px; /* Iets ruimere klikzone */
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    
+    /* CRUCIAAL: Zorgt dat de tekst NOOIT afbreekt naar een 2e regel */
+    white-space: nowrap; 
+    flex-shrink: 0; /* Zorgt dat de knop niet in elkaar gedeukt wordt */
+    
+    border: 1px solid transparent; /* Voorkomt verspringen bij hover */
 }
 
-nav a:hover,
+/* Hover effect (muis erover) */
+nav a:hover {
+    background-color: #2c3e50;
+    color: white;
+    border-color: #4ca1af;
+}
+
+/* Actieve knop (waar je nu bent) */
 nav a.active {
-    background-color: rgba(76, 161, 175, 0.1);
+    background-color: #4ca1af; /* Opvallende kleur */
+    color: #1a1a1d; /* Donkere tekst voor goed leesbaar contrast */
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(76, 161, 175, 0.4); /* Gloed effect */
+    border: 1px solid #7dd3e0;
 }
 
 .container {
@@ -67,7 +109,8 @@ nav a.active {
     min-height: 60vh;
 }
 
-/* --- VIS MENU --- */
+/* --- MENU STIJL (2 KOLOMMEN GRID MET FOTOS) --- */
+/* --- MENU STIJL (RUSTIG & MODERN) --- */
 #fish-menu {
     text-align: center;
     margin-bottom: 60px;
@@ -80,7 +123,7 @@ nav a.active {
     letter-spacing: 1px;
 }
 
-/* DESKTOP: 2 KOLOMMEN */
+/* 2 kolommen */
 .menu-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -89,7 +132,7 @@ nav a.active {
     margin: 0 auto;
 }
 
-/* VIS MAP KAARTEN */
+/* Kaarten */
 .menu-list button {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
@@ -105,6 +148,7 @@ nav a.active {
     backdrop-filter: blur(4px);
 }
 
+/* Hover rustig */
 .menu-list button:hover {
     transform: translateY(-3px) scale(1.01);
     background: rgba(255,255,255,0.07);
@@ -113,7 +157,7 @@ nav a.active {
 
 .menu-list button img {
     width: 80%;
-    height: 90px;
+    height: 90px;   /* was 190px */
     object-fit: cover;
     display: block;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -121,42 +165,29 @@ nav a.active {
     margin-top: 40px;
 }
 
-/* VIS NAAM */
+/* Tekst */
 .menu-list button span {
-    padding: 18px 14px 22px;
-    font-size: 1.6em;
+    padding: 16px 10px 18px;
+    font-size: 1.8em;
     font-weight: 600;
     color: #e6e6e6;
     letter-spacing: 0.6px;
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
 }
 
-/* --- MOBIEL: HORIZONTAAL SCROLLEN --- */
+/* Mobiel */
 @media (max-width: 600px) {
     .menu-list {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 20px;
-        padding: 10px 10px 20px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .menu-list button {
-        flex: 0 0 auto;
-        width: 260px;
-        scroll-snap-align: start;
+        grid-template-columns: 1fr;
     }
 
     .menu-list button img {
-        height: 160px;
+        height: 200px;
     }
 }
 
-/* --- VIS DETAILS --- */
+
+
+/* --- VIS DETAILS STIJL --- */
 .hidden {
     display: none;
 }
@@ -179,11 +210,12 @@ nav a.active {
     padding-bottom: 20px;
 }
 
+/* DE GROTE AFBEELDING BIJ DETAILS */
 .fish-img-uniform {
     width: 100%;
     max-width: 600px;
-    height: 350px;
-    object-fit: cover;
+    height: 350px;     
+    object-fit: cover; 
     border-radius: 10px;
     border: 3px solid #4ca1af;
     margin-bottom: 20px;
@@ -218,20 +250,17 @@ nav a.active {
     margin-top: 10px;
 }
 
-.back-btn:hover {
-    background-color: #c9302c;
-}
+.back-btn:hover { background-color: #c9302c; }
 
+/* GRID VOOR INFO BLOKKEN */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
-@media (min-width: 700px) {
-    .info-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+@media(min-width: 700px) {
+    .info-grid { grid-template-columns: 1fr 1fr; }
 }
 
 .detail-block {
@@ -270,20 +299,12 @@ nav a.active {
     padding-bottom: 4px;
 }
 
-.gear-label {
-    color: #aaa;
-    font-size: 0.9em;
-}
-
-.gear-val {
-    color: #fff;
-    font-weight: bold;
-    text-align: right;
-}
+.gear-label { color: #aaa; font-size: 0.9em; }
+.gear-val { color: #fff; font-weight: bold; text-align: right;}
 
 .technique-box {
     margin-top: 30px;
-    background-color: rgba(44, 62, 80, 0.25);
+    background-color: rgba(44, 62, 80, 0.25); 
     color: white;
     padding: 20px;
     text-align: center;
