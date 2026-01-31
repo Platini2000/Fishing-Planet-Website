@@ -13,8 +13,8 @@ header {
 
     background: linear-gradient(
         to right,
-        rgba(44, 62, 80, 0.3),
-        rgba(76, 161, 175, 0.3)
+        rgba(44, 62, 80, 0.1),
+        rgba(76, 161, 175, 0.1)
     );
     color: white;
     text-align: center;
