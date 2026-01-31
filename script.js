@@ -37,3 +37,21 @@ function showMenu() {
     // Scroll terug naar boven
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* --- AUTO-SCROLL NAVIGATIE --- */
+// Dit zorgt ervoor dat de actieve knop altijd in beeld is na het laden
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector("nav");
+    const activeLink = document.querySelector("nav a.active");
+
+    if (nav && activeLink) {
+        // Bereken de positie om de actieve knop in het midden te zetten
+        const scrollPosition = activeLink.offsetLeft - (nav.clientWidth / 2) + (activeLink.clientWidth / 2);
+        
+        // Scroll de navigatiebalk naar die positie
+        nav.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth' // Zorgt voor een vloeiende beweging (of 'auto' voor direct)
+        });
+    }
+});
