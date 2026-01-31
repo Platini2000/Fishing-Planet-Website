@@ -28,44 +28,34 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 
 /* --- NAVIGATIE BALK (AANGEPAST) --- */
 nav {
-    background-color: #0f0f10; /* Vaste, donkere achtergrond zodat niets erdoorheen schijnt */
+    background-color: #0f0f10;
     
-    /* Flexbox instellingen */
     display: flex;
     align-items: center;
-    flex-wrap: nowrap; /* Forceert alles op 1 regel */
+    flex-wrap: nowrap;
     
-    /* Scroll instellingen */
-    overflow-x: auto;  /* Alleen scrollbalk tonen als het niet past */
-    -webkit-overflow-scrolling: touch; /* Soepel scrollen op iPhone/Android */
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
     
-    /* Zorgt dat de balk bovenaan blijft plakken en BOVEN alles ligt */
     position: sticky;
     top: 0;
-    z-index: 1000; /* Zorgt dat hij nooit achter de header verdwijnt */
+    z-index: 1000;
     
-    padding: 15px 10px;
-    border-bottom: 2px solid #333; /* Duidelijke afscheiding met de pagina */
+    padding: 15px 0; /* Zet padding links/rechts op 0 voor strakkere loop */
+    border-bottom: 2px solid #333;
     
-    /* Standaard: Centreren (voor PC waar het past) */
-    justify-content: center; 
+    /* BELANGRIJK: Verander center naar flex-start voor de oneindige loop */
+    justify-content: flex-start; 
     
-    /* Verberg lelijke scrollbalken maar blijf wel scrollbaar */
     scrollbar-width: none; 
 }
 
-/* Scrollbalk verbergen voor Chrome/Safari */
-nav::-webkit-scrollbar {
-    display: none;
+/* Zorg dat de eerste en laatste items ook wat ruimte hebben */
+nav a:first-child {
+    margin-left: 10px;
 }
-
-/* --- MOBIEL: LINKS UITLIJNEN ALS HET TE BREED IS --- */
-@media (max-width: 900px) {
-    nav {
-        /* Op kleinere schermen (als de tekst te lang is) links beginnen 
-           zodat je kunt swipen. Centreren werkt hier slecht bij overflow. */
-        justify-content: flex-start; 
-    }
+nav a:last-child {
+    margin-right: 10px;
 }
 
 /* --- DE KNOPPEN --- */
