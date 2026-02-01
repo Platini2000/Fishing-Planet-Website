@@ -249,7 +249,7 @@ nav a.active {
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px;                 /* AANGEPAST: Was 20px */
 }
 
 @media(min-width: 700px) {
@@ -258,23 +258,25 @@ nav a.active {
 
 .detail-block {
     background-color: #333;
-    padding: 20px;
+    padding: 10px;             /* AANGEPAST: Was 20px - veel compacter */
     border-radius: 8px;
-    border-left: 5px solid #4ca1af;
+    border-left: 4px solid #4ca1af;
+    margin-bottom: 0;
 }
 
 .detail-block h4 {
     margin-top: 0;
     color: #fff;
     border-bottom: 1px solid #555;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    font-size: 1.3em;
+    padding-bottom: 5px;       /* AANGEPAST */
+    margin-bottom: 8px;        /* AANGEPAST */
+    font-size: 1.1em;          /* AANGEPAST: Iets kleiner */
 }
 
 .detail-text {
-    font-size: 1.05em;
+    font-size: 0.9em;          /* AANGEPAST: Iets kleiner */
     color: #ddd;
+    line-height: 1.4;
 }
 
 .gear-list {
