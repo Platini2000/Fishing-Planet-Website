@@ -319,81 +319,82 @@ footer {
     border-top: 1px solid #333;
 }
 
-/* --- COMPACTE MOBIELE WEERGAVE (ALLEEN HOOGTES AANGEPAST) --- */
-@media (max-width: 600px) {
+/* --- COMPACTE MOBIELE WEERGAVE (GEFORCEERD) --- */
+@media (max-width: 768px) {
 
-    /* 1. Algemene ruimte rondom verkleinen */
+    /* 1. Container en marges strak trekken */
     .container {
-        margin-top: 10px;
-        min-height: auto;
-    }
-    .fish-card {
-        padding: 10px 15px; /* Minder witruimte binnenin de kaart */
-    }
-
-    /* 2. Top sectie: Foto hoogte flink beperken */
-    .top-section {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
+        margin-top: 5px !important;
+        padding: 0 5px !important;
     }
     
-    .fish-img-uniform {
-        height: 120px; /* Was 350px - Dit maakt het grootste verschil */
-        margin-bottom: 5px;
-        border-width: 2px;
+    .fish-card {
+        padding: 10px !important; /* Minder lucht in de kaart */
     }
 
-    /* 3. Koppen en tekst compacter maken */
+    /* 2. FOTO HOOGTE FORCEREN (Dit is de belangrijkste ruimte-winner) */
+    .fish-img-uniform {
+        height: 120px !important; /* Dwingt de foto klein */
+        margin-bottom: 5px !important;
+    }
+
+    /* 3. Headers kleiner en dichter op elkaar */
     .fish-title {
-        font-size: 1.5em; /* Iets kleiner lettertype */
-        margin: 5px 0;    /* Minder witruimte boven/onder titel */
+        font-size: 1.4em !important;
+        margin: 5px 0 2px 0 !important;
     }
 
     .fish-bio {
-        font-size: 0.9em; /* Tekst iets kleiner */
-        margin-bottom: 10px;
-        line-height: 1.3; /* Regels dichter op elkaar */
+        font-size: 0.85em !important;
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+        display: -webkit-box;       /* Zorgt dat tekst afbreekt als hij te lang is */
+        -webkit-line-clamp: 3;      /* Maximaal 3 regels tekst */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    .back-btn {
-        padding: 8px 16px; /* Knop iets dunner */
-        margin-top: 0;
-    }
-
-    /* 4. De blokken zelf (Locatie, Aas, etc.) dunner maken */
-    .info-grid {
-        gap: 10px; /* Minder ruimte tussen de blokken */
-    }
-
+    /* 4. De blokken (Locatie/Aas) veel platter maken */
     .detail-block {
-        padding: 8px 12px; /* Veel minder 'lucht' in de blokken */
+        padding: 6px 10px !important; /* Heel weinig witruimte */
+        margin-bottom: 0 !important;
+    }
+    
+    .info-grid {
+        gap: 8px !important; /* Blokken dichter op elkaar */
     }
 
     .detail-block h4 {
-        font-size: 1.1em;
-        margin-bottom: 5px;
-        padding-bottom: 5px;
+        font-size: 1em !important;
+        margin-bottom: 3px !important;
+        padding-bottom: 3px !important;
     }
 
     .detail-text {
-        font-size: 0.85em; /* Info tekst iets kleiner */
+        font-size: 0.8em !important;
+        line-height: 1.3 !important;
     }
 
-    /* 5. De lijstjes met hengels/aas heel compact maken */
+    /* 5. Gear lijstjes (hengels etc) */
     .gear-list {
-        margin-top: 5px;
-        padding: 8px;
+        margin-top: 4px !important;
+        padding: 5px !important;
     }
 
     .gear-row {
-        margin-bottom: 2px; /* Regels strak op elkaar */
-        padding-bottom: 2px;
+        margin-bottom: 1px !important;
+        padding-bottom: 1px !important;
     }
 
-    /* 6. Techniek balk onderaan */
+    /* 6. Back knop en Techniek balk */
+    .back-btn {
+        padding: 6px 12px !important;
+        font-size: 0.9em !important;
+    }
+
     .technique-box {
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 0.95em;
+        margin-top: 8px !important;
+        padding: 8px !important;
+        font-size: 0.9em !important;
     }
 }
