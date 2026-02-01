@@ -318,3 +318,82 @@ footer {
     margin-top: 50px;
     border-top: 1px solid #333;
 }
+
+/* --- COMPACTE MOBIELE WEERGAVE (ALLEEN HOOGTES AANGEPAST) --- */
+@media (max-width: 600px) {
+
+    /* 1. Algemene ruimte rondom verkleinen */
+    .container {
+        margin-top: 10px;
+        min-height: auto;
+    }
+    .fish-card {
+        padding: 10px 15px; /* Minder witruimte binnenin de kaart */
+    }
+
+    /* 2. Top sectie: Foto hoogte flink beperken */
+    .top-section {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .fish-img-uniform {
+        height: 120px; /* Was 350px - Dit maakt het grootste verschil */
+        margin-bottom: 5px;
+        border-width: 2px;
+    }
+
+    /* 3. Koppen en tekst compacter maken */
+    .fish-title {
+        font-size: 1.5em; /* Iets kleiner lettertype */
+        margin: 5px 0;    /* Minder witruimte boven/onder titel */
+    }
+
+    .fish-bio {
+        font-size: 0.9em; /* Tekst iets kleiner */
+        margin-bottom: 10px;
+        line-height: 1.3; /* Regels dichter op elkaar */
+    }
+
+    .back-btn {
+        padding: 8px 16px; /* Knop iets dunner */
+        margin-top: 0;
+    }
+
+    /* 4. De blokken zelf (Locatie, Aas, etc.) dunner maken */
+    .info-grid {
+        gap: 10px; /* Minder ruimte tussen de blokken */
+    }
+
+    .detail-block {
+        padding: 8px 12px; /* Veel minder 'lucht' in de blokken */
+    }
+
+    .detail-block h4 {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+
+    .detail-text {
+        font-size: 0.85em; /* Info tekst iets kleiner */
+    }
+
+    /* 5. De lijstjes met hengels/aas heel compact maken */
+    .gear-list {
+        margin-top: 5px;
+        padding: 8px;
+    }
+
+    .gear-row {
+        margin-bottom: 2px; /* Regels strak op elkaar */
+        padding-bottom: 2px;
+    }
+
+    /* 6. Techniek balk onderaan */
+    .technique-box {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 0.95em;
+    }
+}
