@@ -318,3 +318,97 @@ footer {
     margin-top: 50px;
     border-top: 1px solid #333;
 }
+
+/* --- MOBIELE OPTIMALISATIE (PORTRET MODE) --- */
+@media screen and (max-width: 768px) {
+
+    /* 1. Algemene tekst iets verkleinen voor meer overzicht */
+    body {
+        font-size: 16px; 
+    }
+
+    /* 2. Container marges verkleinen (gebruik de volle breedte) */
+    .container {
+        padding: 0 12px;
+        margin-top: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3. Header compacter maken */
+    header {
+        padding: 15px 0;
+    }
+    header h1 {
+        font-size: 1.8em; /* Titel kleiner */
+    }
+    header h2 {
+        font-size: 1em;
+    }
+
+    /* 4. Vis-Details kaart compacter maken */
+    .fish-card {
+        padding: 15px; /* Minder witruimte binnen de kaart */
+    }
+
+    /* 5. BELANGRIJK: De grote vis afbeelding temmen */
+    .fish-img-uniform {
+        width: 100%;
+        height: auto;        /* Laat de hoogte automatisch bepalen */
+        max-height: 200px;   /* Zorg dat hij nooit hoger is dan 200px op mobiel */
+        aspect-ratio: 16/9;  /* Behoud breedbeeld verhouding */
+        margin-bottom: 15px;
+    }
+
+    /* 6. Titels en Bio in de details compacter */
+    .fish-title {
+        font-size: 1.8em;
+        margin: 5px 0;
+    }
+    .fish-bio {
+        font-size: 1em; /* Iets kleiner leest prettiger op mobiel */
+        margin-bottom: 15px;
+    }
+
+    /* 7. Grid blokken (Setup, Aas, etc.) strakker op elkaar */
+    .info-grid {
+        display: flex;       /* Forceer onder elkaar */
+        flex-direction: column;
+        gap: 15px;           /* Minder ruimte tussen de blokken */
+    }
+
+    .detail-block {
+        padding: 15px;       /* Minder padding in de zwarte blokken */
+    }
+
+    /* 8. Gear lijstjes (Hengel/Molen) optimaliseren */
+    .gear-row {
+        font-size: 0.9em;    /* Zodat lange namen op 1 regel passen */
+    }
+
+    /* 9. Hoofdmenu knoppen optimaliseren */
+    .menu-list {
+        grid-template-columns: 1fr; /* Zeker weten 1 kolom */
+        gap: 20px;
+    }
+    
+    .menu-list button img {
+        height: 140px;       /* Plaatjes in het menu minder hoog */
+        margin-top: 20px;
+    }
+    
+    .menu-list button span {
+        font-size: 1.4em;    /* Tekst in knoppen iets kleiner */
+    }
+    
+    /* 10. Terug-knop en Navigatie */
+    .back-btn {
+        width: 100%;         /* Knop over de volle breedte is makkelijker duwen */
+        padding: 15px;
+    }
+    
+    nav a {
+        padding: 8px 12px;   /* Iets compactere navigatieknoppen */
+        font-size: 0.95em;
+    }
+}
