@@ -141,7 +141,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     object-position: center 55%; 
     /* AANPASSING: Foto iets naar boven verschoven */
-    margin-top: 40px; 
+    margin-top: 20px; 
     background-color: #1a1a1d; /* Zorgt dat de achtergrond niet doorschijnt */
 }
 
