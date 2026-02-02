@@ -238,10 +238,11 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 footer {
     text-align: center;
     padding: 30px;
-    color: #777;
+    color: #bbb;
     font-size: 0.9em;
-    margin-top: 50px;
-    border-top: 1px solid #333;
+    margin-top: -50px;
+    margin-bottom: 50px;
+//    border-top: 1px solid #333;
 }
 
 /* --- COMPACTE MOBIELE WEERGAVE --- */
