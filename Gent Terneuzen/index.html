@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platini2000 - Ghent–Terneuzen Guide</title>
+    <title>Platini2000 - Gent–Terneuzen Guide</title>
+    <!-- CSS staat EEN map hoger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -11,10 +12,11 @@
 
     <header>
         <h1>FISHING PLANET</h1>
-        <h2>Ghent Terneuzen (Nederland) Guide</h2>
+        <h2>Gent–Terneuzen Canal (Nederland) Guide</h2>
     </header>
 
-    <nav>
+    <!-- 1. DE MAP BALK (BOVEN) -->
+    <nav id="location-nav" class="scroll-nav top-nav">
         <a href="../index.html">Lone Star Lake</a>
         <a href="../Emerald Lake/index.html">Emerald Lake</a>
         <a href="../Mudwater River/index.html">Mudwater River</a>  
@@ -23,96 +25,18 @@
         <a href="index.html" class="active">Gent Terneuzen</a>
     </nav>
 
+    <!-- 2. DE VIS BALK (ONDER) - Wordt gevuld door Javascript -->
+    <nav id="fish-nav" class="scroll-nav bottom-nav">
+        <!-- Javascript vult dit automatisch -->
+    </nav>
+
     <div class="container">
-
-        <!-- --- HOOFDMENU GHENT TERNEUZEN --- -->
-        <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
-                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
-            </h3>
-            
-            <div class="menu-list">
-                <!-- VREEDZAME VISSEN -->
-                <button onclick="openFish('roach')">
-                    <img src="common_roach.jpg" alt="Common Roach">
-                    <span>Common Roach</span>
-                </button>
-                <button onclick="openFish('bream')">
-                    <img src="common_bream.jpg" alt="Common Bream">
-                    <span>Common Bream</span>
-                </button>
-                <button onclick="openFish('silverbream')">
-                    <img src="silver_bream.jpg" alt="Silver Bream">
-                    <span>Silver Bream</span>
-                </button>
-                <button onclick="openFish('prussian')">
-                    <img src="prussian_carp.jpg" alt="Prussian Carp">
-                    <span>Prussian Carp</span>
-                </button>
-                <button onclick="openFish('ide')">
-                    <img src="ide.jpg" alt="Ide">
-                    <span>Ide</span>
-                </button>
-                <button onclick="openFish('tench')">
-                    <img src="tench.jpg" alt="Tench">
-                    <span>Tench</span>
-                </button>
-                <button onclick="openFish('commoncarp')">
-                    <img src="common_carp.jpg" alt="Common Carp">
-                    <span>Common Carp</span>
-                </button>
-                <button onclick="openFish('mirrorcarp')">
-                    <img src="mirror_carp.jpg" alt="Mirror Carp">
-                    <span>Mirror Carp</span>
-                </button>
-
-                <!-- ROOFVISSEN -->
-                <button onclick="openFish('asp')">
-                    <img src="asp.jpg" alt="Asp">
-                    <span>Asp</span>
-                </button>
-                <button onclick="openFish('perch')">
-                    <img src="european_perch.jpg" alt="European Perch">
-                    <span>European Perch</span>
-                </button>
-                <button onclick="openFish('zander')">
-                    <img src="zander.jpg" alt="Zander">
-                    <span>Zander</span>
-                </button>
-                <button onclick="openFish('pike')">
-                    <img src="northern_pike.jpg" alt="Northern Pike">
-                    <span>Northern Pike</span>
-                </button>
-                <button onclick="openFish('wels')">
-                    <img src="wels_catfish.jpg" alt="Wels Catfish">
-                    <span>Wels Catfish</span>
-                </button>
-                <button onclick="openFish('eel')">
-                    <img src="european_eel.jpg" alt="European Eel">
-                    <span>European Eel</span>
-                </button>
-
-                <!-- BRAK/ZOUT WATER SPECIAAL -->
-                <button onclick="openFish('flounder')">
-                    <img src="european_flounder.jpg" alt="European Flounder">
-                    <span>European Flounder</span>
-                </button>
-                <button onclick="openFish('mullet')">
-                    <img src="thick_lipped_grey_mullet.jpg" alt="Grey Mullet">
-                    <span>Grey Mullet</span>
-                </button>
-                <button onclick="openFish('goby')">
-                    <img src="round_goby.jpg" alt="Round Goby">
-                    <span>Round Goby</span>
-                </button>
-            </div>
-        </div>
 
         <!-- --- VIS INFO SCHERMEN --- -->
         <div id="fish-details">
             
             <!-- 1. COMMON ROACH -->
-            <div id="roach" class="fish-card hidden">
+            <div id="roach" class="fish-card">
                 <div class="top-section">
                     <img src="common_roach.jpg" alt="Roach" class="fish-img-uniform">
                     <div class="header-info">
@@ -120,7 +44,6 @@
                         <p class="fish-bio">
                             Een zeer algemene witvis. Zwemt in scholen en is makkelijk te vangen met licht materiaal.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -132,6 +55,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.12mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -164,10 +88,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobbervissen (ondiep) of lichte feeder.
+                </div>
             </div>
 
             <!-- 2. COMMON BREAM -->
-            <div id="bream" class="fish-card hidden">
+            <div id="bream" class="fish-card">
                 <div class="top-section">
                     <img src="common_bream.jpg" alt="Bream" class="fish-img-uniform">
                     <div class="header-info">
@@ -175,7 +102,6 @@
                         <p class="fish-bio">
                             De koning van de Nederlandse kanalen. Bodemvis die houdt van veel lokvoer.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -187,6 +113,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">CreekPro 270 (Feeder)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CrucianHunter 3500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.15mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -219,10 +146,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Feeder/Bodem vissen. Veel voeren!
+                </div>
             </div>
 
             <!-- 3. SILVER BREAM -->
-            <div id="silverbream" class="fish-card hidden">
+            <div id="silverbream" class="fish-card">
                 <div class="top-section">
                     <img src="silver_bream.jpg" alt="Silver Bream" class="fish-img-uniform">
                     <div class="header-info">
@@ -230,7 +160,6 @@
                         <p class="fish-bio">
                             Het kleinere neefje van de Brasem. Heeft grotere ogen en zilveren schubben.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -242,6 +171,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">CreekPro 240</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CrucianHunter 3000</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.14mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -267,14 +197,19 @@
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Van der Vliet</span></div>
                                 <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">20m - 25m</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
+                                <div class="gear-row"><span class="gear-label"></span> <span class="gear-val">20m - 25m</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Feeder of Dobber op de bodem.
+                </div>
             </div>
 
             <!-- 4. PRUSSIAN CARP -->
-            <div id="prussian" class="fish-card hidden">
+            <div id="prussian" class="fish-card">
                 <div class="top-section">
                     <img src="prussian_carp.jpg" alt="Prussian Carp" class="fish-img-uniform">
                     <div class="header-info">
@@ -282,7 +217,6 @@
                         <p class="fish-bio">
                             Lijkt op een kruising tussen een goudvis en een karper. Sterke vechter voor zijn formaat.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -294,6 +228,8 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.18mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
+                                
                             </div>
                         </div>
                     </div>
@@ -325,10 +261,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobbervissen tegen het riet aan.
+                </div>
             </div>
 
             <!-- 5. IDE -->
-            <div id="ide" class="fish-card hidden">
+            <div id="ide" class="fish-card">
                 <div class="top-section">
                     <img src="ide.jpg" alt="Ide" class="fish-img-uniform">
                     <div class="header-info">
@@ -336,7 +275,6 @@
                         <p class="fish-bio">
                             Actieve vis die zowel op de bodem als aan de oppervlakte jaagt. Houdt van stromend water.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -348,6 +286,8 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CallistoXS 1400</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.20mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
+
                             </div>
                         </div>
                     </div>
@@ -380,10 +320,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobber (ondiep) of kleine spinner in stroming.
+                </div>
             </div>
 
             <!-- 6. ASP -->
-            <div id="asp" class="fish-card hidden">
+            <div id="asp" class="fish-card">
                 <div class="top-section">
                     <img src="asp.jpg" alt="Asp" class="fish-img-uniform">
                     <div class="header-info">
@@ -391,7 +334,6 @@
                         <p class="fish-bio">
                             De enige karperachtige die een echte rover is. Jaagt met hoge snelheid aan de oppervlakte.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -403,6 +345,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">Rivertex 270 (Spin)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">IronPunch 4500 (Snel!)</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.23mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -411,7 +354,6 @@
                         <div class="detail-text">
                             <strong>Kunstaas (Top):</strong> Spinners, Smalle Lepels (Spoons), Walkers.<br>
                             <strong>Levend Aas:</strong> Shiners.<br>
-                            <strong>Techniek:</strong> Snel binnendraaien aan oppervlakte.
                         </div>
                     </div>
                     <div class="detail-block">
@@ -431,14 +373,18 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Ghent Lock</span></div>
                                 <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">60.00</span></div>
                                 <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">15.00</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Snel binnendraaien (Topwater).
+                </div>
             </div>
 
             <!-- 7. EUROPEAN PERCH -->
-            <div id="perch" class="fish-card hidden">
+            <div id="perch" class="fish-card">
                 <div class="top-section">
                     <img src="european_perch.jpg" alt="European Perch" class="fish-img-uniform">
                     <div class="header-info">
@@ -446,7 +392,6 @@
                         <p class="fish-bio">
                             Prachtige rover met rode vinnen en zwarte strepen. Houdt van structuren zoals bruggen en kades.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -458,6 +403,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">JigWinner 270</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">EspiraML 3000</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.15mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -465,7 +411,6 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
                         <div class="detail-text">
                             <strong>Kunstaas:</strong> Shads (7cm), Grubs, Spinners.<br>
-                            <strong>Techniek:</strong> Dropshot of Jigging (Stop&Go).<br>
                             <strong>Haak:</strong> #2 tot #1/0
                         </div>
                     </div>
@@ -490,10 +435,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dropshot of Jigging (Stop&Go).
+                </div>
             </div>
 
             <!-- 8. ZANDER -->
-            <div id="zander" class="fish-card hidden">
+            <div id="zander" class="fish-card">
                 <div class="top-section">
                     <img src="zander.jpg" alt="Zander" class="fish-img-uniform">
                     <div class="header-info">
@@ -501,7 +449,6 @@
                         <p class="fish-bio">
                             De 'Glasoog'. De populairste sportvis hier. Jaagt vooral in de schemering en nacht op de bodem.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -513,6 +460,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">JigWinner 270</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Bremer 4500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.19mm + Fluoro Leader</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -521,7 +469,6 @@
                         <div class="detail-text">
                             <strong>Kunstaas:</strong> Shads (Glow in the dark!)<br>
                             <strong>Levend Aas:</strong> Common Minnow, Gudgeon.<br>
-                            <strong>Techniek:</strong> Lift&Drop of Stop&Go.
                         </div>
                     </div>
                     <div class="detail-block">
@@ -546,10 +493,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Jiggen: Lift&Drop of Stop&Go.
+                </div>
             </div>
 
             <!-- 9. NORTHERN PIKE -->
-            <div id="pike" class="fish-card hidden">
+            <div id="pike" class="fish-card">
                 <div class="top-section">
                     <img src="northern_pike.jpg" alt="Northern Pike" class="fish-img-uniform">
                     <div class="header-info">
@@ -557,7 +507,6 @@
                         <p class="fish-bio">
                             De groene rover. Staat bekend om zijn agressieve aanbeten en scherpe tanden.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -569,6 +518,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">GalaxyCast 260</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Cyclone 4500</span></div>
                                 <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Titanium 0.25mm+</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -601,10 +551,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Spin: Stop&Go / Dobber: Levend aas.
+                </div>
             </div>
 
             <!-- 10. EUROPEAN EEL -->
-            <div id="eel" class="fish-card hidden">
+            <div id="eel" class="fish-card">
                 <div class="top-section">
                     <img src="european_eel.jpg" alt="European Eel" class="fish-img-uniform">
                     <div class="header-info">
@@ -612,7 +565,6 @@
                         <p class="fish-bio">
                             Slangachtige bodemvis. Laat zich alleen 's nachts vangen en vecht door zich om obstakels te draaien.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -624,6 +576,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">CreekPro 270 (Feeder)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CrucianHunter 3500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.25mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -656,10 +609,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Statisch op de bodem (Feeder/Bottom).
+                </div>
             </div>
 
             <!-- 11. COMMON CARP -->
-            <div id="commoncarp" class="fish-card hidden">
+            <div id="commoncarp" class="fish-card">
                 <div class="top-section">
                     <img src="common_carp.jpg" alt="Common Carp" class="fish-img-uniform">
                     <div class="header-info">
@@ -667,7 +623,6 @@
                         <p class="fish-bio">
                             De oersterke karper. Volledig beschubd en een enorme vechter.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -679,6 +634,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">Deep Horizon 400</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Leviathan 9000</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.28mm+</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -706,14 +662,18 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Van der Vliet</span></div>
                                 <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-15.00</span></div>
                                 <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">35.00</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Karpervissen (Bodem + Voerboot).
+                </div>
             </div>
 
             <!-- 12. MIRROR CARP -->
-            <div id="mirrorcarp" class="fish-card hidden">
+            <div id="mirrorcarp" class="fish-card">
                 <div class="top-section">
                     <img src="mirror_carp.jpg" alt="Mirror Carp" class="fish-img-uniform">
                     <div class="header-info">
@@ -721,7 +681,6 @@
                         <p class="fish-bio">
                             Karper met grote, onregelmatige schubben. Vaak zwaarder dan de schubkarper.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -733,6 +692,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">Deep Horizon 400</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Leviathan 9000</span></div>
                                 <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Lead Core</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -759,14 +719,18 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Van der Vliet</span></div>
                                 <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-20.00</span></div>
                                 <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">35.00</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Karpervissen (Bodem + Lead Core).
+                </div>
             </div>
 
             <!-- 13. TENCH -->
-            <div id="tench" class="fish-card hidden">
+            <div id="tench" class="fish-card">
                 <div class="top-section">
                     <img src="tench.jpg" alt="Tench" class="fish-img-uniform">
                     <div class="header-info">
@@ -774,7 +738,6 @@
                         <p class="fish-bio">
                             De 'doktervis' met zijn groene huid en rode ogen. Vecht explosief en duikt direct de planten in.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -786,6 +749,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">Brutus 330 (Match)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">EspiraDouble 4500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.23mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -812,14 +776,18 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Van der Vliet</span></div>
                                 <div class="gear-row"><span class="gear-label">X-Coord:</span> <span class="gear-val">-65.00</span></div>
                                 <div class="gear-row"><span class="gear-label">Y-Coord:</span> <span class="gear-val">20.00</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobber of Feeder dicht bij planten.
+                </div>
             </div>
 
             <!-- 14. WELS CATFISH -->
-            <div id="wels" class="fish-card hidden">
+            <div id="wels" class="fish-card">
                 <div class="top-section">
                     <img src="wels_catfish.jpg" alt="Wels Catfish" class="fish-img-uniform">
                     <div class="header-info">
@@ -827,7 +795,6 @@
                         <p class="fish-bio">
                             De absolute top predator. Kan gigantisch worden en eet eenden, vissen en ratten.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -839,6 +806,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">Brutus 360 (Bottom)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">ThunderSpin 5500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.35mm+</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -871,10 +839,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Zwaar bodemvissen (Monster gear).
+                </div>
             </div>
 
             <!-- 15. EUROPEAN FLOUNDER -->
-            <div id="flounder" class="fish-card hidden">
+            <div id="flounder" class="fish-card">
                 <div class="top-section">
                     <img src="european_flounder.jpg" alt="European Flounder" class="fish-img-uniform">
                     <div class="header-info">
@@ -882,7 +853,6 @@
                         <p class="fish-bio">
                             Een platvis die goed gedijt in het brakke water van dit kanaal. Ligt plat op de bodem.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -894,6 +864,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">CreekPro 270</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CrucianHunter 3500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.15mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -925,10 +896,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Feeder (Sleepje over de bodem).
+                </div>
             </div>
 
             <!-- 16. THICK-LIPPED GREY MULLET -->
-            <div id="mullet" class="fish-card hidden">
+            <div id="mullet" class="fish-card">
                 <div class="top-section">
                     <img src="thick_lipped_grey_mullet.jpg" alt="Grey Mullet" class="fish-img-uniform">
                     <div class="header-info">
@@ -936,7 +910,6 @@
                         <p class="fish-bio">
                             Schuwe vis die vaak aan de oppervlakte 'hapt'. Zeer sterke vechter op licht materiaal.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -948,6 +921,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450 (Match)</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CallistoXS 1400</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Fluoro 0.18mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -979,10 +953,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Matchhengel (Dobber) met broodvlok.
+                </div>
             </div>
 
             <!-- 17. ROUND GOBY -->
-            <div id="goby" class="fish-card hidden">
+            <div id="goby" class="fish-card">
                 <div class="top-section">
                     <img src="round_goby.jpg" alt="Round Goby" class="fish-img-uniform">
                     <div class="header-info">
@@ -990,7 +967,6 @@
                         <p class="fish-bio">
                             Invasieve soort. Klein, agressief en zit overal tussen de stenen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -1002,6 +978,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Mono 0.12mm</span></div>
+                                <div class="gear-row"><span class="gear-label"> </span> <span class="gear-val"> </span></div>
                             </div>
                         </div>
                     </div>
@@ -1032,6 +1009,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="technique-box">
+                    <strong>🛠️ Techniek:</strong> Dobber of licht loodje tussen de stenen.
                 </div>
             </div>
 

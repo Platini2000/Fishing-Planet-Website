@@ -16,7 +16,8 @@
         <h2>Mudwater River (Missouri) Guide</h2>
     </header>
 
-    <nav>
+    <!-- 1. DE MAP BALK (BOVEN) -->
+    <nav id="location-nav" class="scroll-nav top-nav">
         <a href="../index.html">Lone Star Lake</a>
         <a href="../Emerald Lake/index.html">Emerald Lake</a>
         <a href="index.html" class="active">Mudwater River</a>  
@@ -25,63 +26,18 @@
         <a href="../Gent Terneuzen/index.html">Gent Terneuzen</a>
     </nav>
 
+    <!-- 2. DE VIS BALK (ONDER) - Wordt gevuld door Javascript -->
+    <nav id="fish-nav" class="scroll-nav bottom-nav">
+        <!-- Javascript vult dit automatisch -->
+    </nav>
+
     <div class="container">
-
-        <!-- --- HOOFDMENU MUDWATER --- -->
-        <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
-                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
-            </h3>
-
-            <div class="menu-list">
-    <button onclick="openFish('largemouth')">
-        <img src="largemouth.jpg" alt="Largemouth Bass">
-        <span>Largemouth Bass</span>
-    </button>
-    <button onclick="openFish('catfish')">
-        <img src="catfish.jpg" alt="Channel Catfish">
-        <span>Channel Catfish</span>
-    </button>
-    <button onclick="openFish('bullhead')">
-        <img src="bullhead.jpg" alt="Bullhead Catfish">
-        <span>Brown Bullhead</span>
-    </button>
-    <button onclick="openFish('pickerel')">
-        <img src="pickerel.jpg" alt="Chain Pickerel">
-        <span>Chain Pickerel</span>
-    </button>
-    <button onclick="openFish('gar')">
-        <img src="gar.jpg" alt="Florida Gar">
-        <span>Florida Gar</span>
-    </button>
-    <button onclick="openFish('bowfin')">
-        <img src="bowfin.jpg" alt="Bowfin">
-        <span>Bowfin</span>
-    </button>
-    <button onclick="openFish('drum')">
-        <img src="drum.jpg" alt="Freshwater Drum">
-        <span>Freshwater Drum</span>
-    </button>
-    <button onclick="openFish('crappie')">
-        <img src="crappie.jpg" alt="White Crappie">
-        <span>White Crappie</span>
-    </button>
-    <button onclick="openFish('sunfish')">
-        <img src="panfish.jpg" alt="Sunfish">
-        <span>Bluegill & Sunfish</span>
-    </button>
-    <button onclick="openFish('shiner')">
-        <img src="shiner.jpg" alt="Golden Shiner">
-        <span>Golden Shiner</span>
-    </button>
-            </div>
-        </div>
 
         <!-- --- VIS INFO SCHERMEN --- -->
         <div id="fish-details">
             
             <!-- 1. LARGEMOUTH BASS -->
-            <div id="largemouth" class="fish-card hidden">
+            <div id="largemouth" class="fish-card">
                 <div class="top-section">
                     <img src="largemouth.jpg" alt="Largemouth Bass" class="fish-img-uniform">
                     <div class="header-info">
@@ -89,7 +45,6 @@
                         <p class="fish-bio">
                             De koning van Mudwater. Groter en sterker dan de Spotted Bass. Ze jagen agressief in de ochtend en avond rondom de leliebladen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -141,7 +96,7 @@
             </div>
 
             <!-- 2. CHANNEL CATFISH -->
-            <div id="catfish" class="fish-card hidden">
+            <div id="catfish" class="fish-card">
                 <div class="top-section">
                     <img src="catfish.jpg" alt="Channel Catfish" class="fish-img-uniform">
                     <div class="header-info">
@@ -149,7 +104,6 @@
                         <p class="fish-bio">
                             Deze meervallen worden hier flink groot. Ze houden van de diepste kuilen en sterke geuren. Vis 's nachts voor trofeeën.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -201,7 +155,7 @@
             </div>
 
             <!-- 3. BROWN BULLHEAD -->
-            <div id="bullhead" class="fish-card hidden">
+            <div id="bullhead" class="fish-card">
                 <div class="top-section">
                     <img src="bullhead.jpg" alt="Brown Bullhead" class="fish-img-uniform">
                     <div class="header-info">
@@ -209,7 +163,6 @@
                         <p class="fish-bio">
                             Kleiner dan de Channel Catfish. Ze zitten dichter bij de kant in modderige zones en tussen het riet.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -261,7 +214,7 @@
             </div>
 
             <!-- 4. CHAIN PICKEREL -->
-            <div id="pickerel" class="fish-card hidden">
+            <div id="pickerel" class="fish-card">
                 <div class="top-section">
                     <img src="pickerel.jpg" alt="Chain Pickerel" class="fish-img-uniform">
                     <div class="header-info">
@@ -269,7 +222,6 @@
                         <p class="fish-bio">
                             Een snelle rover met een kettingpatroon. Ze vallen agressief aan op glimmend kunstaas in de buurt van rietkragen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -321,7 +273,7 @@
             </div>
 
             <!-- 5. FLORIDA GAR -->
-            <div id="gar" class="fish-card hidden">
+            <div id="gar" class="fish-card">
                 <div class="top-section">
                     <img src="gar.jpg" alt="Florida Gar" class="fish-img-uniform">
                     <div class="header-info">
@@ -329,7 +281,6 @@
                         <p class="fish-bio">
                             Een prehistorisch monster met een lange bek vol tanden. Ze zwemmen vlak onder de oppervlakte midden op het meer.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -381,7 +332,7 @@
             </div>
 
             <!-- 6. BOWFIN -->
-            <div id="bowfin" class="fish-card hidden">
+            <div id="bowfin" class="fish-card">
                 <div class="top-section">
                     <img src="bowfin.jpg" alt="Bowfin" class="fish-img-uniform">
                     <div class="header-info">
@@ -389,7 +340,6 @@
                         <p class="fish-bio">
                             Ook wel de 'moddervis'. Oersterk en vechtlustig. Ze zitten graag tussen de planten op de bodem en eten alles.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -441,7 +391,7 @@
             </div>
 
             <!-- 7. FRESHWATER DRUM -->
-            <div id="drum" class="fish-card hidden">
+            <div id="drum" class="fish-card">
                 <div class="top-section">
                     <img src="drum.jpg" alt="Freshwater Drum" class="fish-img-uniform">
                     <div class="header-info">
@@ -449,7 +399,6 @@
                         <p class="fish-bio">
                             Een sterke bodemvis die een rommelend geluid maakt. De enige van zijn soort in zoet water.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -501,7 +450,7 @@
             </div>
 
             <!-- 8. WHITE CRAPPIE -->
-            <div id="crappie" class="fish-card hidden">
+            <div id="crappie" class="fish-card">
                 <div class="top-section">
                     <img src="crappie.jpg" alt="White Crappie" class="fish-img-uniform">
                     <div class="header-info">
@@ -509,7 +458,6 @@
                         <p class="fish-bio">
                             Zilverkleurige panfish die in scholen leeft. Ze houden van omgevallen bomen, takken en schaduwrijke structuren.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -561,7 +509,7 @@
             </div>
 
             <!-- 9. SUNFISH FAMILY (Bluegill, Pumpkinseed, Green) -->
-            <div id="sunfish" class="fish-card hidden">
+            <div id="sunfish" class="fish-card">
                 <div class="top-section">
                     <img src="panfish.jpg" alt="Sunfish Family" class="fish-img-uniform">
                     <div class="header-info">
@@ -569,7 +517,6 @@
                         <p class="fish-bio">
                             De "Panfish" familie. Zeer talrijk aanwezig langs de oevers. Ze eten bijna alles en zijn perfect voor beginners en aasvisjes.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -621,7 +568,7 @@
             </div>
 
             <!-- 10. GOLDEN SHINER -->
-            <div id="shiner" class="fish-card hidden">
+            <div id="shiner" class="fish-card">
                 <div class="top-section">
                     <img src="shiner.jpg" alt="Golden Shiner" class="fish-img-uniform">
                     <div class="header-info">
@@ -629,7 +576,6 @@
                         <p class="fish-bio">
                             Klein zilver/goud visje. Wordt voornamelijk gevangen om als aasvis te dienen voor Bass, Snoek en Gar.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platini2000 - Rocky Lake Guide</title>
+    <!-- CSS staat EEN map hoger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -14,7 +15,8 @@
         <h2>Rocky Lake (Colorado) Guide</h2>
     </header>
 
-    <nav>
+    <!-- 1. DE MAP BALK (BOVEN) -->
+    <nav id="location-nav" class="scroll-nav top-nav">
         <a href="../index.html">Lone Star Lake</a>        
         <a href="../Emerald Lake/index.html">Emerald Lake</a>  
         <a href="../Mudwater River/index.html">Mudwater River</a>
@@ -23,70 +25,18 @@
         <a href="../Gent Terneuzen/index.html">Gent Terneuzen</a>
     </nav>
 
+    <!-- 2. DE VIS BALK (ONDER) - Wordt gevuld door Javascript -->
+    <nav id="fish-nav" class="scroll-nav bottom-nav">
+        <!-- Javascript vult dit automatisch -->
+    </nav>
+
     <div class="container">
-
-        <!-- --- HOOFDMENU ROCKY LAKE (8 VISSEN) --- -->
-        <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
-                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
-            </h3>
-            
-            <div class="menu-list">
-                <!-- 1. Rainbow Trout -->
-                <button onclick="openFish('rainbow')">
-                    <img src="rainbow_trout.jpg" alt="Rainbow Trout">
-                    <span>Rainbow Trout</span>
-                </button>
-
-                <!-- 2. Cutthroat Trout -->
-                <button onclick="openFish('cutthroat')">
-                    <img src="cutthroat_trout.jpg" alt="Cutthroat Trout">
-                    <span>Cutthroat Trout</span>
-                </button>
-
-                <!-- 3. Golden Trout -->
-                <button onclick="openFish('golden')">
-                    <img src="golden_trout.jpg" alt="Colorado Golden">
-                    <span>Colorado Golden</span>
-                </button>
-
-                <!-- 4. White Sucker -->
-                <button onclick="openFish('sucker')">
-                    <img src="white_sucker.jpg" alt="White Sucker">
-                    <span>White Sucker</span>
-                </button>
-
-                <!-- 5. White Bass -->
-                <button onclick="openFish('whitebass')">
-                    <img src="white_bass.jpg" alt="White Bass">
-                    <span>White Bass</span>
-                </button>
-
-                <!-- 6. Black Crappie -->
-                <button onclick="openFish('crappie')">
-                    <img src="black_crappie.jpg" alt="Black Crappie">
-                    <span>Black Crappie</span>
-                </button>
-
-                <!-- 7. Bluegill -->
-                <button onclick="openFish('bluegill')">
-                    <img src="bluegill.jpg" alt="Bluegill">
-                    <span>Bluegill</span>
-                </button>
-
-                <!-- 8. Golden Shiner -->
-                <button onclick="openFish('shiner')">
-                    <img src="golden_shiner.jpg" alt="Golden Shiner">
-                    <span>Golden Shiner</span>
-                </button>
-            </div>
-        </div>
 
         <!-- --- VIS INFO SCHERMEN --- -->
         <div id="fish-details">
             
             <!-- 1. RAINBOW TROUT -->
-            <div id="rainbow" class="fish-card hidden">
+            <div id="rainbow" class="fish-card">
                 <div class="top-section">
                     <img src="rainbow_trout.jpg" alt="Rainbow Trout" class="fish-img-uniform">
                     <div class="header-info">
@@ -94,7 +44,6 @@
                         <p class="fish-bio">
                             De hoofdvis van Rocky Lake. Ze zijn sterk, springen vaak uit het water en leveren uitstekende XP en geld op voor lage levels.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -147,7 +96,7 @@
             </div>
 
             <!-- 2. CUTTHROAT TROUT -->
-            <div id="cutthroat" class="fish-card hidden">
+            <div id="cutthroat" class="fish-card">
                 <div class="top-section">
                     <img src="cutthroat_trout.jpg" alt="Cutthroat Trout" class="fish-img-uniform">
                     <div class="header-info">
@@ -155,7 +104,6 @@
                         <p class="fish-bio">
                             Herkenbaar aan de rode snede onder de kaak. Vecht iets agressiever dan de regenboogforel en zit vaak iets dieper.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -207,7 +155,7 @@
             </div>
 
             <!-- 3. GOLDEN TROUT -->
-            <div id="golden" class="fish-card hidden">
+            <div id="golden" class="fish-card">
                 <div class="top-section">
                     <img src="golden_trout.jpg" alt="Golden Trout" class="fish-img-uniform">
                     <div class="header-info">
@@ -215,7 +163,6 @@
                         <p class="fish-bio">
                             De zeldzaamste forel in dit meer. Prachtig goudkleurig. Als je er een vangt, is dat een mooie bonus voor je portemonnee.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -267,7 +214,7 @@
             </div>
 
             <!-- 4. WHITE SUCKER -->
-            <div id="sucker" class="fish-card hidden">
+            <div id="sucker" class="fish-card">
                 <div class="top-section">
                     <img src="white_sucker.jpg" alt="White Sucker" class="fish-img-uniform">
                     <div class="header-info">
@@ -275,7 +222,6 @@
                         <p class="fish-bio">
                             Een bodemvis die alles eet wat hij tegenkomt. Makkelijk te vangen als bijvangst tijdens het forellen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -327,7 +273,7 @@
             </div>
 
             <!-- 5. WHITE BASS -->
-            <div id="whitebass" class="fish-card hidden">
+            <div id="whitebass" class="fish-card">
                 <div class="top-section">
                     <img src="white_bass.jpg" alt="White Bass" class="fish-img-uniform">
                     <div class="header-info">
@@ -335,7 +281,6 @@
                         <p class="fish-bio">
                             Een zilverkleurige rover die in scholen jaagt. Ze zijn agressief en vallen vaak hetzelfde aas aan als forel.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -386,7 +331,7 @@
             </div>
 
             <!-- 6. BLACK CRAPPIE -->
-            <div id="crappie" class="fish-card hidden">
+            <div id="crappie" class="fish-card">
                 <div class="top-section">
                     <img src="black_crappie.jpg" alt="Black Crappie" class="fish-img-uniform">
                     <div class="header-info">
@@ -394,7 +339,6 @@
                         <p class="fish-bio">
                             Een populaire sportvis met donkere vlekken. Ze houden van beschutting en zijn vooral actief bij bewolkt weer of schemering.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -445,7 +389,7 @@
             </div>
 
             <!-- 7. BLUEGILL -->
-            <div id="bluegill" class="fish-card hidden">
+            <div id="bluegill" class="fish-card">
                 <div class="top-section">
                     <img src="bluegill.jpg" alt="Bluegill" class="fish-img-uniform">
                     <div class="header-info">
@@ -453,7 +397,6 @@
                         <p class="fish-bio">
                             Kleine, felgekleurde zonnebaars. Ze zijn de perfecte 'panfish' en bijten op vrijwel alles wat in het water valt.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -503,7 +446,7 @@
             </div>
 
             <!-- 8. GOLDEN SHINER -->
-            <div id="shiner" class="fish-card hidden">
+            <div id="shiner" class="fish-card">
                 <div class="top-section">
                     <img src="golden_shiner.jpg" alt="Golden Shiner" class="fish-img-uniform">
                     <div class="header-info">
@@ -511,7 +454,6 @@
                         <p class="fish-bio">
                             Een goudkleurig aasvisje. Lastig te vangen door zijn kleine bekje, maar essentieel voor sommige missies.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">               

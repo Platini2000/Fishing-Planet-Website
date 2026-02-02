@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platini2000 - Emerald Lake Guide</title>
-    <!-- CSS staat één map hoger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <!-- Verwijzing naar CSS één map hoger -->
+    <link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
 
@@ -15,8 +15,8 @@
         <h2>Emerald Lake (New York) Guide</h2>
     </header>
 
-    <nav>
-        <!-- TERUG NAAR ROOT (LONE STAR) -->
+    <!-- 1. DE MAP BALK (BOVEN) -->
+    <nav id="location-nav" class="scroll-nav top-nav">
         <a href="../index.html">Lone Star Lake</a>
         <a href="index.html" class="active">Emerald Lake</a>
         <a href="../Mudwater River/index.html">Mudwater River</a>
@@ -25,72 +25,18 @@
         <a href="../Gent Terneuzen/index.html">Gent Terneuzen</a>
     </nav>
 
+    <!-- 2. DE VIS BALK (ONDER) - Wordt gevuld door Javascript -->
+    <nav id="fish-nav" class="scroll-nav bottom-nav">
+        <!-- Javascript vult dit automatisch -->
+    </nav>
+
     <div class="container">
 
-        <!-- --- HOOFDMENU EMERALD --- -->
-        <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
-                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
-            </h3>
-<div class="menu-list">
-
-    <!-- 1. Walleye -->
-    <button onclick="openFish('walleye')">
-        <img src="walleye.jpg" alt="Walleye">
-        <span>Walleye (Snoekbaars)</span>
-    </button>
-
-    <!-- 2. Pike -->
-    <button onclick="openFish('pike')">
-        <img src="pike.jpg" alt="Northern Pike">
-        <span>Northern Pike (Snoek)</span>
-    </button>
-
-    <!-- 3. Chain Pickerel -->
-    <button onclick="openFish('chainpickerel')">
-        <img src="chainpickerel.jpg" alt="Chain Pickerel">
-        <span>Chain Pickerel</span>
-    </button>
-
-    <!-- 4. Redfin Pickerel -->
-    <button onclick="openFish('redfin')">
-        <img src="redfin.jpg" alt="Redfin Pickerel">
-        <span>Redfin Pickerel</span>
-    </button>
-
-    <!-- 5. Sauger -->
-    <button onclick="openFish('sauger')">
-        <img src="sauger.jpg" alt="Sauger">
-        <span>Sauger</span>
-    </button>
-
-    <!-- 6. Perch -->
-    <button onclick="openFish('perch')">
-        <img src="perch.jpg" alt="Yellow Perch">
-        <span>Yellow Perch</span>
-    </button>
-
-    <!-- 7. Crappie -->
-    <button onclick="openFish('crappie')">
-        <img src="crappie_emerald.jpg" alt="Black & White Crappie">
-        <span>Black & White Crappie</span>
-    </button>
-
-    <!-- 8. Pumpkinseed -->
-    <button onclick="openFish('pumpkinseed')">
-        <img src="pumpkinseed.jpg" alt="Pumpkinseed & Bluegill">
-        <span>Pumpkinseed & Bluegill</span>
-    </button>
-</div>
-</div>
-
-
         <!-- --- VIS INFO SCHERMEN --- -->
-        <!-- Plaatjes in deze map hoeven geen 'Emerald/' ervoor, want het bestand staat al in de map Emerald -->
         <div id="fish-details">
             
             <!-- 1. WALLEYE -->
-            <div id="walleye" class="fish-card hidden">
+            <div id="walleye" class="fish-card">
                 <div class="top-section">
                     <img src="walleye.jpg" alt="Walleye" class="fish-img-uniform">
                     <div class="header-info">
@@ -98,18 +44,18 @@
                         <p class="fish-bio">
                             De absolute koning van Emerald Lake. Deze rovers jagen in het donker en leveren het meeste geld en XP op voor dit level.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Steiger (Dock of Peace). Gooi recht vooruit, ver het meer op.
+                            Steiger (Dock of Peace). Gooi recht vooruit.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Fluoro 0.23mm</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -118,16 +64,20 @@
                         <div class="detail-text">
                             <strong>Top Kunstaas:</strong> Narrow Spoon (7g) #1/0<br>
                             <em>(Kleur: PAARS is magisch hier!)</em><br><br>
-                            <strong>Levend Aas:</strong> Small Minnows (s' nachts)
+                            <strong>Levend Aas:</strong> Small Minnows (s' nachts)<br>
+                            <strong>Techniek:</strong> Stop&Go (Lift & Drop)
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐⭐⭐⭐ (Super!)<br>
-                            <strong>Lengte:</strong> 40cm - 80cm<br>
-                            <strong>Gewicht:</strong> 1.0kg - 5.5kg<br>
-                            <strong>Haakmaat:</strong> #1/0 tot #2/0<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐⭐⭐⭐ (Super!)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Young, Common, Trophy</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">40cm - 80cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">1.0kg - 5.5kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#1/0 tot #2/0</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -149,7 +99,7 @@
             </div>
 
             <!-- 2. PIKE -->
-            <div id="pike" class="fish-card hidden">
+            <div id="pike" class="fish-card">
                 <div class="top-section">
                     <img src="pike.jpg" alt="Northern Pike" class="fish-img-uniform">
                     <div class="header-info">
@@ -157,7 +107,6 @@
                         <p class="fish-bio">
                             Grote, agressieve roofvis. Ze liggen in een hinderlaag bij rietkragen. Gebruik absoluut een Titanium Leader!
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -169,6 +118,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2500</span></div>
                                 <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Titanium (Verplicht)</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -177,16 +127,20 @@
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Shiners & Small Minnows<br>
                             <strong>Kunstaas:</strong> Casting Spoons (Goud/Rood)<br>
-                            <strong>Crankbaits:</strong> Ondiep lopend (1m)
+                            <strong>Crankbaits:</strong> Ondiep lopend (1m)<br>
+                            <strong>Techniek:</strong> Dobbervissen
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐⭐⭐ (Erg goed)<br>
-                            <strong>Lengte:</strong> 50cm - 110cm<br>
-                            <strong>Gewicht:</strong> 1.5kg - 12.0kg<br>
-                            <strong>Haakmaat:</strong> #2/0 tot #3/0<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐⭐⭐ (Goed)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common, Trophy</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">50cm - 110cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">1.5kg - 12.0kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#2/0 tot #3/0</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -208,7 +162,7 @@
             </div>
 
             <!-- 3. CHAIN PICKEREL -->
-            <div id="chainpickerel" class="fish-card hidden">
+            <div id="chainpickerel" class="fish-card">
                 <div class="top-section">
                     <img src="chainpickerel.jpg" alt="Chain Pickerel" class="fish-img-uniform">
                     <div class="header-info">
@@ -216,7 +170,6 @@
                         <p class="fish-bio">
                             Lijkt op de snoek maar heeft een ketting-patroon. Zeer agressief in ondiep water.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -228,6 +181,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2000</span></div>
                                 <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Titanium 0.14</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -236,17 +190,20 @@
                         <div class="detail-text">
                             <strong>Kunstaas:</strong> Nano Spoons (6g)<br>
                             <strong>Levend Aas:</strong> Small Minnows<br>
-                            <em>(Dobber diepte: 30-40cm)</em>
+                            <strong>Tip:</strong> Snel binnenhalen<br>
+                            <strong>Techniek:</strong> Twitching
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐⭐ (Prima)<br>
-                            <strong>Types:</strong> Common & Trophy<br>
-                            <strong>Lengte:</strong> 30cm - 60cm<br>
-                            <strong>Gewicht:</strong> 0.5kg - 2.5kg<br>
-                            <strong>Haakmaat:</strong> #1 tot #1/0<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐⭐ (Prima)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common & Trophy</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">30cm - 60cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.5kg - 2.5kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#1 tot #1/0</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -268,7 +225,7 @@
             </div>
 
             <!-- 4. REDFIN PICKEREL -->
-            <div id="redfin" class="fish-card hidden">
+            <div id="redfin" class="fish-card">
                 <div class="top-section">
                     <img src="redfin.jpg" alt="Redfin Pickerel" class="fish-img-uniform">
                     <div class="header-info">
@@ -276,18 +233,18 @@
                         <p class="fish-bio">
                             De kleinste van de snoek-familie hier. Herkenbaar aan de rode vinnen. Vaak te vinden in zeer ondiep, begroeid water.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Dicht tegen de kant aan, tussen de planten aan de overkant of zijkant.
+                            Dicht tegen de kant aan, tussen de planten.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 1200</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Fluoro (Dun)</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -296,17 +253,20 @@
                         <div class="detail-text">
                             <strong>Kunstaas:</strong> Nano Spoons (4g-6g)<br>
                             <strong>Levend Aas:</strong> Small Minnows<br>
-                            <em>(Haakmaat #2 - #1)</em>
+                            <strong>Kleur:</strong> Goud of Zilver<br>
+                            <strong>Techniek:</strong> Stop&Go
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐ (Gemiddeld)<br>
-                            <strong>Types:</strong> Common & Trophy<br>
-                            <strong>Lengte:</strong> 15cm - 30cm<br>
-                            <strong>Gewicht:</strong> 0.1kg - 0.4kg<br>
-                            <strong>Haakmaat:</strong> #2 tot #1<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐ (Gemiddeld)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common & Trophy</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">15cm - 30cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.1kg - 0.4kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#2 tot #1</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -328,7 +288,7 @@
             </div>
 
             <!-- 5. SAUGER -->
-            <div id="sauger" class="fish-card hidden">
+            <div id="sauger" class="fish-card">
                 <div class="top-section">
                     <img src="sauger.jpg" alt="Sauger" class="fish-img-uniform">
                     <div class="header-info">
@@ -336,18 +296,18 @@
                         <p class="fish-bio">
                             Lijkt sprekend op de Snoekbaars (Walleye), maar is donkerder en gevlekt. Leeft op dezelfde diepe plekken.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Diepe gaten, ver uit de kant. Bijvangst van Walleye.
+                            Diepe gaten, ver uit de kant. Bijvangst Walleye.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 190</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Fluoro</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -355,18 +315,21 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
                         <div class="detail-text">
                             <strong>Top Kunstaas:</strong> Narrow Spoon (Paars)<br>
-                            <strong>Softbaits:</strong> Shads op een Jighead<br><br>
-                            <strong>Levend Aas:</strong> Small Minnows
+                            <strong>Softbaits:</strong> Shads op een Jighead<br>
+                            <strong>Levend Aas:</strong> Small Minnows<br>
+                            <strong>Techniek:</strong> Jiggen
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐⭐⭐ (Hoog)<br>
-                            <strong>Types:</strong> Young & Common<br>
-                            <strong>Lengte:</strong> 25cm - 45cm<br>
-                            <strong>Gewicht:</strong> 0.3kg - 1.5kg<br>
-                            <strong>Haakmaat:</strong> #2 tot #1/0<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐⭐⭐ (Hoog)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Young & Common</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">25cm - 45cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.3kg - 1.5kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#2 tot #1/0</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -388,7 +351,7 @@
             </div>
 
             <!-- 6. YELLOW PERCH -->
-            <div id="perch" class="fish-card hidden">
+            <div id="perch" class="fish-card">
                 <div class="top-section">
                     <img src="perch.jpg" alt="Yellow Perch" class="fish-img-uniform">
                     <div class="header-info">
@@ -396,18 +359,18 @@
                         <p class="fish-bio">
                             Een prachtige geel/oranje baars met zwarte strepen. Ze leven in scholen. Als je er één vangt, zitten er meer!
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Vlakbij de steiger, of iets dieper. Vaak net boven de bodem.
+                            Vlakbij de steiger, of iets dieper.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
                                 <div class="gear-row"><span class="gear-label">Haak:</span> <span class="gear-val">#8 tot #4</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -416,17 +379,20 @@
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Red Worms, Bloodworms<br>
                             <strong>Kunstaas:</strong> Kleine Spinners (4g)<br>
-                            <em>(Rood/Zwart patroon)</em>
+                            <strong>Patroon:</strong> Rood/Zwart<br>
+                            <strong>Techniek:</strong> Dobber of Spin
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐⭐ (Goed)<br>
-                            <strong>Types:</strong> Common, Trophy & Unique<br>
-                            <strong>Lengte:</strong> 15cm - 35cm<br>
-                            <strong>Gewicht:</strong> 0.1kg - 0.7kg<br>
-                            <strong>Haakmaat:</strong> #8 tot #4<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐⭐ (Goed)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common & Unique</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">15cm - 35cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.1kg - 0.7kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#8 tot #4</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -448,7 +414,7 @@
             </div>
 
             <!-- 7. CRAPPIE -->
-            <div id="crappie" class="fish-card hidden">
+            <div id="crappie" class="fish-card">
                 <div class="top-section">
                     <img src="crappie_emerald.jpg" alt="Crappie" class="fish-img-uniform">
                     <div class="header-info">
@@ -456,7 +422,6 @@
                         <p class="fish-bio">
                             In Emerald Lake vind je zowel de Black als White Crappie. Ze houden van structuren (steigerpalen, riet). Hebben een zachte bek.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -468,6 +433,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
                                 <div class="gear-row"><span class="gear-label">Dobber:</span> <span class="gear-val">Chubby</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -476,17 +442,20 @@
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Marshmallows, Wax Worms<br>
                             <strong>Kunstaas:</strong> Tube Jigs (Wit/Roze)<br>
-                            <em>(Haakmaat #8 - #6)</em>
+                            <strong>Haakmaat:</strong> #8 - #6<br>
+                            <strong>Techniek:</strong> Dobbervissen
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐ (Redelijk)<br>
-                            <strong>Types:</strong> Common & Trophy<br>
-                            <strong>Lengte:</strong> 20cm - 35cm<br>
-                            <strong>Gewicht:</strong> 0.2kg - 0.9kg<br>
-                            <strong>Haakmaat:</strong> #6 tot #4<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐ (Redelijk)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common & Trophy</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">20cm - 35cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.2kg - 0.9kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#6 tot #4</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -508,15 +477,14 @@
             </div>
 
             <!-- 8. PUMPKINSEED & BLUEGILL -->
-            <div id="pumpkinseed" class="fish-card hidden">
+            <div id="pumpkinseed" class="fish-card">
                 <div class="top-section">
                     <img src="pumpkinseed.jpg" alt="Pumpkinseed" class="fish-img-uniform">
                     <div class="header-info">
                         <h3 class="fish-title">Pumpkinseed & Bluegill</h3>
                         <p class="fish-bio">
-                            De welbekende 'Panfish'. Kleurrijke, kleine zonnebaarzen die zeer makkelijk te vangen zijn. Ideaal om de tijd te doden of voor beginners.
+                            De welbekende 'Panfish'. Kleurrijke, kleine zonnebaarzen die zeer makkelijk te vangen zijn. Ideaal om de tijd te doden.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -528,6 +496,7 @@
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">TeleFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">MiniSpin 800</span></div>
                                 <div class="gear-row"><span class="gear-label">Haak:</span> <span class="gear-val">Micro (#10)</span></div>
+                                <div class="gear-row"><span class="gear-label">&nbsp;</span> <span class="gear-val">&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
@@ -536,17 +505,20 @@
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Bread (Brood), Doughballs<br>
                             <strong>Alternatief:</strong> Semolina, Worms<br>
-                            <em>(Goedkoop aas werkt prima)</em>
+                            <strong>Tip:</strong> Goedkoop aas werkt prima<br>
+                            <strong>Techniek:</strong> Dobbervissen
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
-                            <strong>Geld/XP:</strong> ⭐⭐ (Laag)<br>
-                            <strong>Types:</strong> Common, Trophy & Unique<br>
-                            <strong>Lengte:</strong> 10cm - 20cm<br>
-                            <strong>Gewicht:</strong> 0.1kg - 0.4kg<br>
-                            <strong>Haakmaat:</strong> #10 tot #6<br>
+                            <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Geld/XP:</span> <span class="gear-val">⭐⭐ (Laag)</span></div>
+                                <div class="gear-row"><span class="gear-label">Types:</span> <span class="gear-val">Common & Unique</span></div>
+                                <div class="gear-row"><span class="gear-label">Lengte:</span> <span class="gear-val">10cm - 20cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Gewicht:</span> <span class="gear-val">0.1kg - 0.4kg</span></div>
+                                <div class="gear-row"><span class="gear-label">Haakmaat:</span> <span class="gear-val">#10 tot #6</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -574,7 +546,7 @@
         &copy; 2026 Platini2000 Fishing Guides
     </footer>
 
-    <!-- Script staat ook één map hoger -->
+    <!-- Verwijzing naar Script één map hoger -->
     <script src="../script.js"></script>
 </body>
 </html>

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platini2000 - Neherrin River Guide</title>
+    <!-- CSS staat EEN map hoger -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
 
@@ -14,7 +15,8 @@
         <h2>Neherrin River (North Carolina) Guide</h2>
     </header>
 
-    <nav>
+    <!-- 1. DE MAP BALK (BOVEN) -->
+    <nav id="location-nav" class="scroll-nav top-nav">
         <a href="../index.html">Lone Star Lake</a>        
         <a href="../Emerald Lake/index.html">Emerald Lake</a>  
         <a href="../Mudwater River/index.html">Mudwater River</a>
@@ -23,118 +25,18 @@
         <a href="../Gent Terneuzen/index.html">Gent Terneuzen</a>
     </nav>
 
+    <!-- 2. DE VIS BALK (ONDER) - Wordt gevuld door Javascript -->
+    <nav id="fish-nav" class="scroll-nav bottom-nav">
+        <!-- Javascript vult dit automatisch -->
+    </nav>
+
     <div class="container">
-
-        <!-- --- HOOFDMENU NEHERRIN RIVER --- -->
-        <div id="fish-menu">
-            <h3 style="text-align: center; padding-left: 0px;">
-                <i class="fa-solid fa-fish" style="color: #4ca1af; margin-right: 15px;"></i> Kies een vissoort:
-            </h3>
-            
-            <div class="menu-list">
-                <!-- 1. Smallmouth Bass -->
-                <button onclick="openFish('smallmouth')">
-                    <img src="smallmouth_bass.jpg" alt="Smallmouth Bass">
-                    <span>Smallmouth Bass</span>
-                </button>
-
-                <!-- 2. Largemouth Bass -->
-                <button onclick="openFish('largemouth')">
-                    <img src="largemouth_bass.jpg" alt="Largemouth Bass">
-                    <span>Largemouth Bass</span>
-                </button>
-
-                <!-- 3. Spotted Bass -->
-                <button onclick="openFish('spotted')">
-                    <img src="spotted_bass.jpg" alt="Spotted Bass">
-                    <span>Spotted Bass</span>
-                </button>
-
-                <!-- 4. Flathead Catfish -->
-                <button onclick="openFish('flathead')">
-                    <img src="flathead_catfish.jpg" alt="Flathead Catfish">
-                    <span>Flathead Catfish</span>
-                </button>
-
-                <!-- 5. Blue Catfish -->
-                <button onclick="openFish('bluecat')">
-                    <img src="blue_catfish.jpg" alt="Blue Catfish">
-                    <span>Blue Catfish</span>
-                </button>
-
-                <!-- 6. Channel Catfish -->
-                <button onclick="openFish('channelcat')">
-                    <img src="channel_catfish.jpg" alt="Channel Catfish">
-                    <span>Channel Catfish</span>
-                </button>
-
-                <!-- 7. Longnose Gar -->
-                <button onclick="openFish('gar')">
-                    <img src="longnose_gar.jpg" alt="Longnose Gar">
-                    <span>Longnose Gar</span>
-                </button>
-
-                <!-- 8. Chain Pickerel -->
-                <button onclick="openFish('pickerel')">
-                    <img src="chain_pickerel.jpg" alt="Chain Pickerel">
-                    <span>Chain Pickerel</span>
-                </button>
-
-                <!-- 9. Black Crappie -->
-                <button onclick="openFish('blackcrappie')">
-                    <img src="black_crappie.jpg" alt="Black Crappie">
-                    <span>Black Crappie</span>
-                </button>
-
-                <!-- 10. White Crappie -->
-                <button onclick="openFish('whitecrappie')">
-                    <img src="white_crappie.jpg" alt="White Crappie">
-                    <span>White Crappie</span>
-                </button>
-
-                <!-- 11. Redear Sunfish -->
-                <button onclick="openFish('redear')">
-                    <img src="redear_sunfish.jpg" alt="Redear Sunfish">
-                    <span>Redear Sunfish</span>
-                </button>
-
-                <!-- 12. Bluegill -->
-                <button onclick="openFish('bluegill')">
-                    <img src="bluegill.jpg" alt="Bluegill">
-                    <span>Bluegill</span>
-                </button>
-
-                <!-- 13. Pumpkinseed -->
-                <button onclick="openFish('pumpkinseed')">
-                    <img src="pumpkinseed.jpg" alt="Pumpkinseed">
-                    <span>Pumpkinseed</span>
-                </button>
-
-                <!-- 14. Yellow Perch -->
-                <button onclick="openFish('perch')">
-                    <img src="yellow_perch.jpg" alt="Yellow Perch">
-                    <span>Yellow Perch</span>
-                </button>
-
-                <!-- 15. American Shad -->
-                <button onclick="openFish('shad')">
-                    <img src="american_shad.jpg" alt="American Shad">
-                    <span>American Shad</span>
-                </button>
-
-                <!-- 16. Golden Shiner -->
-                <button onclick="openFish('shiner')">
-                    <img src="golden_shiner.jpg" alt="Golden Shiner">
-                    <span>Golden Shiner</span>
-                </button>
-            </div>
-        </div>
 
         <!-- --- VIS INFO SCHERMEN --- -->
         <div id="fish-details">
             
             <!-- 1. SMALLMOUTH BASS -->
-            <div id="smallmouth" class="fish-card hidden">
+            <div id="smallmouth" class="fish-card">
                 <div class="top-section">
                     <img src="smallmouth_bass.jpg" alt="Smallmouth Bass" class="fish-img-uniform">
                     <div class="header-info">
@@ -142,14 +44,13 @@
                         <p class="fish-bio">
                             De favoriet van Neherrin. Vecht harder dan zijn neven en houdt van rotsachtige bodems en stroming.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Ga naar 'Into the Rocky Blue'. Gooi richting de rotsen in het midden van de rivier.
+                            Ga naar 'Into the Rocky Blue'. Gooi richting de rotsen in het midden.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 260</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 3000</span></div>
@@ -169,9 +70,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐⭐ (Top)<br>
-                            <strong>Types:</strong> Young, Common, Trophy, Unique<br>
+                            <strong>Types:</strong> Young, Common & Unique<br>
                             <strong>Lengte:</strong> 25cm - 60cm<br>
                             <strong>Gewicht:</strong> 0.5kg - 3.5kg<br>
+                            <strong>Haakmaat:</strong> #1/0 tot #3/0<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -182,6 +84,7 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Into the Rocky Blue</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Midden/Bodem</span></div>
                                 <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">20m - 30m</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Rotsblokken</span></div>
                             </div>
                         </div>
                     </div>
@@ -192,22 +95,21 @@
             </div>
 
             <!-- 2. LARGEMOUTH BASS -->
-            <div id="largemouth" class="fish-card hidden">
+            <div id="largemouth" class="fish-card">
                 <div class="top-section">
                     <img src="largemouth_bass.jpg" alt="Largemouth Bass" class="fish-img-uniform">
                     <div class="header-info">
                         <h3 class="fish-title">Largemouth Bass</h3>
                         <p class="fish-bio">
-                            De klassieke roofvis. Houdt zich meer op bij begroeiing, leliebladen en omgevallen bomen dan de Smallmouth.
+                            De klassieke roofvis. Houdt zich meer op bij begroeiing, leliebladen en omgevallen bomen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Vis bij 'Rubbble of Old Times'. Gooi naar de linkerkant waar veel bomen in het water liggen.
+                            Vis bij 'Rubbble of Old Times'. Gooi naar de linkerkant (bomen).
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">GalaxyCast 260</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Cyclon 3500</span></div>
@@ -228,6 +130,7 @@
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐ (Goed)<br>
                             <strong>Types:</strong> Common, Trophy, Unique<br>
+                            <strong>Lengte:</strong> 30cm - 65cm<br>
                             <strong>Gewicht:</strong> 0.6kg - 5.0kg<br>
                             <strong>Haakmaat:</strong> #2/0 tot #4/0<br>
                         </div>
@@ -240,6 +143,7 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Rubble of Old Times</span></div>
                                 <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Boomstammen</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Ondiep/Midden</span></div>
+                                <div class="gear-row"><span class="gear-label">Richting:</span> <span class="gear-val">Links</span></div>
                             </div>
                         </div>
                     </div>
@@ -250,22 +154,21 @@
             </div>
 
             <!-- 3. SPOTTED BASS -->
-            <div id="spotted" class="fish-card hidden">
+            <div id="spotted" class="fish-card">
                 <div class="top-section">
                     <img src="spotted_bass.jpg" alt="Spotted Bass" class="fish-img-uniform">
                     <div class="header-info">
                         <h3 class="fish-title">Spotted Bass</h3>
                         <p class="fish-bio">
-                            Lijkt op de Largemouth maar is kleiner en agressiever. Zit vaak iets dieper en gemengd met de Smallmouths.
+                            Lijkt op de Largemouth maar is kleiner en agressiever. Zit vaak iets dieper en gemengd met Smallmouths.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Bij de brugpijlers en diepere gaten in de bochten van de rivier.
+                            Bij de brugpijlers en diepere gaten in de bochten.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">ValueSpin 230</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Callisto MG 2500</span></div>
@@ -286,6 +189,7 @@
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐ (Redelijk)<br>
                             <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 25cm - 50cm<br>
                             <strong>Gewicht:</strong> 0.4kg - 2.5kg<br>
                             <strong>Haakmaat:</strong> #1 tot #2/0<br>
                         </div>
@@ -297,6 +201,8 @@
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Into the Rocky Blue</span></div>
                                 <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Brugresten</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">15m - 20m</span></div>
                             </div>
                         </div>
                     </div>
@@ -307,24 +213,23 @@
             </div>
 
             <!-- 4. FLATHEAD CATFISH -->
-            <div id="flathead" class="fish-card hidden">
+            <div id="flathead" class="fish-card">
                 <div class="top-section">
                     <img src="flathead_catfish.jpg" alt="Flathead Catfish" class="fish-img-uniform">
                     <div class="header-info">
                         <h3 class="fish-title">Flathead Catfish</h3>
                         <p class="fish-bio">
-                            Het monster van Neherrin. Deze roofmeerval eet levende vissen en wordt enorm groot. Vooral 's nachts actief.
+                            Het monster van Neherrin. Deze roofmeerval eet levende vissen en wordt enorm groot. Vooral 's nachts.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Het diepste gat bij 'Rubbble of Old Times' (bij het autowrak in het water). Je hebt zwaar materiaal nodig!
+                            Het diepste gat bij 'Rubbble of Old Times' (autowrak). Zwaar materiaal!
                             <div class="gear-list">
-                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">BigAllied 360 (Bodem)</span></div>
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">BigAllied 360</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">Ambusher 8500</span></div>
                                 <div class="gear-row"><span class="gear-label">Lijn:</span> <span class="gear-val">Braid 0.30mm+</span></div>
                             </div>
@@ -334,7 +239,7 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas (Vlees)</h4>
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Large Minnows, Small Sunfish<br>
-                            <strong>Alternatief:</strong> Cutbait (Stukjes vis), Kreeft<br>
+                            <strong>Alternatief:</strong> Cutbait, Kreeft<br>
                             <em>(Ze houden van levend of vers aas)</em>
                         </div>
                     </div>
@@ -343,6 +248,7 @@
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐⭐⭐ (Jackpot)<br>
                             <strong>Types:</strong> Young tot Unique<br>
+                            <strong>Lengte:</strong> 50cm - 120cm+<br>
                             <strong>Gewicht:</strong> 2kg - 20kg+<br>
                             <strong>Haakmaat:</strong> #3/0 tot #6/0<br>
                         </div>
@@ -355,6 +261,7 @@
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Rubble of Old Times</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem (Diep)</span></div>
                                 <div class="gear-row"><span class="gear-label">Tijd:</span> <span class="gear-val">NACHT</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Autowrak</span></div>
                             </div>
                         </div>
                     </div>
@@ -365,7 +272,7 @@
             </div>
 
             <!-- 5. BLUE CATFISH -->
-            <div id="bluecat" class="fish-card hidden">
+            <div id="bluecat" class="fish-card">
                 <div class="top-section">
                     <img src="blue_catfish.jpg" alt="Blue Catfish" class="fish-img-uniform">
                     <div class="header-info">
@@ -373,7 +280,6 @@
                         <p class="fish-bio">
                             Zwemmen in open water en diepe geulen. Ze houden meer van stinkend aas dan de Flathead.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -389,7 +295,7 @@
                         </div>
                     </div>
                     <div class="detail-block">
-                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas</h4>
+                        <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Voer</h4>
                         <div class="detail-text">
                             <strong>Top Aas:</strong> Cutbait, Pet Food<br>
                             <strong>Alternatief:</strong> Large Minnows<br>
@@ -400,6 +306,8 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐⭐<br>
+                            <strong>Types:</strong> Young, Common & Trophy<br>
+                            <strong>Lengte:</strong> 40cm - 90cm<br>
                             <strong>Gewicht:</strong> 1.5kg - 15kg+<br>
                             <strong>Haakmaat:</strong> #2/0 tot #5/0<br>
                         </div>
@@ -411,6 +319,8 @@
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Into the Rocky Blue</span></div>
                                 <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Midden stroom</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">30m - 50m</span></div>
                             </div>
                         </div>
                     </div>
@@ -421,7 +331,7 @@
             </div>
 
             <!-- 6. CHANNEL CATFISH -->
-            <div id="channelcat" class="fish-card hidden">
+            <div id="channelcat" class="fish-card">
                 <div class="top-section">
                     <img src="channel_catfish.jpg" alt="Channel Catfish" class="fish-img-uniform">
                     <div class="header-info">
@@ -429,7 +339,6 @@
                         <p class="fish-bio">
                             De kleinste van de drie meervallen hier, maar zeer talrijk. Eet vrijwel alles.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -455,8 +364,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐<br>
+                            <strong>Types:</strong> Young & Common<br>
+                            <strong>Lengte:</strong> 30cm - 60cm<br>
                             <strong>Gewicht:</strong> 1kg - 5kg<br>
-                            <strong>Tijd:</strong> Dag & Nacht<br>
+                            <strong>Haakmaat:</strong> #4 tot #1/0<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -465,17 +376,20 @@
                             Links van de steigers.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Overal</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem</span></div>
+                                <div class="gear-row"><span class="gear-label">Tijd:</span> <span class="gear-val">Dag & Nacht</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">Dichtbij</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="technique-box">
-                    <strong>🛠️ Techniek:</strong> Bodem of dobber (diep).
+                    <strong>🛠️ Techniek:</strong> Bodem of dobber (diep afgesteld).
                 </div>
             </div>
 
             <!-- 7. LONGNOSE GAR -->
-            <div id="gar" class="fish-card hidden">
+            <div id="gar" class="fish-card">
                 <div class="top-section">
                     <img src="longnose_gar.jpg" alt="Longnose Gar" class="fish-img-uniform">
                     <div class="header-info">
@@ -483,16 +397,15 @@
                         <p class="fish-bio">
                             Een prehistorisch monster dat net onder het oppervlak zwemt. Heeft een lange bek vol tanden.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="detail-block">
                         <h4>📍 Locatie & Setup</h4>
                         <div class="detail-text">
-                            Open water, vaak zichtbaar aan de oppervlakte. **LET OP: Titanium Leader verplicht!**
+                            Open water, vaak zichtbaar aan oppervlak. **LET OP: Titanium Leader!**
                             <div class="gear-list">
-                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450 (Match)</span></div>
+                                <div class="gear-row"><span class="gear-label">Hengel:</span> <span class="gear-val">OmniFloat 450</span></div>
                                 <div class="gear-row"><span class="gear-label">Molen:</span> <span class="gear-val">CallistoXS 1400</span></div>
                                 <div class="gear-row"><span class="gear-label">Leader:</span> <span class="gear-val">Titanium 0.18mm</span></div>
                             </div>
@@ -510,6 +423,8 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐⭐ (Leuk gevecht)<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 50cm - 100cm<br>
                             <strong>Gewicht:</strong> 2kg - 8kg<br>
                             <strong>Haakmaat:</strong> #1/0 tot #3/0<br>
                         </div>
@@ -520,7 +435,9 @@
                             Bij de brugresten en open stukken.
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Into the Rocky Blue</span></div>
-                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">30cm - 60cm (Top)</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">30cm - 60cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Type:</span> <span class="gear-val">Oppervlakte</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Open water</span></div>
                             </div>
                         </div>
                     </div>
@@ -531,7 +448,7 @@
             </div>
 
             <!-- 8. CHAIN PICKEREL -->
-            <div id="pickerel" class="fish-card hidden">
+            <div id="pickerel" class="fish-card">
                 <div class="top-section">
                     <img src="chain_pickerel.jpg" alt="Chain Pickerel" class="fish-img-uniform">
                     <div class="header-info">
@@ -539,7 +456,6 @@
                         <p class="fish-bio">
                             Een agressieve rover die tussen het riet en de lelies jaagt. Valt alles aan wat glimt.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -558,13 +474,16 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
                         <div class="detail-text">
                             <strong>Kunstaas:</strong> Casting Spoons, Shads<br>
-                            <strong>Levend Aas:</strong> Small Minnows
+                            <strong>Levend Aas:</strong> Small Minnows<br>
+                            <strong>Actie:</strong> Snel agressief vissen.
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 30cm - 50cm<br>
                             <strong>Gewicht:</strong> 0.5kg - 1.5kg<br>
                             <strong>Haakmaat:</strong> #1 tot #2/0<br>
                         </div>
@@ -576,6 +495,8 @@
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Rubble of Old Times</span></div>
                                 <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Rietkragen</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Ondiep</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">5m - 15m</span></div>
                             </div>
                         </div>
                     </div>
@@ -586,7 +507,7 @@
             </div>
 
             <!-- 9. BLACK CRAPPIE -->
-            <div id="blackcrappie" class="fish-card hidden">
+            <div id="blackcrappie" class="fish-card">
                 <div class="top-section">
                     <img src="black_crappie.jpg" alt="Black Crappie" class="fish-img-uniform">
                     <div class="header-info">
@@ -594,7 +515,6 @@
                         <p class="fish-bio">
                             Donker gevlekte panfish. Houdt van schaduw en structuur (takken in water).
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -621,7 +541,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
                             <strong>Lengte:</strong> 20cm - 35cm<br>
+                            <strong>Gewicht:</strong> 0.2kg - 0.8kg<br>
+                            <strong>Haakmaat:</strong> #6<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -629,7 +552,10 @@
                         <div class="detail-text">
                             Rechts van de startsteiger bij de boom.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Startsteiger</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">100cm - 140cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Onder boom</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">10m</span></div>
                             </div>
                         </div>
                     </div>
@@ -640,7 +566,7 @@
             </div>
 
             <!-- 10. WHITE CRAPPIE -->
-            <div id="whitecrappie" class="fish-card hidden">
+            <div id="whitecrappie" class="fish-card">
                 <div class="top-section">
                     <img src="white_crappie.jpg" alt="White Crappie" class="fish-img-uniform">
                     <div class="header-info">
@@ -648,7 +574,6 @@
                         <p class="fish-bio">
                             Lichter van kleur dan de Black Crappie, maar hetzelfde gedrag. Vaak samen te vinden.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -667,14 +592,18 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas</h4>
                         <div class="detail-text">
                             <strong>Aas:</strong> Minnows (Top!), Maggots, Marshmallows.<br>
-                            <strong>Haak:</strong> #6 tot #4
+                            <strong>Haak:</strong> #6 tot #4<br>
+                            <strong>Lure:</strong> Tube Jigs (Roze)
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
                             <strong>Lengte:</strong> 20cm - 35cm<br>
+                            <strong>Gewicht:</strong> 0.2kg - 0.8kg<br>
+                            <strong>Haakmaat:</strong> #6<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -682,7 +611,10 @@
                         <div class="detail-text">
                             Tegen takken aan werpen.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Startsteiger</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">100cm - 130cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Structuur</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">8m - 12m</span></div>
                             </div>
                         </div>
                     </div>
@@ -693,7 +625,7 @@
             </div>
 
             <!-- 11. REDEAR SUNFISH -->
-            <div id="redear" class="fish-card hidden">
+            <div id="redear" class="fish-card">
                 <div class="top-section">
                     <img src="redear_sunfish.jpg" alt="Redear Sunfish" class="fish-img-uniform">
                     <div class="header-info">
@@ -701,7 +633,6 @@
                         <p class="fish-bio">
                             Ook wel "Shellcracker" genoemd. Zoekt bodemvoedsel en zit vaak iets dieper dan de Bluegill.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -728,7 +659,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐<br>
-                            <strong>Gewicht:</strong> 0.2kg - 0.9kg (Groot voor een sunfish!)<br>
+                            <strong>Types:</strong> Common, Trophy<br>
+                            <strong>Lengte:</strong> 15cm - 30cm<br>
+                            <strong>Gewicht:</strong> 0.2kg - 0.9kg<br>
+                            <strong>Haakmaat:</strong> #8<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -736,7 +670,10 @@
                         <div class="detail-text">
                             Langs de kant.
                             <div class="gear-list">
-                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem (Max diepte dobber)</span></div>
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Oever</span></div>
+                                <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Bodem</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">5m - 10m</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Planten</span></div>
                             </div>
                         </div>
                     </div>
@@ -747,7 +684,7 @@
             </div>
 
             <!-- 12. BLUEGILL -->
-            <div id="bluegill" class="fish-card hidden">
+            <div id="bluegill" class="fish-card">
                 <div class="top-section">
                     <img src="bluegill.jpg" alt="Bluegill" class="fish-img-uniform">
                     <div class="header-info">
@@ -755,7 +692,6 @@
                         <p class="fish-bio">
                             De meest voorkomende vis. Zwemt overal, is brutaal en bijt op alles.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -774,14 +710,18 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas</h4>
                         <div class="detail-text">
                             <strong>Aas:</strong> Brood, Deeg, Wormen, Krekels.<br>
-                            <strong>Haak:</strong> #10 tot #8
+                            <strong>Haak:</strong> #10 tot #8<br>
+                            <em>(Makkelijkste vis)</em>
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐ (Laag)<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 15cm - 25cm<br>
                             <strong>Gewicht:</strong> 0.1kg - 0.4kg<br>
+                            <strong>Haakmaat:</strong> #10<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -789,7 +729,10 @@
                         <div class="detail-text">
                             Gooi 5 meter uit de kant.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Overal</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">40cm - 80cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">Dichtbij</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Riet</span></div>
                             </div>
                         </div>
                     </div>
@@ -800,7 +743,7 @@
             </div>
 
             <!-- 13. PUMPKINSEED -->
-            <div id="pumpkinseed" class="fish-card hidden">
+            <div id="pumpkinseed" class="fish-card">
                 <div class="top-section">
                     <img src="pumpkinseed.jpg" alt="Pumpkinseed" class="fish-img-uniform">
                     <div class="header-info">
@@ -808,7 +751,6 @@
                         <p class="fish-bio">
                             Kleurrijke zonnebaars met oranje vlekjes. Vaak iets kleiner dan de Bluegill.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -827,14 +769,18 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas</h4>
                         <div class="detail-text">
                             <strong>Aas:</strong> Wormen, Brood, Krekels.<br>
-                            <strong>Haak:</strong> #10 tot #8
+                            <strong>Haak:</strong> #10 tot #8<br>
+                            <em>(Bijt snel)</em>
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 10cm - 20cm<br>
                             <strong>Gewicht:</strong> 0.1kg - 0.3kg<br>
+                            <strong>Haakmaat:</strong> #10<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -842,7 +788,10 @@
                         <div class="detail-text">
                             Tussen de leliebladen.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Oever</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">30cm - 60cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">Dichtbij</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Lelies</span></div>
                             </div>
                         </div>
                     </div>
@@ -853,7 +802,7 @@
             </div>
 
             <!-- 14. YELLOW PERCH -->
-            <div id="perch" class="fish-card hidden">
+            <div id="perch" class="fish-card">
                 <div class="top-section">
                     <img src="yellow_perch.jpg" alt="Yellow Perch" class="fish-img-uniform">
                     <div class="header-info">
@@ -861,7 +810,6 @@
                         <p class="fish-bio">
                             Geliefde roofvis met zwarte strepen. Jaagt in scholen.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -879,7 +827,7 @@
                     <div class="detail-block">
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas & Lures</h4>
                         <div class="detail-text">
-                            <strong>Aas:</strong> Wormen, Small Minnows, Bloodworms.<br>
+                            <strong>Aas:</strong> Wormen, Small Minnows.<br>
                             <strong>Lures:</strong> Spinners, Grub (Geel/Rood).<br>
                             <strong>Haak:</strong> #8 tot #6
                         </div>
@@ -888,7 +836,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 20cm - 40cm<br>
                             <strong>Gewicht:</strong> 0.2kg - 1.0kg<br>
+                            <strong>Haakmaat:</strong> #6<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -896,7 +847,10 @@
                         <div class="detail-text">
                             Langs de randen van de vegetatie.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Plantenranden</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">100cm+</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">10m - 20m</span></div>
+                                <div class="gear-row"><span class="gear-label">Techniek:</span> <span class="gear-val">Spinning</span></div>
                             </div>
                         </div>
                     </div>
@@ -907,7 +861,7 @@
             </div>
 
             <!-- 15. AMERICAN SHAD -->
-            <div id="shad" class="fish-card hidden">
+            <div id="shad" class="fish-card">
                 <div class="top-section">
                     <img src="american_shad.jpg" alt="American Shad" class="fish-img-uniform">
                     <div class="header-info">
@@ -915,7 +869,6 @@
                         <p class="fish-bio">
                             Zilveren haringachtige vis. Trekvis die sterk vecht voor zijn formaat.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -942,7 +895,10 @@
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐⭐<br>
+                            <strong>Types:</strong> Common & Trophy<br>
+                            <strong>Lengte:</strong> 35cm - 60cm<br>
                             <strong>Gewicht:</strong> 0.5kg - 2.5kg<br>
+                            <strong>Haakmaat:</strong> #6<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -952,6 +908,8 @@
                             <div class="gear-list">
                                 <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Into the Rocky Blue</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">Midden water</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">30m - 40m</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Stroming</span></div>
                             </div>
                         </div>
                     </div>
@@ -962,7 +920,7 @@
             </div>
 
             <!-- 16. GOLDEN SHINER -->
-            <div id="shiner" class="fish-card hidden">
+            <div id="shiner" class="fish-card">
                 <div class="top-section">
                     <img src="golden_shiner.jpg" alt="Golden Shiner" class="fish-img-uniform">
                     <div class="header-info">
@@ -970,7 +928,6 @@
                         <p class="fish-bio">
                             Klein aasvisje. Nuttig om zelf te vangen als je gratis aas wilt voor de Bass.
                         </p>
-                        <button class="back-btn" onclick="showMenu()">⬅ Terug naar Menu</button>
                     </div>
                 </div>
                 <div class="info-grid">
@@ -989,14 +946,18 @@
                         <h4><i class="fa-solid fa-worm" style="color: #e67e22; margin-right: 5px;"></i> Aas</h4>
                         <div class="detail-text">
                             <strong>Aas:</strong> Deegballen, Brood.<br>
-                            <strong>Haak:</strong> #12 tot #10 (Micro)
+                            <strong>Haak:</strong> #12 tot #10 (Micro)<br>
+                            <em>(Zeer kleine haken)</em>
                         </div>
                     </div>
                     <div class="detail-block">
                         <h4>⚖️ Vis Info</h4>
                         <div class="detail-text">
                             <strong>Geld/XP:</strong> ⭐ (Nihil)<br>
-                            <strong>Formaat:</strong> Zeer klein<br>
+                            <strong>Types:</strong> Common<br>
+                            <strong>Lengte:</strong> 8cm - 15cm<br>
+                            <strong>Gewicht:</strong> 0.05kg<br>
+                            <strong>Haakmaat:</strong> #12<br>
                         </div>
                     </div>
                     <div class="detail-block">
@@ -1004,7 +965,10 @@
                         <div class="detail-text">
                             Vlak langs de oever.
                             <div class="gear-list">
+                                <div class="gear-row"><span class="gear-label">Plek:</span> <span class="gear-val">Oever</span></div>
                                 <div class="gear-row"><span class="gear-label">Diepte:</span> <span class="gear-val">30cm - 50cm</span></div>
+                                <div class="gear-row"><span class="gear-label">Afstand:</span> <span class="gear-val">1m - 5m</span></div>
+                                <div class="gear-row"><span class="gear-label">Target:</span> <span class="gear-val">Planten</span></div>
                             </div>
                         </div>
                     </div>
