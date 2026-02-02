@@ -43,6 +43,16 @@ const fishData = {
         { id: 'bluegill', name: 'Bluegill' },
         { id: 'shiner', name: 'Golden Shiner' }
     ],
+    "Falcon": [
+        { id: 'redband', name: 'Oregon Redband Trout' },
+        { id: 'rainbow', name: 'Rainbow Trout' },
+        { id: 'brown', name: 'Brown Trout' },
+        { id: 'cutthroat', name: 'Cutthroat Trout' },
+        { id: 'smallmouth', name: 'Smallmouth Bass' },
+        { id: 'pumpkinseed', name: 'Pumpkinseed' },
+        { id: 'redbreast', name: 'Redbreast Sunfish' },
+        { id: 'rockbass', name: 'Rock Bass' }
+    ],
     "Neherrin": [
         { id: 'smallmouth', name: 'Smallmouth Bass' },
         { id: 'largemouth', name: 'Largemouth Bass' },
@@ -96,6 +106,8 @@ if (pageTitle.includes("Lone Star")) {
     currentFishList = fishData["Mudwater"];
 } else if (pageTitle.includes("Rocky")) {   
     currentFishList = fishData["Rocky"];
+} else if (pageTitle.includes("Falcon")) {   
+    currentFishList = fishData["Falcon"];
 } else if (pageTitle.includes("Neherrin")) {
     currentFishList = fishData["Neherrin"];
 } else if (pageTitle.includes("Gent")) {
