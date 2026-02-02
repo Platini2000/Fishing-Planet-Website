@@ -19,6 +19,8 @@ header {
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    /* Zorgt dat header niet krimpt in flexbox layout */
+    flex-shrink: 0; 
 }
 
 header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
@@ -39,26 +41,28 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     padding: 0 10px;
     scrollbar-width: none;     /* Firefox verberg scrollbar */
     -ms-overflow-style: none;  /* IE verberg scrollbar */
+    
+    /* Zorgt dat navs niet krimpen in flexbox layout */
+    flex-shrink: 0;
 }
 
 /* Chrome/Safari verberg scrollbar */
 .scroll-nav::-webkit-scrollbar { display: none; }
 
-/* 1. TOP NAV (Locaties) - Plakt bovenaan */
+/* 1. TOP NAV (Locaties) */
 .top-nav {
     position: sticky;
     top: 0;
-    margin-top: 10px; /* AANPASSING: Iets naar beneden vanaf header */
+    margin-top: 10px; 
     z-index: 1001;
     border-bottom: 1px solid #333;
 }
 
-/* 2. BOTTOM NAV (Vissen) - Plakt onder de top nav */
+/* 2. BOTTOM NAV (Vissen) */
 .bottom-nav {
     position: sticky;
-    /* AANPASSING: Meer ruimte vanaf de bovenste balk */
-    top: 75px; /* 60px hoogte + 15px marge */
-    margin-top: 15px; /* De ruimte tussen de balken */
+    top: 75px; 
+    margin-top: 15px; 
     z-index: 1000;
     background-color: #161618;
     border-bottom: 2px solid #4ca1af;
@@ -81,16 +85,13 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     border: 1px solid transparent;
 }
 
-/* AANPASSING: Hover kleur verwijderd (blijft transparant) */
 .scroll-nav a:hover {
     background-color: transparent; 
-    color: #fff; /* Alleen tekst iets witter maken bij hover, geen achtergrond */
+    color: #fff; 
     border-color: transparent;
 }
 
-/* AANPASSING: Actieve knop met TRANSPARANTE achtergrond */
 .scroll-nav a.active {
-    /* 76, 161, 175 is jouw blauwe kleur. 0.4 zorgt voor 40% zichtbaarheid */
     background-color: rgba(76, 161, 175, 0.1); 
     color: #ffffff; 
     font-weight: bold;
@@ -140,9 +141,8 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     margin-bottom: 10px;     
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     object-position: center 55%; 
-    /* AANPASSING: Foto iets naar boven verschoven */
     margin-top: 20px; 
-    background-color: #1a1a1d; /* Zorgt dat de achtergrond niet doorschijnt */
+    background-color: #1a1a1d; 
 }
 
 .header-info {
@@ -152,7 +152,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 .fish-title {
     color: #4ca1af;
     font-size: 1.8em;         
-    margin: 15px 0 5px 0; /* Iets meer ruimte boven de titel */
+    margin: 15px 0 5px 0; 
     line-height: 1.2;
 }
 
@@ -238,33 +238,52 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 footer {
     text-align: center;
     padding: 30px;
-    color: #bbb;
+    color: #bbb; /* Aangepast naar lichter grijs */
     font-size: 0.9em;
-    margin-top: -50px;
-    margin-bottom: 50px;
-//    border-top: 1px solid #333;
+    margin-bottom: 20px; /* Iets ruimte onderaan */
 }
 
-/* --- COMPACTE MOBIELE WEERGAVE --- */
+/* --- COMPACTE MOBIELE WEERGAVE & LOCK SCROLL --- */
 @media (max-width: 768px) {
+    
+    /* 1. SCROLL LOCK: Zet de hele pagina vast */
+    html, body {
+        height: 100%;
+        overflow: hidden; /* Dit voorkomt scrollen van het venster */
+        margin: 0;
+    }
+
+    /* 2. FLEX LAYOUT: Zorgt dat de container de restruimte pakt */
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 3. DE CONTAINER WORDT SCROLLBAAR */
     .container {
+        flex: 1; /* Vult alle ruimte onder de navigatie */
+        overflow-y: auto; /* Alleen HIER scrollen */
+        -webkit-overflow-scrolling: touch; /* Soepel scrollen iOS */
+        
         margin-top: 5px !important;
-        padding: 0 5px !important;
+        padding: 0 5px 80px 5px !important; /* Extra padding onderaan voor footer */
+        width: 100%;
+        box-sizing: border-box; /* Voorkomt dat padding de breedte breekt */
     }
     
+    /* Stijling aanpassingen voor mobiel */
     .fish-card {
         background-color: #262629;
         padding: 15px;             
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         border: 1px solid #444;
-        margin-top: 25px; /* Ruimte voor de foto die uitsteekt */
+        margin-top: 25px; 
     }
 
     .fish-img-uniform {
-        /* AANPASSING: Foto groter op mobiel en steekt uit */
         height: 160px !important; 
-        margin-top: -35px !important; /* Foto trekt iets meer naar boven op mobiel */
+        margin-top: -35px !important; 
         margin-bottom: 5px !important;
     }
 
