@@ -241,6 +241,7 @@ footer {
     color: #bbb; /* Aangepast naar lichter grijs */
     font-size: 0.9em;
     margin-bottom: 20px; /* Iets ruimte onderaan */
+    margin-top: -40px;
 }
 
 /* --- COMPACTE MOBIELE WEERGAVE & TOTAL LOCK (IPHONE FIX) --- */
