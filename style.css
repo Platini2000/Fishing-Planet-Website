@@ -243,14 +243,18 @@ footer {
     margin-bottom: 20px; /* Iets ruimte onderaan */
 }
 
-/* --- COMPACTE MOBIELE WEERGAVE & LOCK SCROLL --- */
+/* --- COMPACTE MOBIELE WEERGAVE & TOTAL LOCK --- */
 @media (max-width: 768px) {
     
-    /* 1. SCROLL LOCK: Zet de hele pagina vast */
+    /* 1. DE PAGINA MUURVAST ZETTEN */
     html, body {
+        width: 100%;
         height: 100%;
-        overflow: hidden; /* Dit voorkomt scrollen van het venster */
         margin: 0;
+        padding: 0;
+        overflow: hidden; /* Blokkeert scrollen van de pagina zelf */
+        position: fixed;  /* DIT IS DE SLEUTEL: Nagelt de pagina vast aan het scherm */
+        overscroll-behavior: none; /* Voorkomt het 'stuiteren' (bouncen) op iPhone/Android */
     }
 
     /* 2. FLEX LAYOUT: Zorgt dat de container de restruimte pakt */
@@ -259,19 +263,28 @@ footer {
         flex-direction: column;
     }
 
-    /* 3. DE CONTAINER WORDT SCROLLBAAR */
+    /* 3. DE CONTAINER WORDT SCROLLBAAR MAAR ZONDER BALK */
     .container {
         flex: 1; /* Vult alle ruimte onder de navigatie */
-        overflow-y: auto; /* Alleen HIER scrollen */
+        overflow-y: scroll; /* Zorgt dat je binnenin kunt scrollen */
         -webkit-overflow-scrolling: touch; /* Soepel scrollen iOS */
+        
+        /* Verberg de scrollbalk visueel (maar laat scrollen toe) */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
         
         margin-top: 5px !important;
         padding: 0 5px 80px 5px !important; /* Extra padding onderaan voor footer */
         width: 100%;
-        box-sizing: border-box; /* Voorkomt dat padding de breedte breekt */
+        box-sizing: border-box;
+    }
+
+    /* Verberg scrollbalk voor Chrome/Safari/Android */
+    .container::-webkit-scrollbar {
+        display: none;
     }
     
-    /* Stijling aanpassingen voor mobiel */
+    /* --- Stijling aanpassingen voor mobiel --- */
     .fish-card {
         background-color: #262629;
         padding: 15px;             
