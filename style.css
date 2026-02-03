@@ -378,4 +378,12 @@ footer {
         padding: 8px !important;
         font-size: 0.9em !important;
     }
+
+}
+/* --- FIX VOOR BLAUWE CIJFERS (TELEFOONNUMMERS) --- */
+/* Dit zorgt dat de browser links in de gear-lijst wit maakt en de streep weghaalt */
+.gear-val a {
+    color: #fff !important;
+    text-decoration: none !important;
+    pointer-events: none; /* Zorgt dat je er niet per ongeluk op klikt */
 }
