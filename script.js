@@ -106,6 +106,19 @@ const fishData = {
         { id: 'prussian', name: 'Prussian Carp' },
         { id: 'ruffe', name: 'Eurasian Ruffe' },
         { id: 'goby', name: 'Round Goby' }
+    ], 
+    "White Moose": [
+        { id: 'atlanticsalmon', name: 'Atlantic Salmon' },
+        { id: 'laketrout', name: 'Lake Trout' },
+        { id: 'splake', name: 'Splake' },
+        { id: 'brooktrout', name: 'Brook Trout' },
+        { id: 'burbot', name: 'Burbot' },
+        { id: 'pike', name: 'Northern Pike' },
+        { id: 'lakewhitefish', name: 'Lake Whitefish' },
+        { id: 'whitesucker', name: 'White Sucker' },
+        { id: 'perch', name: 'Yellow Perch' },
+        { id: 'pumpkinseed', name: 'Pumpkinseed' },
+        { id: 'lakechub', name: 'Lake Chub' }
     ],
     "Gent": [
         { id: 'roach', name: 'Common Roach' },
@@ -150,6 +163,8 @@ if (pageTitle.includes("Lone Star")) {
     currentFishList = fishData["Everglades"]; 
 } else if (pageTitle.includes("Sander Baggersee")) {
     currentFishList = fishData["Sander"];
+} else if (pageTitle.includes("White Moose Lake")) {
+    currentFishList = fishData["White Moose"];
 } else if (pageTitle.includes("Gent")) {
     currentFishList = fishData["Gent"];
 } else {
