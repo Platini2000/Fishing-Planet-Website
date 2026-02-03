@@ -135,15 +135,10 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 .fish-img-uniform {
     width: 100%;
     max-width: 600px;
-    height: 150px; 
-    object-fit: cover; 
+    height: auto;              /* geen vaste hoogte */
+    object-fit: contain;      /* hele foto zichtbaar */
     border-radius: 10px;
-    border: 2px solid #4ca1af; 
-    margin-bottom: 10px;     
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    object-position: center 55%; 
-    margin-top: 20px; 
-    background-color: #1a1a1d; 
+    border: 2px solid #4ca1af;
 }
 
 .header-info {
