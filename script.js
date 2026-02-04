@@ -120,6 +120,78 @@ const fishData = {
         { id: 'pumpkinseed', name: 'Pumpkinseed' },
         { id: 'lakechub', name: 'Lake Chub' }
     ],
+    "Quanchkin": [
+        { id: 'alligatorgar', name: 'Alligator Gar' },
+        { id: 'bluecat', name: 'Blue Catfish' },
+        { id: 'flathead', name: 'Flathead Catfish' },
+        { id: 'channelcat', name: 'Channel Catfish' },
+        { id: 'largemouth', name: 'Largemouth Bass' },
+        { id: 'spotted', name: 'Spotted Bass' },
+        { id: 'bowfin', name: 'Bowfin' },
+        { id: 'drum', name: 'Freshwater Drum' },
+        { id: 'buffalo', name: 'Smallmouth Buffalo' },
+        { id: 'chainpickerel', name: 'Chain Pickerel' },
+        { id: 'blackcrappie', name: 'Black Crappie' },
+        { id: 'whitecrappie', name: 'White Crappie' },
+        { id: 'whitebass', name: 'White Bass' },
+        { id: 'warmouth', name: 'Warmouth' },
+        { id: 'redear', name: 'Redear Sunfish' },
+        { id: 'bluegill', name: 'Bluegill' },
+        { id: 'shiner', name: 'Golden Shiner' }
+    ],
+    "Saint-Croix": [
+        { id: 'muskie', name: 'Muskellunge' },
+        { id: 'tigermuskie', name: 'Tiger Muskie' },
+        { id: 'pike', name: 'Northern Pike' },
+        { id: 'sturgeon', name: 'Lake Sturgeon' },
+        { id: 'bluecat', name: 'Blue Catfish' },
+        { id: 'salmon', name: 'Atlantic Salmon' },
+        { id: 'trout', name: 'Brown & Brook Trout' },
+        { id: 'walleye', name: 'Walleye' },
+        { id: 'smallmouth', name: 'Smallmouth Bass' },
+        { id: 'whitebass', name: 'White Bass' },
+        { id: 'perch', name: 'Yellow Perch' },
+        { id: 'drum', name: 'Drum & Shad' },
+        { id: 'bullhead', name: 'Brown Bullhead' },
+        { id: 'panfish', name: 'Panfish Family' },
+        { id: 'baitfish', name: 'Baitfish' }
+    ],
+    "Blue Crab": [
+        { id: 'tarpon', name: 'Tarpon' },
+        { id: 'permit', name: 'Permit & Bonefish' },
+        { id: 'drum', name: 'Red & Black Drum' },
+        { id: 'snook', name: 'Common Snook' },
+        { id: 'peacock', name: 'Peacock Bass' },
+        { id: 'bass', name: 'Largemouth & Shoal Bass' },
+        { id: 'catfish', name: 'Gafftopsail & Channel' },
+        { id: 'flounder', name: 'Southern Flounder' },
+        { id: 'gar', name: 'Gar & Bowfin' },
+        { id: 'buffalo', name: 'Bigmouth Buffalo' },
+        { id: 'panfish', name: 'Oscar & Panfish' },
+        { id: 'baitfish', name: 'Shad & Shiner' }
+    ],
+    "Kaniq": [
+        { id: 'chinook', name: 'Chinook Salmon' },
+        { id: 'coho', name: 'Coho Salmon' },
+        { id: 'sockeye', name: 'Sockeye Salmon' },
+        { id: 'chum', name: 'Chum Salmon' },
+        { id: 'pink', name: 'Pink Salmon' },
+        { id: 'bull', name: 'Bull Trout & Dolly Varden' },
+        { id: 'pike', name: 'Northern Pike' },
+        { id: 'sucker', name: 'Longnose Sucker' },
+        { id: 'blackfish', name: 'Alaska Blackfish' }
+    ],
+    "Peru": [
+        { id: 'arapaima', name: 'Arapaima' },
+        { id: 'catfish', name: 'Amazon Catfish' },
+        { id: 'payara', name: 'Payara & Biara' },
+        { id: 'arowana', name: 'Silver Arowana' },
+        { id: 'peacock', name: 'Peacock Bass' },
+        { id: 'piranha', name: 'Piranhas' },
+        { id: 'barracuda', name: 'Red Tail Barracuda' },
+        { id: 'panfish', name: 'Oscar, Jacunda & Croaker' },
+        { id: 'school', name: 'Brycon, Aracu & Prochilodus' }
+    ],
     "Gent": [
         { id: 'roach', name: 'Common Roach' },
         { id: 'bream', name: 'Common Bream' },
@@ -165,6 +237,16 @@ if (pageTitle.includes("Lone Star")) {
     currentFishList = fishData["Sander"];
 } else if (pageTitle.includes("White Moose Lake")) {
     currentFishList = fishData["White Moose"];
+} else if (pageTitle.includes("Quanchkin Lake")) {
+    currentFishList = fishData["Quanchkin"];
+} else if (pageTitle.includes("Saint-Croix")) {   
+    currentFishList = fishData["Saint-Croix"];
+} else if (pageTitle.includes("Blue Crab")) {   
+    currentFishList = fishData["Blue Crab"];
+} else if (pageTitle.includes("Kaniq")) {   
+    currentFishList = fishData["Kaniq"];
+} else if (pageTitle.includes("Peru")) {   
+    currentFishList = fishData["Peru"];
 } else if (pageTitle.includes("Gent")) {
     currentFishList = fishData["Gent"];
 } else {
