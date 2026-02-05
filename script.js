@@ -192,6 +192,83 @@ const fishData = {
         { id: 'panfish', name: 'Oscar, Jacunda & Croaker' },
         { id: 'school', name: 'Brycon, Aracu & Prochilodus' }
     ],
+    "Bolivia": [
+        { id: 'redtail', name: 'Redtail & Gilded' },
+        { id: 'sorubim', name: 'Sorubim & Ripsaw' },
+        { id: 'payara', name: 'Payara & Biara' },
+        { id: 'peacock', name: 'Peacock Bass' },
+        { id: 'tambaqui', name: 'Tambaqui' },
+        { id: 'apapa', name: 'Apapa & Brycon' },
+        { id: 'barracuda', name: 'Red Tail Barracuda' },
+        { id: 'piranha', name: 'Piranhas' },
+        { id: 'panfish', name: 'Oscar & Panfish' },
+        { id: 'aracu', name: 'Spotted Aracu' }
+    ],
+    "Amazonian": [
+        { id: 'monsters', name: 'Arapaima & Piraiba' },
+        { id: 'shark', name: 'Bull Shark' },
+        { id: 'eel', name: 'Electric Eel' },
+        { id: 'peacock', name: 'Peacock Bass' },
+        { id: 'catfish', name: 'Amazon Catfish' },
+        { id: 'vampire', name: 'Vampire Fish' },
+        { id: 'trahira', name: 'Trahira & Barracuda' },
+        { id: 'piranha', name: 'Piranhas' },
+        { id: 'surface', name: 'Apapa & Arowana' },
+        { id: 'panfish', name: 'Amazon Panfish' },
+        { id: 'school', name: 'Aracu & Prochilodus' }
+    ],
+    "Congo": [
+        { id: 'goliath', name: 'Goliath Tigerfish' },
+        { id: 'nileperch', name: 'Nile Perch' },
+        { id: 'tigerfish', name: 'African Tigerfish' },
+        { id: 'vundu', name: 'Vundu & Kamba' },
+        { id: 'sharptooth', name: 'Medium Catfish' },
+        { id: 'cornish', name: 'Cornish Jack & Pike' },
+        { id: 'labeo', name: 'Labeo & Elephant' },
+        { id: 'tilapia', name: 'Tilapia & Bulldog' }
+    ],
+    "Kaiji": [
+        { id: 'tuna', name: 'Bluefin, Yellowfin & Bigeye' },
+        { id: 'marlin', name: 'Striped Marlin' },
+        { id: 'grouper', name: 'Giant Grouper' },
+        { id: 'mahi', name: 'Mahi-Mahi' },
+        { id: 'trevally', name: 'Giant Trevally' },
+        { id: 'squid', name: 'Bigfin Reef Squid' },
+        { id: 'snapper', name: 'Ruby Snapper & Jobfish' },
+        { id: 'amberjack', name: 'Amberjacks' },
+        { id: 'mackerel', name: 'Mackerel & Bonito' },
+        { id: 'bait', name: 'Anchovy & Jack Mackerel' }
+    ],
+    "Maldives": [
+        { id: 'billfish', name: 'Marlins & Sailfish' },
+        { id: 'swordfish', name: 'Swordfish' },
+        { id: 'tuna', name: 'Big Tunas' },
+        { id: 'tuna_small', name: 'Small Tunas' },
+        { id: 'wahoo', name: 'Wahoo & Mackerel' },
+        { id: 'gt', name: 'GT & Amberjack' },
+        { id: 'grouper', name: 'Grouper & Sweetlips' },
+        { id: 'snapper', name: 'Snappers & Jobfish' },
+        { id: 'shark', name: 'Shark & Barracuda' },
+        { id: 'mahi', name: 'Mahi-Mahi' },
+        { id: 'reef', name: 'Reef Beauties' },
+        { id: 'bait', name: 'Scad & Flyingfish' }
+    ],
+    "Skarland": [
+        { id: 'greenland', name: 'Greenland Shark' },
+        { id: 'halibut', name: 'Atlantic Halibut' },
+        { id: 'cod', name: 'Atlantic Cod' },
+        { id: 'coalfish', name: 'Coalfish (Saithe)' },
+        { id: 'salmon', name: 'Salmon & Trout' },
+        { id: 'sturgeon', name: 'European Sea Sturgeon' },
+        { id: 'wolffish', name: 'Atlantic Wolffish' },
+        { id: 'angler', name: 'European Angler' },
+        { id: 'ling', name: 'Ling & Cusk' },
+        { id: 'porbeagle', name: 'Porbeagle & Dogfish' },
+        { id: 'redfish', name: 'Redfish & Meagre' },
+        { id: 'haddock', name: 'Haddock & Whiting' },
+        { id: 'mackerel', name: 'Mackerel Family' },
+        { id: 'brill', name: 'Flatfish' }
+    ],
     "Gent": [
         { id: 'roach', name: 'Common Roach' },
         { id: 'bream', name: 'Common Bream' },
@@ -247,6 +324,18 @@ if (pageTitle.includes("Lone Star")) {
     currentFishList = fishData["Kaniq"];
 } else if (pageTitle.includes("Peru")) {   
     currentFishList = fishData["Peru"];
+} else if (pageTitle.includes("Bolivia")) {   
+    currentFishList = fishData["Bolivia"];
+} else if (pageTitle.includes("Amazonian")) {   
+    currentFishList = fishData["Amazonian"];
+} else if (pageTitle.includes("Congo")) {   
+    currentFishList = fishData["Congo"];
+} else if (pageTitle.includes("Kaiji")) {   
+    currentFishList = fishData["Kaiji"];
+} else if (pageTitle.includes("Maldives")) {   
+    currentFishList = fishData["Maldives"];
+} else if (pageTitle.includes("Skarland")) {   
+    currentFishList = fishData["Skarland"];
 } else if (pageTitle.includes("Gent")) {
     currentFishList = fishData["Gent"];
 } else {
