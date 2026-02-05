@@ -31,7 +31,7 @@ const fishData = {
          { id: 'drum', name: 'Freshwater Drum' },
          { id: 'crappie', name: 'White Crappie' },
          { id: 'sunfish', name: 'Bluegill & Sunfish' },
-         { id: 'shiner', name: 'Golden Shiner' }
+         { id: 'shiner', name: 'Common Shiner' }
     ],
     "Rocky": [
         { id: 'rainbow', name: 'Rainbow Trout' },
