@@ -389,8 +389,8 @@ const fishData = {
 
 // --- VARIABELEN VOOR ATTRACT MODE ---
 let attractTimer;
-const IDLE_TIME = 30000; // 30 seconden wachten bij inactiviteit
-const SLIDE_TIME = 10000; // 10 seconden tonen voordat we wisselen
+const IDLE_TIME = 45000; // 45 seconden wachten bij inactiviteit
+const SLIDE_TIME = 15000; // 15 seconden tonen voordat we wisselen
 
 // --- BEPAAL WELKE LIJST WE MOETEN GEBRUIKEN ---
 let currentFishList = [];
