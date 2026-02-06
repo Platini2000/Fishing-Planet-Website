@@ -190,6 +190,11 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     margin-bottom: 0;
 }
 
+.detail-block.right-col {
+    border-right: 4px solid #4ca1af;
+}
+
+
 .detail-block h4 {
     margin-top: 0;
     color: #fff;
