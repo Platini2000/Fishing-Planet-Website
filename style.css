@@ -184,6 +184,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     
     border-radius: 0; 
     
+    /* Standaard borders (links en rechts) */
     border-left: 4px solid #4ca1af;
     border-right: 4px solid #4ca1af; 
     
@@ -192,16 +193,29 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     width: 100%;
 }
 
+/* --- AANGEPASTE SECTIE VOOR SAMENVOEGEN RANDEN --- */
 @media(min-width: 700px) {
     .info-grid { 
         grid-template-columns: 1fr 1fr; 
-        gap: 0; 
+        gap: 0; /* Geen ruimte tussen blokken */
     }
 
-    .detail-block.right-col {
-        grid-column: 2;
+    /* 
+       Hier lossen we het probleem op: 
+       We pakken elk 'even' element (dus de rechterkolom).
+       We halen daar de linker border weg.
+       
+       Visueel resultaat:
+       Links blok: heeft border-right (4px).
+       Rechts blok: heeft GEEN border-left (0px).
+       
+       Totaal in het midden = 4px (gelijk aan de buitenkant).
+    */
+    .detail-block:nth-child(even) {
         border-left: none; 
     }
+}
+/* ------------------------------------------------ */
 
 .detail-block h4 {
     margin-top: 0;
@@ -405,4 +419,3 @@ footer {
     text-decoration: none !important;
     pointer-events: none; /* Zorgt dat je er niet per ongeluk op klikt */
 }
-
