@@ -169,92 +169,47 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;                
+    gap: 10px;
+    position: relative;
+    overflow: visible;
 }
 
 .detail-block {
     background-color: #333;
     padding: 10px;
     border-radius: 0; 
-    
-    /* Standaard borders (wordt aangepast in media query) */
     border-left: 4px solid #4ca1af;
     border-right: 4px solid #4ca1af; 
-    
     margin-bottom: 0;
     box-sizing: border-box;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
-/* --- AANGEPASTE SECTIE: Desktop Weergave --- */
+/* --- ZWARTE LIJN OVER DE BLAUWE LIJNEN --- */
 @media(min-width: 700px) {
     .info-grid { 
         grid-template-columns: 1fr 1fr; 
-        gap: 0; /* Geen gap, de lijnen moeten elkaar raken */
+        gap: 0;
     }
 
-    .detail-block {
-        /* 
-           TRUC: We simuleren 'ruimte' tussen de kolommen met een schaduw aan de binnenkant.
-           Hierdoor lijkt de grijze inhoud te zweven.
-        */
-        box-shadow: inset 0 0 0 4px #1a1a1d;
-        padding: 20px; /* Iets meer padding voor de rondingen */
-        
-        /* Basis borders voor desktop:
-           We verdelen de middelste lijn. Ieder blok krijgt aan de 'binnenkant' 2px,
-           zodat ze samen 4px vormen, net als de buitenkant.
-        */
-        border-bottom: 1px solid #444; /* Horizontale lijntjes tussen rijen */
+    .info-grid::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 49%;
+        height: 8px;
+        background: #1a1a1d;
+        z-index: 999;
+        pointer-events: none;
     }
 
-    /* --- LINKER KOLOM (Oneven) --- */
-    .detail-block:nth-child(odd) {
-        border-left: 4px solid #4ca1af;  /* Dikke buitenrand */
-        border-right: 2px solid #4ca1af; /* Halve binnenrand */
-    }
-
-    /* --- RECHTER KOLOM (Even) --- */
     .detail-block:nth-child(even) {
-        border-left: 2px solid #4ca1af;  /* Halve binnenrand */
-        border-right: 4px solid #4ca1af; /* Dikke buitenrand */
-    }
-
-    /* --- BOVENSTE RIJ: Afronding Bovenkant --- */
-    /* Linksboven */
-    .detail-block:nth-child(1) {
-        border-top-left-radius: 15px;  /* Buitenhoek */
-        border-top-right-radius: 15px; /* Binnenhoek (zorgt voor de zwarte ronding in het midden) */
-        border-top: 4px solid #4ca1af; /* Optioneel: sluit de bovenkant ook af met blauw */
-    }
-    /* Rechtsboven */
-    .detail-block:nth-child(2) {
-        border-top-left-radius: 15px;  /* Binnenhoek */
-        border-top-right-radius: 15px; /* Buitenhoek */
-        border-top: 4px solid #4ca1af; 
-    }
-
-    /* --- ONDERSTE RIJ: Afronding Onderkant --- */
-    /* 
-       We gebruiken :nth-last-child om de laatste 2 items te pakken.
-       Dit werkt perfect als je grid altijd een even aantal items heeft.
-    */
-    
-    /* Linksonder (Het voorlaatste item) */
-    .detail-block:nth-last-child(2) {
-        border-bottom-left-radius: 15px;  /* Buitenhoek */
-        border-bottom-right-radius: 15px; /* Binnenhoek */
-        border-bottom: 4px solid #4ca1af; /* Sluit onderkant af */
-    }
-
-    /* Rechtsonder (Het allerlaatste item) */
-    .detail-block:last-child {
-        border-bottom-left-radius: 15px;  /* Binnenhoek */
-        border-bottom-right-radius: 15px; /* Buitenhoek */
-        border-bottom: 4px solid #4ca1af; 
+        border-left: none; 
     }
 }
-/* ------------------------------------------- */
 /* ------------------------------------------- */
 
 .detail-block h4 {
@@ -394,10 +349,9 @@ footer {
     }
 
     .detail-block {
-        /* Op mobiel overschrijven we de padding en shadow weer naar normaal */
         padding: 6px 10px !important; 
         margin-bottom: 0 !important;
-        box-shadow: none !important; /* Geen inset op mobiel */
+        box-shadow: none !important;
     }
     
     .info-grid { gap: 8px !important; }
