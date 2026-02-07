@@ -19,7 +19,6 @@ header {
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    /* Zorgt dat header niet krimpt in flexbox layout */
     flex-shrink: 0; 
     margin-top: 10px; 
 }
@@ -30,24 +29,19 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 
 /* --- NAVIGATIE BALKEN (ALGEMEEN) --- */
 .scroll-nav {
-    background-color: #0f0f10; /* Diepzwart */
-    height: 60px;              /* Vaste hoogte */
-    
+    background-color: #0f0f10;
+    height: 60px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     overflow-x: auto; 
     -webkit-overflow-scrolling: touch;
-    
     padding: 0 10px;
-    scrollbar-width: none;     /* Firefox verberg scrollbar */
-    -ms-overflow-style: none;  /* IE verberg scrollbar */
-    
-    /* Zorgt dat navs niet krimpen in flexbox layout */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     flex-shrink: 0;
 }
 
-/* Chrome/Safari verberg scrollbar */
 .scroll-nav::-webkit-scrollbar { display: none; }
 
 /* 1. TOP NAV (Locaties) */
@@ -141,7 +135,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 }
 
 .fish-img-uniform {
-    width: 55%;          /* 👈 kleiner dan kolom */
+    width: 55%;
     height: 110%;
     object-fit: contain; 
     border-radius: 10px;
@@ -181,10 +175,9 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 .detail-block {
     background-color: #333;
     padding: 10px;
-    
     border-radius: 0; 
     
-    /* Standaard borders (links en rechts) */
+    /* Standaard borders (wordt aangepast in media query) */
     border-left: 4px solid #4ca1af;
     border-right: 4px solid #4ca1af; 
     
@@ -193,29 +186,32 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     width: 100%;
 }
 
-/* --- AANGEPASTE SECTIE VOOR SAMENVOEGEN RANDEN --- */
+/* --- AANGEPASTE SECTIE: Desktop Weergave --- */
 @media(min-width: 700px) {
     .info-grid { 
         grid-template-columns: 1fr 1fr; 
-        gap: 0; /* Geen ruimte tussen blokken */
+        gap: 0; /* Geen gap, anders breekt de middelste lijn */
     }
 
-    /* 
-       Hier lossen we het probleem op: 
-       We pakken elk 'even' element (dus de rechterkolom).
-       We halen daar de linker border weg.
-       
-       Visueel resultaat:
-       Links blok: heeft border-right (4px).
-       Rechts blok: heeft GEEN border-left (0px).
-       
-       Totaal in het midden = 4px (gelijk aan de buitenkant).
-    */
+    .detail-block {
+        /* 
+           TRUC: We simuleren 'ruimte' tussen de kolommen met een schaduw aan de binnenkant.
+           Hierdoor blijft de blauwe lijn aan de buitenkant strak (4px), maar lijkt de grijze inhoud
+           te zweven met 4px zwart eromheen.
+           Kleur #1a1a1d is de achtergrondkleur van de body.
+        */
+        box-shadow: inset 0 0 0 4px #1a1a1d;
+        
+        /* Extra padding toevoegen zodat tekst niet tegen het zwarte randje komt */
+        padding: 15px; 
+    }
+
+    /* Linker border weghalen bij rechterkolom zodat middelste lijn 1 geheel blijft (4px) */
     .detail-block:nth-child(even) {
         border-left: none; 
     }
 }
-/* ------------------------------------------------ */
+/* ------------------------------------------- */
 
 .detail-block h4 {
     margin-top: 0;
@@ -271,72 +267,51 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
 footer {
     text-align: center;
     padding: 30px;
-    color: #bbb; /* Aangepast naar lichter grijs */
+    color: #bbb;
     font-size: 0.9em;
-    margin-bottom: 20px; /* Iets ruimte onderaan */
+    margin-bottom: 20px;
     margin-top: -40px;
 }
 
-/* --- COMPACTE MOBIELE WEERGAVE & TOTAL LOCK (IPHONE FIX) --- */
+/* --- COMPACTE MOBIELE WEERGAVE & TOTAL LOCK --- */
 @media (max-width: 768px) {
-    
-    /* 1. DE PAGINA MUURVAST ZETTEN */
-    html {
-        height: 100%;
-        overflow: hidden; /* Geen scroll op html */
-    }
+    html { height: 100%; overflow: hidden; }
 
     body {
-        position: fixed;  /* Nagelt de body vast aan het scherm */
+        position: fixed;
         width: 100%;
         height: 100%;
-        overflow: hidden; /* Geen scroll op body */
+        overflow: hidden;
         margin: 0;
-        display: flex;    /* Flexbox layout */
+        display: flex;
         flex-direction: column;
-        overscroll-behavior: none; /* Blokkeer bounce effect op body */
+        overscroll-behavior: none;
     }
 
-    /* 2. NAVIGATIE & HEADER VASTZETTEN IN DE FLEX LAYOUT */
-    /* Op mobiel hoeven ze niet 'sticky' te zijn, want de body scrollt toch niet */
     header, .top-nav, .bottom-nav {
-        flex-shrink: 0; /* Mag niet krimpen */
-        position: relative; /* Gewoon in de stroom */
+        flex-shrink: 0;
+        position: relative;
         top: auto;
         margin-top: 0;
         z-index: 1002;
     }
     
-    .top-nav {
-        border-bottom: 1px solid #333;
-        margin-top: 0;
-    }
-    
-    .bottom-nav {
-        margin-top: 0;
-        border-bottom: 2px solid #4ca1af;
-    }
+    .top-nav { border-bottom: 1px solid #333; margin-top: 0; }
+    .bottom-nav { margin-top: 0; border-bottom: 2px solid #4ca1af; }
 
-    /* 3. DE CONTAINER: DIT IS HET ENIGE DAT BEWEEGT */
     .container {
-        flex-grow: 1; /* Vult alle overgebleven ruimte */
-        height: 100%; /* Dwingt hoogte af */
-        overflow-y: auto; /* Hier mag gescrollt worden */
-        -webkit-overflow-scrolling: touch; /* Momentum scroll */
-        
-        /* DIT IS BELANGRIJK TEGEN STUITEREN: */
-        overscroll-behavior-y: none; /* Zorgt dat scrollen stopt bij de rand en niet de body laat stuiteren */
-        
-        /* Verberg scrollbalk */
+        flex-grow: 1;
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: none;
         scrollbar-width: none; 
         -ms-overflow-style: none;
-        
         width: 100%;
-        padding: 10px 10px 80px 10px !important; /* Ruimte onderin */
+        padding: 10px 10px 80px 10px !important;
         box-sizing: border-box;
     }
 
-    /* Verberg scrollbalk (Webkit/Safari/Chrome) agressief */
     .container::-webkit-scrollbar {
         display: none;
         width: 0;
@@ -344,7 +319,6 @@ footer {
         background: transparent;
     }
     
-    /* --- Visuele aanpassingen voor mobiel --- */
     .fish-card {
         background-color: #262629;
         padding: 15px;             
@@ -376,13 +350,13 @@ footer {
     }
 
     .detail-block {
+        /* Op mobiel overschrijven we de padding en shadow weer naar normaal */
         padding: 6px 10px !important; 
         margin-bottom: 0 !important;
+        box-shadow: none !important; /* Geen inset op mobiel */
     }
     
-    .info-grid {
-        gap: 8px !important; 
-    }
+    .info-grid { gap: 8px !important; }
 
     .detail-block h4 {
         font-size: 1em !important;
@@ -410,12 +384,10 @@ footer {
         padding: 8px !important;
         font-size: 0.9em !important;
     }
-
 }
-/* --- FIX VOOR BLAUWE CIJFERS (TELEFOONNUMMERS) --- */
-/* Dit zorgt dat de browser links in de gear-lijst wit maakt en de streep weghaalt */
+
 .gear-val a {
     color: #fff !important;
     text-decoration: none !important;
-    pointer-events: none; /* Zorgt dat je er niet per ongeluk op klikt */
+    pointer-events: none;
 }
