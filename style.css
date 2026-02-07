@@ -187,16 +187,15 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     padding: 10px;             
     border-radius: 8px;
     border-left: 4px solid #4ca1af;
+    border-right: 4px solid #4ca1af; /* <--- DEZE REGEL TOEVOEGEN */
     margin-bottom: 0;
     box-sizing: border-box;
     width: 100%;
 }
 
 .detail-block.right-col {
-    border-right: 4px solid #4ca1af;
     grid-column: 2;
 }
-
 
 .detail-block h4 {
     margin-top: 0;
@@ -401,7 +400,3 @@ footer {
     pointer-events: none; /* Zorgt dat je er niet per ongeluk op klikt */
 }
 
-@media (min-width: 700px) {
-    .detail-block.right-col {
-        border-right: 4px solid #4ca1af !important;
-}
