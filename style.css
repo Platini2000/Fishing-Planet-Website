@@ -178,23 +178,30 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     gap: 10px;                
 }
 
-@media(min-width: 700px) {
-    .info-grid { grid-template-columns: 1fr 1fr; }
-}
-
 .detail-block {
     background-color: #333;
-    padding: 10px;             
-    border-radius: 8px;
+    padding: 10px;
+    
+    border-radius: 0; 
+    
     border-left: 4px solid #4ca1af;
-    border-right: 4px solid #4ca1af; /* <--- DEZE REGEL TOEVOEGEN */
+    border-right: 4px solid #4ca1af; 
+    
     margin-bottom: 0;
     box-sizing: border-box;
     width: 100%;
 }
 
-.detail-block.right-col {
-    grid-column: 2;
+@media(min-width: 700px) {
+    .info-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 0; 
+    }
+
+    .detail-block.right-col {
+        grid-column: 2;
+        border-left: none; 
+    }
 }
 
 .detail-block h4 {
