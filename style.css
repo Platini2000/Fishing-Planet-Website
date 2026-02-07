@@ -400,3 +400,8 @@ footer {
     text-decoration: none !important;
     pointer-events: none; /* Zorgt dat je er niet per ongeluk op klikt */
 }
+
+@media (min-width: 700px) {
+    .detail-block.right-col {
+        border-right: 4px solid #4ca1af !important;
+}
