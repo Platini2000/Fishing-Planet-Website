@@ -142,7 +142,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     border: 2px solid #4ca1af; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     object-position: center 55%; 
-    background-color: rgba(26, 26, 29, 0.3); 
+    background-color: #1a1a1d; 
 }
 
 .header-info {
@@ -323,25 +323,14 @@ footer {
         background: transparent;
     }
     
-.fish-card {
-    /* 1. Maak de achtergrondkleur doorzichtig (0.75 is 75% zichtbaar) */
-    background-color: rgba(30, 30, 35, 0.75) !important; 
-    
-    /* 2. Voeg een blur toe aan wat er ACHTER de kaart zit (frosted glass effect) */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Voor Safari */
-
-    /* 3. Een dun lijntje voor de luxe uitstraling */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    
-    /* Bestaande stijlen behouden */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    margin-bottom: 25px;
-    display: none; /* Tenzij actief */
-    animation: fadeIn 0.5s ease-in-out;
-}
+    .fish-card {
+        background-color: #262629;
+        padding: 15px;             
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        border: 1px solid #444;
+        margin-top: 25px; 
+    }
 
     .fish-img-uniform {
         height: 160px !important; 
