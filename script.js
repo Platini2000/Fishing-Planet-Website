@@ -472,7 +472,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // 3. START ATTRACT MODE LOGICA
     startAttractModeLogic();
 
-    // 4. Als we NIET in attract mode zijn, selecteer de eerste vis
+    // 4. START MOUSE HIDER (3 SEC)
+    setupCursorHider();
+
+    // 5. Als we NIET in attract mode zijn, selecteer de eerste vis
     // (Als we WEL in attract mode zijn, kiest de logica al een random vis)
     if (sessionStorage.getItem('attractMode') !== 'on') {
         setTimeout(() => {
@@ -689,12 +692,40 @@ function triggerNextSlide() {
             const targetLink = links[randomLinkIndex];
             
             // Simuleer een klik of navigeer
-            // We navigeren na een kleine vertraging zodat de vis even zichtbaar is als de pagina niet herlaadt
-            // Maar omdat locaties meestal nieuwe pagina's zijn, gebeurt dit direct.
             window.location.href = targetLink.href;
         }
     }
     
     // Timer opnieuw zetten voor de zekerheid (als pagina niet herlaadt)
     attractTimer = setTimeout(triggerNextSlide, SLIDE_TIME);
+}
+
+/* --------------------------------------------------------------------------
+   NIEUW: MUIS VERBERGEN NA 3 SECONDEN
+-------------------------------------------------------------------------- */
+function setupCursorHider() {
+    let cursorTimer;
+    const body = document.body;
+
+    // Functie om cursor te resetten en nieuwe timer te starten
+    function resetCursor() {
+        // Maak zichtbaar
+        body.classList.remove('hide-cursor');
+        
+        // Reset timer
+        clearTimeout(cursorTimer);
+        
+        // Start timer van 3 seconden
+        cursorTimer = setTimeout(() => {
+            body.classList.add('hide-cursor');
+        }, 3000);
+    }
+
+    // Direct starten
+    resetCursor();
+
+    // Luister naar beweging
+    document.addEventListener('mousemove', resetCursor);
+    document.addEventListener('scroll', resetCursor);
+    document.addEventListener('click', resetCursor);
 }
