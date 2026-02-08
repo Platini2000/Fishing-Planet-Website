@@ -143,10 +143,10 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
     height: 110%;
     object-fit: contain; 
     border-radius: 10px;
-    border: 2px solid #4ca1af; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+//    border: 2px solid #4ca1af; 
+//    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     object-position: center 55%; 
-    background-color: #1a1a1d; 
+//    background-color: #1a1a1d; 
 }
 
 .header-info {
