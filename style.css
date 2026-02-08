@@ -59,9 +59,9 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     white-space: nowrap; 
     flex-shrink: 0;
 }
-.scroll-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: #fff; }
+.scroll-nav a:hover { background-color: rgba(255, 255, 255, 0.0); color: #fff; }
 .scroll-nav a.active {
-    background: rgba(253, 187, 45, 0.1) !important;
+    background: rgba(253, 187, 45, 0.0) !important;
     color: #fdbb2d !important;
     font-weight: bold;
     border: 1px solid #ffffff !important;
