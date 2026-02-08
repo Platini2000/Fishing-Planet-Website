@@ -1,4 +1,9 @@
 /* --- BASIS STIJL --- */
+html {
+    /* Voorkomt witte randen in safe-areas op telefoons */
+    background-color: #0a0f14;
+}
+
 body {
     /* Diep oceaanblauw verloop voor een levendige basis */
     background: radial-gradient(circle at top, #1e3c72 0%, #0a0f14 100%);
@@ -10,6 +15,7 @@ body {
     font-size: 18px;
     line-height: 1.6;
     cursor: default; 
+    min-height: 100vh;
 } 
 
 .hide-cursor {
@@ -17,6 +23,7 @@ body {
 }
 
 header {
+    /* De koptekst achtergrond */
     background: linear-gradient(to right, rgba(0, 210, 255, 0.2), rgba(58, 123, 213, 0.2));
     color: white;
     text-align: center;
@@ -191,11 +198,10 @@ header h2 {
     overflow: hidden; 
 }
 
-/* --- DESKTOP: VASTE HOOGTE (VERHOOGD) --- */
 @media(min-width: 700px) {
     .info-grid { 
         grid-template-columns: 1fr 1fr; 
-        grid-auto-rows: 290px; /* VERHOOGD naar 240px voor meer ruimte */
+        grid-auto-rows: 270px; 
         gap: 0;
     }
 
@@ -255,7 +261,8 @@ header h2 {
 
 .technique-box {
     margin-top: 30px;
-    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    /* Kopie van header achtergrond */
+    background: linear-gradient(to right, rgba(0, 210, 255, 0.2), rgba(58, 123, 213, 0.2));
     color: white;
     padding: 20px;
     text-align: center;
@@ -263,6 +270,7 @@ header h2 {
     font-size: 1.3em;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 210, 255, 0.3);
 }
 
 .action-tag {
@@ -285,15 +293,17 @@ footer {
 
 /* --- MOBIEL --- */
 @media (max-width: 768px) {
-    html { height: 100%; overflow: hidden; }
+    html { height: 100%; overflow: hidden; background-color: #0a0f14; }
     body {
         position: fixed; width: 100%; height: 100%;
         overflow: hidden; display: flex; flex-direction: column;
         background: #0a0f14;
+        padding-bottom: env(safe-area-inset-bottom);
     }
     .container {
         flex-grow: 1; overflow-y: auto; width: 100%;
         padding: 10px 10px 80px 10px !important;
+        background-color: #0a0f14;
     }
     .fish-card {
         background-color: rgba(30, 45, 60, 0.9);
