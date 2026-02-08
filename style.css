@@ -23,7 +23,6 @@ body {
 }
 
 header {
-    /* De koptekst achtergrond */
     background: linear-gradient(to right, rgba(0, 210, 255, 0.2), rgba(58, 123, 213, 0.2));
     color: white;
     text-align: center;
@@ -49,8 +48,9 @@ header h2 {
 }
 
 
-/* --- NAVIGATIE BALKEN --- */
+/* --- NAVIGATIE BALKEN (LOCATIE & VISSOORTEN GELIJK) --- */
 .scroll-nav {
+    /* Beide balken hebben nu deze basiskleur */
     background-color: rgba(10, 15, 20, 0.85);
     backdrop-filter: blur(10px);
     height: 60px;
@@ -63,6 +63,8 @@ header h2 {
     scrollbar-width: none;
     -ms-overflow-style: none;
     flex-shrink: 0;
+    /* Beide balken hebben nu dezelfde heldere onderlijn */
+    border-bottom: 3px solid #00d2ff;
 }
 
 .scroll-nav::-webkit-scrollbar { display: none; }
@@ -72,7 +74,7 @@ header h2 {
     top: 0;
     margin-top: 20px; 
     z-index: 1001;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .bottom-nav {
@@ -80,8 +82,6 @@ header h2 {
     top: 75px; 
     margin-top: 15px; 
     z-index: 1000;
-    background-color: rgba(20, 35, 50, 0.9);
-    border-bottom: 3px solid #00d2ff;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
@@ -105,12 +105,13 @@ header h2 {
     color: #fff; 
 }
 
+/* DE ACTIEVE KNOP (ZOWEL VOOR LOCATIE ALS VISSOORT) */
 .scroll-nav a.active {
-    background: linear-gradient(135deg, #fdbb2d 0%, #f39c12 100%); 
-    color: #000; 
+    background: rgba(253, 187, 45, 0.1) !important; /* 10% Goud Gloed */
+    color: #ffffff !important; /* Altijd witte letters */
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(243, 156, 18, 0.5); 
-    border: 1px solid #fff;
+    box-shadow: 0 0 15px rgba(253, 187, 45, 0.2); 
+    border: 1px solid rgba(253, 187, 45, 0.5); 
 }
 
 
@@ -163,20 +164,20 @@ header h2 {
 
 .fish-title {
     color: #00d2ff;
-    font-size: 2em;         
+    font-size: 1.7em; /* Verkleind */
     margin: 15px 0 5px 0; 
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .fish-bio {
-    font-style: italic;
+    font-style: normal; /* Geen italic */
     color: #a8d8e6;
     font-size: 0.95em;         
     margin-bottom: 10px;       
 }
 
 
-/* --- GRID VOOR INFO BLOKKEN (STABIEL & HOOG) --- */
+/* --- GRID VOOR INFO BLOKKEN --- */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -261,13 +262,12 @@ header h2 {
 
 .technique-box {
     margin-top: 30px;
-    /* Kopie van header achtergrond */
     background: linear-gradient(to right, rgba(0, 210, 255, 0.2), rgba(58, 123, 213, 0.2));
     color: white;
     padding: 20px;
     text-align: center;
     border-radius: 12px;
-    font-size: 1.3em;
+    font-size: 1.1em; /* Verkleind */
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     border: 1px solid rgba(0, 210, 255, 0.3);
