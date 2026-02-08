@@ -121,7 +121,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     box-shadow: 0 0 10px rgba(0, 210, 255, 0.8); /* Blauwe gloed rond de bubbel */
     border-radius: 50%;
     pointer-events: none;
-    z-index: 5; /* Tussen de achtergrond en de vis in */
+    z-index: 999; /* Tussen de achtergrond en de vis in */
     animation: riseUp 4s infinite ease-in;
 }
 
@@ -143,9 +143,9 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
 }
 
 .fish-img-uniform {
-    width: 60%;
+    width: 80%;
     height: auto;
-    max-height: 150px;
+    max-height: 200px;
     object-fit: contain; 
     position: relative;
     z-index: 2; /* Vis staat vòòr de bubbels */
