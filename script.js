@@ -1,4 +1,6 @@
 // --- CONFIGURATIE DATABASE ---
+// Hier definieer je per meer welke vissen er zijn.
+// De 'key' (bv 'lonestar') moet matchen met een woord in de <title> van je HTML pagina.
 const fishData = {
     "Lone Star": [
         { id: 'bass', name: 'Spotted Bass' },
@@ -387,197 +389,343 @@ const fishData = {
 
 // --- VARIABELEN VOOR ATTRACT MODE ---
 let attractTimer;
-const IDLE_TIME = 45000;
-const SLIDE_TIME = 15000;
+const IDLE_TIME = 45000; // 45 seconden wachten bij inactiviteit
+const SLIDE_TIME = 15000; // 15 seconden tonen voordat we wisselen
 
+// --- BEPAAL WELKE LIJST WE MOETEN GEBRUIKEN ---
 let currentFishList = [];
+
+// We kijken naar de paginatitel (document.title) om te weten waar we zijn
 const pageTitle = document.title; 
 
-// BEPAAL LIJST
-if (pageTitle.includes("Lone Star")) { currentFishList = fishData["Lone Star"]; }
-else if (pageTitle.includes("Emerald")) { currentFishList = fishData["Emerald"]; }
-else if (pageTitle.includes("Mudwater")) { currentFishList = fishData["Mudwater"]; }
-else if (pageTitle.includes("Rocky")) { currentFishList = fishData["Rocky"]; }
-else if (pageTitle.includes("Falcon")) { currentFishList = fishData["Falcon"]; }
-else if (pageTitle.includes("Neherrin")) { currentFishList = fishData["Neherrin"]; }
-else if (pageTitle.includes("Everglades")) { currentFishList = fishData["Everglades"]; }
-else if (pageTitle.includes("Sander Baggersee")) { currentFishList = fishData["Sander"]; }
-else if (pageTitle.includes("White Moose Lake")) { currentFishList = fishData["White Moose"]; }
-else if (pageTitle.includes("Quanchkin Lake")) { currentFishList = fishData["Quanchkin"]; }
-else if (pageTitle.includes("Saint-Croix")) { currentFishList = fishData["Saint-Croix"]; }
-else if (pageTitle.includes("Blue Crab")) { currentFishList = fishData["Blue Crab"]; }
-else if (pageTitle.includes("Kaniq")) { currentFishList = fishData["Kaniq"]; }
-else if (pageTitle.includes("Peru")) { currentFishList = fishData["Peru"]; }
-else if (pageTitle.includes("Bolivia")) { currentFishList = fishData["Bolivia"]; }
-else if (pageTitle.includes("Amazonian")) { currentFishList = fishData["Amazonian"]; }
-else if (pageTitle.includes("Congo")) { currentFishList = fishData["Congo"]; }
-else if (pageTitle.includes("Kaiji")) { currentFishList = fishData["Kaiji"]; }
-else if (pageTitle.includes("Maldives")) { currentFishList = fishData["Maldives"]; }
-else if (pageTitle.includes("Skarland")) { currentFishList = fishData["Skarland"]; }
-else if (pageTitle.includes("Tiber")) { currentFishList = fishData["Tiber"]; }
-else if (pageTitle.includes("San Joaquin")) { currentFishList = fishData["San Joaquin"]; }
-else if (pageTitle.includes("Creuse")) { currentFishList = fishData["Creuse"]; }
-else if (pageTitle.includes("Dnipro")) { currentFishList = fishData["Dnipro"]; }
-else if (pageTitle.includes("Selenge")) { currentFishList = fishData["Selenge"]; }
-else if (pageTitle.includes("Weeping Willow")) { currentFishList = fishData["Willow"]; }
-else if (pageTitle.includes("Lesni")) { currentFishList = fishData["Lesni"]; }
-else if (pageTitle.includes("Gent")) { currentFishList = fishData["Gent"]; }
+if (pageTitle.includes("Lone Star")) {
+    currentFishList = fishData["Lone Star"];
+} else if (pageTitle.includes("Emerald")) {
+    currentFishList = fishData["Emerald"];
+} else if (pageTitle.includes("Mudwater")) {
+    currentFishList = fishData["Mudwater"];
+} else if (pageTitle.includes("Rocky")) {   
+    currentFishList = fishData["Rocky"];
+} else if (pageTitle.includes("Falcon")) {   
+    currentFishList = fishData["Falcon"];
+} else if (pageTitle.includes("Neherrin")) {
+    currentFishList = fishData["Neherrin"];
+} else if (pageTitle.includes("Everglades")) {
+    currentFishList = fishData["Everglades"]; 
+} else if (pageTitle.includes("Sander Baggersee")) {
+    currentFishList = fishData["Sander"];
+} else if (pageTitle.includes("White Moose Lake")) {
+    currentFishList = fishData["White Moose"];
+} else if (pageTitle.includes("Quanchkin Lake")) {
+    currentFishList = fishData["Quanchkin"];
+} else if (pageTitle.includes("Saint-Croix")) {   
+    currentFishList = fishData["Saint-Croix"];
+} else if (pageTitle.includes("Blue Crab")) {   
+    currentFishList = fishData["Blue Crab"];
+} else if (pageTitle.includes("Kaniq")) {   
+    currentFishList = fishData["Kaniq"];
+} else if (pageTitle.includes("Peru")) {   
+    currentFishList = fishData["Peru"];
+} else if (pageTitle.includes("Bolivia")) {   
+    currentFishList = fishData["Bolivia"];
+} else if (pageTitle.includes("Amazonian")) {   
+    currentFishList = fishData["Amazonian"];
+} else if (pageTitle.includes("Congo")) {   
+    currentFishList = fishData["Congo"];
+} else if (pageTitle.includes("Kaiji")) {   
+    currentFishList = fishData["Kaiji"];
+} else if (pageTitle.includes("Maldives")) {   
+    currentFishList = fishData["Maldives"];
+} else if (pageTitle.includes("Skarland")) {   
+    currentFishList = fishData["Skarland"];
+} else if (pageTitle.includes("Tiber")) {   
+    currentFishList = fishData["Tiber"];
+} else if (pageTitle.includes("San Joaquin")) {   
+    currentFishList = fishData["San Joaquin"];
+} else if (pageTitle.includes("Creuse")) {   
+    currentFishList = fishData["Creuse"];
+} else if (pageTitle.includes("Dnipro")) {   
+    currentFishList = fishData["Dnipro"];
+} else if (pageTitle.includes("Selenge")) {   
+    currentFishList = fishData["Selenge"];
+} else if (pageTitle.includes("Weeping Willow")) {   
+    currentFishList = fishData["Willow"];
+} else if (pageTitle.includes("Lesni")) {   
+    currentFishList = fishData["Lesni"];
+} else if (pageTitle.includes("Gent")) {
+    currentFishList = fishData["Gent"];
+} else {
+    // Fallback
+    console.warn("Geen meer herkend in de titel! Zorg dat de <title> tag klopt.");
+    currentFishList = [];
+}
 
 document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Initialiseer de Vis Balk met de JUISTE lijst
     setupFishNav();
+
+    // 2. Maak BEIDE balken oneindig scrollbaar
     setupInfiniteScroll("#location-nav");
     setupInfiniteScroll("#fish-nav");
-    startAttractModeLogic();
-    setupCursorHider();
-    createBubbleElements(); // Maak de bubbel bolletjes aan
 
+    // 3. START ATTRACT MODE LOGICA
+    startAttractModeLogic();
+
+    // 4. START MOUSE HIDER (3 SEC)
+    setupCursorHider();
+
+    // 5. Als we NIET in attract mode zijn, selecteer de eerste vis
+    // (Als we WEL in attract mode zijn, kiest de logica al een random vis)
     if (sessionStorage.getItem('attractMode') !== 'on') {
         setTimeout(() => {
-            if (currentFishList.length > 0) selectFish(currentFishList[0].id);
+            if (currentFishList.length > 0) {
+                selectFish(currentFishList[0].id);
+            }
         }, 100);
     }
 });
 
-/* --- FUNCTIE: BUBBEL BOLLETJES MAAK --- */
-function createBubbleElements() {
-    const holders = document.querySelectorAll('.img-holder');
-    holders.forEach(holder => {
-        for (let i = 0; i < 10; i++) {
-            const b = document.createElement('div');
-            b.className = 'bubble';
-            const size = Math.random() * 10 + 5 + "px";
-            b.style.width = size;
-            b.style.height = size;
-            b.style.left = Math.random() * 100 + "%";
-            b.style.animationDelay = Math.random() * 8 + "s";
-            b.style.animationDuration = (Math.random() * 4 + 6) + "s";
-            holder.appendChild(b);
-        }
-    });
-}
 
+/* --- FUNCTIE: VIS BALK VULLEN --- */
 function setupFishNav() {
     const nav = document.getElementById('fish-nav');
     if(!nav) return;
+
     nav.innerHTML = '';
+
     currentFishList.forEach(fish => {
         const link = document.createElement('a');
-        link.href = "#"; link.dataset.id = fish.id; link.textContent = fish.name;
+        link.href = "#"; 
+        link.dataset.id = fish.id; 
+        link.textContent = fish.name;
+        
         link.addEventListener('click', (e) => {
-            e.preventDefault(); resetInactivityTimer(); selectFish(fish.id);
+            e.preventDefault();
+            // Als de gebruiker klikt, stoppen we de attract mode
+            resetInactivityTimer();
+            selectFish(fish.id);
         });
+
         nav.appendChild(link);
     });
 }
 
+/* --- FUNCTIE: VIS SELECTEREN & CENTREREN --- */
 function selectFish(fishId) {
-    document.querySelectorAll('.fish-card').forEach(card => card.style.display = 'none');
+    document.querySelectorAll('.fish-card').forEach(card => {
+        card.style.display = 'none';
+    });
+    
     const targetCard = document.getElementById(fishId);
-    if(targetCard) targetCard.style.display = 'block';
+    if(targetCard) {
+        targetCard.style.display = 'block';
+    } else {
+        console.warn("Kan vis-kaart niet vinden met ID:", fishId);
+    }
 
     const nav = document.getElementById('fish-nav');
-    const allLinks = nav.querySelectorAll('a');
+    const allLinks = Array.from(nav.querySelectorAll('a'));
+
     allLinks.forEach(link => link.classList.remove('active'));
 
-    // Zoek link in de visbalk (rekening houdend met clones)
-    const activeLinks = Array.from(allLinks).filter(l => l.dataset.id === fishId);
-    if (activeLinks.length > 0) {
-        // Kies de middelste clone voor de beste visuele ervaring
-        const target = activeLinks.length > 1 ? activeLinks[1] : activeLinks[0];
-        target.classList.add('active');
+    const originalIndex = currentFishList.findIndex(f => f.id === fishId);
+    if (originalIndex === -1) return;
+
+    const totalItems = currentFishList.length; 
+    let targetLinkIndex = originalIndex;
+    
+    if (allLinks.length > totalItems) {
+        targetLinkIndex = totalItems + originalIndex; 
+    }
+
+    const targetLink = allLinks[targetLinkIndex];
+
+    if (targetLink) {
+        targetLink.classList.add('active');
         
-        const scrollPos = target.offsetLeft - (nav.clientWidth / 2) + (target.clientWidth / 2);
-        nav.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        const navWidth = nav.clientWidth;
+        const itemLeft = targetLink.offsetLeft;
+        const itemWidth = targetLink.clientWidth;
+
+        const scrollPos = itemLeft - (navWidth / 2) + (itemWidth / 2);
+
+        nav.scrollTo({
+            left: scrollPos,
+            behavior: 'smooth'
+        });
     }
 }
 
+
+/* --- FUNCTIE: ONEINDIGE SCROLL SETUP --- */
 function setupInfiniteScroll(selector) {
     const nav = document.querySelector(selector);
     if (!nav) return;
+
     const originalLinks = Array.from(nav.children);
     if (originalLinks.length === 0) return;
+
     nav.innerHTML = '';
-    
+
     const appendItems = (items) => {
         items.forEach(link => {
             let clone = link.cloneNode(true);
+            
             if (selector === '#fish-nav') {
                 clone.addEventListener('click', (e) => {
-                    e.preventDefault(); resetInactivityTimer(); selectFish(clone.dataset.id);
+                    e.preventDefault();
+                    resetInactivityTimer();
+                    selectFish(clone.dataset.id);
                 });
             } else {
-                clone.addEventListener('click', () => sessionStorage.setItem('attractMode', 'off'));
+                // Locatie balk links ook klikbaar laten resetten
+                clone.addEventListener('click', () => {
+                   sessionStorage.setItem('attractMode', 'off');
+                });
             }
+            
             nav.appendChild(clone);
         });
     };
-    
-    appendItems(originalLinks); appendItems(originalLinks); appendItems(originalLinks); 
-    
+
+    appendItems(originalLinks); 
+    appendItems(originalLinks); 
+    appendItems(originalLinks); 
+
     setTimeout(() => {
         const singleSetWidth = nav.scrollWidth / 3;
         
-        // Centreren van actieve locatie knop bij start
         if (selector === '#location-nav') {
             const activeLink = originalLinks.find(l => l.classList.contains('active'));
             if (activeLink) {
                 const index = originalLinks.indexOf(activeLink);
-                const target = nav.querySelectorAll('a')[originalLinks.length + index]; 
-                nav.scrollLeft = target.offsetLeft - (nav.clientWidth / 2) + (target.clientWidth / 2);
+                const currentLinks = nav.querySelectorAll('a');
+                const target = currentLinks[originalLinks.length + index]; 
+                
+                if(target) {
+                    const scrollPos = target.offsetLeft - (nav.clientWidth / 2) + (target.clientWidth / 2);
+                    nav.scrollLeft = scrollPos;
+                }
             } else {
                 nav.scrollLeft = singleSetWidth;
             }
         } else {
-            nav.scrollLeft = singleSetWidth;
+             nav.scrollLeft = singleSetWidth;
         }
 
-        nav.addEventListener('scroll', () => {
-            if (nav.scrollLeft >= singleSetWidth * 2) nav.scrollLeft -= singleSetWidth;
-            else if (nav.scrollLeft <= 5) nav.scrollLeft += singleSetWidth;
+        nav.addEventListener('scroll', function() {
+            if (nav.scrollLeft >= singleSetWidth * 2) {
+                nav.scrollLeft -= singleSetWidth; 
+            } else if (nav.scrollLeft <= 5) { 
+                nav.scrollLeft += singleSetWidth; 
+            }
         });
     }, 50);
 }
 
+
+/* --------------------------------------------------------------------------
+   NIEUW: AUTOMATISCHE ATTRACT MODE LOGICA
+-------------------------------------------------------------------------- */
+
 function startAttractModeLogic() {
+    // 1. Luisteraars toevoegen om activiteit te detecteren (reset timer)
     const events = ['mousemove', 'mousedown', 'touchstart', 'scroll', 'keydown'];
     events.forEach(evt => document.addEventListener(evt, resetInactivityTimer));
-    if (sessionStorage.getItem('attractMode') === 'on') {
+
+    // 2. Check bij laden: Was de automatische show al bezig?
+    const status = sessionStorage.getItem('attractMode');
+
+    if (status === 'on') {
+        // JA: We zitten midden in de show op een nieuwe pagina.
+        
+        // Kies direct een willekeurige vis om te tonen
         pickRandomFish();
+        
+        // Wacht 10 seconden en ga dan naar de volgende locatie
         attractTimer = setTimeout(triggerNextSlide, SLIDE_TIME);
+        
     } else {
+        // NEE: Normale gebruiker. Wacht 30 seconden inactiviteit.
         attractTimer = setTimeout(triggerNextSlide, IDLE_TIME);
     }
 }
 
+// Reset timer bij gebruikersactie
 function resetInactivityTimer() {
+    // Zet vlag uit
     sessionStorage.setItem('attractMode', 'off');
+    
+    // Stop lopende timers
     clearTimeout(attractTimer);
+    
+    // Start nieuwe timer van 30 seconden
     attractTimer = setTimeout(triggerNextSlide, IDLE_TIME);
 }
 
+// Kies een willekeurige vis uit de huidige lijst
 function pickRandomFish() {
     if (currentFishList.length > 0) {
         const randomIndex = Math.floor(Math.random() * currentFishList.length);
-        setTimeout(() => selectFish(currentFishList[randomIndex].id), 200);
+        const randomFish = currentFishList[randomIndex];
+        // Selecteer vis (selectFish functie regelt de UI)
+        setTimeout(() => selectFish(randomFish.id), 200);
     }
 }
 
+// Trigger de volgende stap (Nieuwe Locatie)
 function triggerNextSlide() {
+    // Zet vlag aan voor de volgende pagina
     sessionStorage.setItem('attractMode', 'on');
+    
+    // Kies willekeurige vis op huidige pagina (voor het geval de pagina niet herlaadt)
+    pickRandomFish();
+
+    // Kies willekeurige locatie uit de bovenbalk
     const locationNav = document.getElementById('location-nav');
     if (locationNav) {
+        // We pakken alle links (ook de clones)
         const links = locationNav.querySelectorAll('a');
-        if (links.length > 0) window.location.href = links[Math.floor(Math.random() * links.length)].href;
+        if (links.length > 0) {
+            const randomLinkIndex = Math.floor(Math.random() * links.length);
+            const targetLink = links[randomLinkIndex];
+            
+            // Simuleer een klik of navigeer
+            window.location.href = targetLink.href;
+        }
     }
+    
+    // Timer opnieuw zetten voor de zekerheid (als pagina niet herlaadt)
+    attractTimer = setTimeout(triggerNextSlide, SLIDE_TIME);
 }
 
+/* --------------------------------------------------------------------------
+   NIEUW: MUIS VERBERGEN NA 3 SECONDEN
+-------------------------------------------------------------------------- */
 function setupCursorHider() {
     let cursorTimer;
-    const resetCursor = () => {
-        document.body.classList.remove('hide-cursor');
+    const body = document.body;
+
+    // Functie om cursor te resetten en nieuwe timer te starten
+    function resetCursor() {
+        // Maak zichtbaar
+        body.classList.remove('hide-cursor');
+        
+        // Reset timer
         clearTimeout(cursorTimer);
-        cursorTimer = setTimeout(() => document.body.classList.add('hide-cursor'), 3000);
-    };
+        
+        // Start timer van 3 seconden
+        cursorTimer = setTimeout(() => {
+            body.classList.add('hide-cursor');
+        }, 3000);
+    }
+
+    // Direct starten
     resetCursor();
-    ['mousemove', 'scroll', 'click'].forEach(e => document.addEventListener(e, resetCursor));
+
+    // Luister naar beweging
+    document.addEventListener('mousemove', resetCursor);
+    document.addEventListener('scroll', resetCursor);
+    document.addEventListener('click', resetCursor);
 }
