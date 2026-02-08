@@ -48,9 +48,8 @@ header h2 {
 }
 
 
-/* --- NAVIGATIE BALKEN (LOCATIE & VISSOORTEN GELIJK) --- */
+/* --- NAVIGATIE BALKEN (LOCATIE & VISSOORTEN) --- */
 .scroll-nav {
-    /* Beide balken hebben nu deze basiskleur */
     background-color: rgba(10, 15, 20, 0.85);
     backdrop-filter: blur(10px);
     height: 60px;
@@ -63,7 +62,6 @@ header h2 {
     scrollbar-width: none;
     -ms-overflow-style: none;
     flex-shrink: 0;
-    /* Beide balken hebben nu dezelfde heldere onderlijn */
     border-bottom: 3px solid #00d2ff;
 }
 
@@ -98,6 +96,7 @@ header h2 {
     transition: all 0.2s ease;
     white-space: nowrap; 
     flex-shrink: 0;
+    border: 1px solid transparent;
 }
 
 .scroll-nav a:hover {
@@ -105,13 +104,13 @@ header h2 {
     color: #fff; 
 }
 
-/* DE ACTIEVE KNOP (ZOWEL VOOR LOCATIE ALS VISSOORT) */
+/* DE ACTIEVE KNOP: GELE LETTERS EN WITTE RAND */
 .scroll-nav a.active {
-    background: rgba(253, 187, 45, 0.1) !important; /* 10% Goud Gloed */
-    color: #ffffff !important; /* Altijd witte letters */
+    background: rgba(253, 187, 45, 0.1) !important; /* 10% Transparante goud/geel gloed */
+    color: #fdbb2d !important; /* Gele letters */
     font-weight: bold;
     box-shadow: 0 0 15px rgba(253, 187, 45, 0.2); 
-    border: 1px solid rgba(253, 187, 45, 0.5); 
+    border: 1px solid #ffffff !important; /* Mooie witte rand eromheen */
 }
 
 
@@ -164,20 +163,20 @@ header h2 {
 
 .fish-title {
     color: #00d2ff;
-    font-size: 1.7em; /* Verkleind */
+    font-size: 1.7em; 
     margin: 15px 0 5px 0; 
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .fish-bio {
-    font-style: normal; /* Geen italic */
+    font-style: normal; 
     color: #a8d8e6;
     font-size: 0.95em;         
     margin-bottom: 10px;       
 }
 
 
-/* --- GRID VOOR INFO BLOKKEN --- */
+/* --- GRID VOOR INFO BLOKKEN (STABIEL) --- */
 .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -267,7 +266,7 @@ header h2 {
     padding: 20px;
     text-align: center;
     border-radius: 12px;
-    font-size: 1.1em; /* Verkleind */
+    font-size: 1.1em; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     border: 1px solid rgba(0, 210, 255, 0.3);
