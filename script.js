@@ -461,9 +461,6 @@ document.addEventListener("DOMContentLoaded", function() {
     startAttractModeLogic();
     setupCursorHider();
     
-    // Roep bubbels aan met een kleine vertraging (100ms) voor stabiliteit
-    setTimeout(createBubbles, 100);
-
     // Standaard eerste vis selecteren
     if (sessionStorage.getItem('attractMode') !== 'on') {
         setTimeout(() => {
@@ -473,39 +470,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 100);
     }
 });
-
-/* --- DE BUBBEL GENERATOR --- */
-function createBubbles() {
-    const holders = document.querySelectorAll('.img-holder');
-    
-    if (holders.length === 0) {
-        console.warn("Geen img-holders gevonden voor bubbels.");
-        return;
-    }
-
-    holders.forEach(holder => {
-        // Maak 12 bubbels per holder
-        for (let i = 0; i < 12; i++) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            
-            // Random afmetingen tussen 4px en 12px
-            const size = Math.floor(Math.random() * 8) + 4 + "px";
-            bubble.style.width = size;
-            bubble.style.height = size;
-            
-            // Verspreid ze over de breedte (van 5% tot 95%)
-            bubble.style.left = (Math.random() * 90) + 5 + "%";
-            
-            // Variatie in timing
-            bubble.style.animationDelay = (Math.random() * 4) + "s";
-            bubble.style.animationDuration = (Math.random() * 2 + 3) + "s"; // tussen 3s en 5s
-            
-            holder.appendChild(bubble);
-        }
-    });
-}
-
 
 /* --- FUNCTIE: VIS BALK VULLEN --- */
 function setupFishNav() {
@@ -662,22 +626,4 @@ function setupCursorHider() {
     document.addEventListener('mousemove', resetCursor);
     document.addEventListener('scroll', resetCursor);
     document.addEventListener('click', resetCursor);
-}
-
-/* --- NIEUWE FUNCTIE: BUBBELS GENEREREN --- */
-function createBubbles() {
-    const holders = document.querySelectorAll('.img-holder');
-    holders.forEach(holder => {
-        for (let i = 0; i < 12; i++) {
-            const bubble = document.createElement('span');
-            bubble.classList.add('bubble');
-            const size = Math.random() * 12 + 4 + "px";
-            bubble.style.width = size;
-            bubble.style.height = size;
-            bubble.style.left = Math.random() * 90 + 5 + "%";
-            bubble.style.animationDelay = Math.random() * 5 + "s";
-            bubble.style.animationDuration = (Math.random() * 2 + 3) + "s";
-            holder.appendChild(bubble);
-        }
-    });
 }
