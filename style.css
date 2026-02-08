@@ -1,5 +1,7 @@
-/* --- BASIS STIJL --- */
-html { background-color: #0a0f14; }
+/* --- BASIS STIJL (PC: SCROLBAAR) --- */
+html { 
+    background-color: #0a0f14; 
+}
 
 body {
     background: radial-gradient(circle at top, #1e3c72 0%, #0a0f14 100%);
@@ -12,6 +14,7 @@ body {
     line-height: 1.6;
     cursor: default; 
     min-height: 100vh;
+    overflow-y: auto; /* PC blijft gewoon scrolbaar */
 } 
 
 .hide-cursor { cursor: none; }
@@ -22,12 +25,10 @@ header {
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    flex-shrink: 0; 
-    margin-top: 10px; 
     border-bottom: 1px solid rgba(0, 210, 255, 0.3);
 }
 
-header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
 header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
 
 /* --- NAVIGATIE BALKEN --- */
@@ -37,15 +38,13 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     height: 60px;
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
     overflow-x: auto; 
     scrollbar-width: none;
-    flex-shrink: 0;
     border-bottom: 3px solid #00d2ff;
 }
 .scroll-nav::-webkit-scrollbar { display: none; }
-.top-nav { position: sticky; top: 0; margin-top: 20px; z-index: 1001; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-.bottom-nav { position: sticky; top: 75px; margin-top: 15px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+.top-nav { position: sticky; top: 0; margin-top: 20px; z-index: 1001; }
+.bottom-nav { position: sticky; top: 75px; margin-top: 15px; z-index: 1000; }
 
 .scroll-nav a {
     color: #d1d1d1;
@@ -57,27 +56,24 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     border-radius: 25px;
     transition: all 0.2s ease;
     white-space: nowrap; 
-    flex-shrink: 0;
 }
-.scroll-nav a:hover { background-color: rgba(255, 255, 255, 0.0); color: #fff; }
 .scroll-nav a.active {
     background: rgba(253, 187, 45, 0.0) !important;
     color: #fdbb2d !important;
-    font-weight: bold;
     border: 1px solid #ffffff !important;
 }
 
-/* --- CONTAINER --- */
+/* --- CONTAINER (PC) --- */
 .container { 
     max-width: 1000px; 
     margin: 30px auto 0 auto; 
     padding: 0 20px; 
-    min-height: 880px; /* Houdt de pagina-lengte gelijk op elke pagina */
+    min-height: 850px; 
 }
 
-/* --- VIS DETAILS --- */
+/* --- VIS DETAILS (SCHERPE FOTO) --- */
 .fish-card { display: block; animation: fadeIn 0.5s ease-in-out; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .top-section {
     display: flex;
@@ -95,28 +91,26 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
 }
 
 .fish-img-uniform {
     width: auto;
     max-width: 90%;
-    height: 200px;
+    height: 220px;
     object-fit: contain; 
-    /* Geen filters of transparantie voor maximale scherpte */
-    mix-blend-mode: normal; 
-    filter: none;
+    mix-blend-mode: normal !important; 
+    filter: none !important; 
     display: block;
 }
 
 .fish-title { color: #00d2ff; font-size: 1.7em; margin: 15px 0 5px 0; }
 .fish-bio { color: #a8d8e6; font-size: 0.95em; margin-bottom: 10px; }
 
-/* --- GRID & DETAILS (DE 4 KOLOMMEN) --- */
+/* --- GRID (2 KOLOMMEN NAAST ELKAAR) --- */
 .info-grid { 
     display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 10px; 
+    grid-template-columns: 1fr 1fr; /* Exact 2 kolommen zoals gevraagd */
+    gap: 0; 
     position: relative; 
 }
 
@@ -126,27 +120,20 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     border-radius: 8px; 
     border-left: 4px solid #f39c12; 
     border-right: 4px solid #f39c12; 
-    /* Kolommen altijd even groot, geen scrollbalken */
-    height: 280px; 
+    height: 280px; /* Vaste hoogte voor de kolommen */
     box-sizing: border-box;
     overflow: hidden; 
 }
 
-@media(min-width: 700px) {
-    .info-grid { 
-        grid-template-columns: 1fr 1fr; 
-        grid-auto-rows: 280px; 
-        gap: 0; 
-    }
-    .info-grid::after {
-        content: ""; position: absolute; left: -2px; right: -2px; top: 50%; 
-        transform: translateY(-50%); height: 12px; background: #0d141b; z-index: 999;
-    }
-    .detail-block:nth-child(even) { border-left: none; }
+/* De horizontale lijn in het midden van de grid op PC */
+.info-grid::after {
+    content: ""; position: absolute; left: -2px; right: -2px; top: 50%; 
+    transform: translateY(-50%); height: 12px; background: #0d141b; z-index: 999;
 }
+.detail-block:nth-child(even) { border-left: none; }
 
 .detail-block h4 { margin-top: 0; color: #fdbb2d; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; font-size: 1.1em; }
-.detail-text { font-size: 0.92em; color: #e0e0e0; line-height: 1.5; }
+.detail-text { font-size: 0.9em; color: #e0e0e0; line-height: 1.4; }
 
 /* --- GEAR --- */
 .gear-list { margin-top: 10px; background-color: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 8px; }
@@ -163,7 +150,6 @@ header h2 { margin: 5px 0 0 0; font-weight: 400; color: #00d2ff; }
     border-radius: 12px;
     border: 1px solid rgba(0, 210, 255, 0.3);
     height: 100px;
-    box-sizing: border-box;
 }
 
 /* --- FOOTER --- */
@@ -176,8 +162,65 @@ footer {
     font-size: 0.9em; 
 }
 
-/* --- MOBIEL --- */
+/* --- TELEFOON (NIET SCROLBAAR) --- */
 @media (max-width: 768px) {
-    .container { min-height: auto; padding-bottom: 40px; }
-    .detail-block { height: auto; min-height: 250px; margin-bottom: 10px; }
+    html, body {
+        height: 100vh;
+        overflow: hidden; /* VERGRENDELD OP TELEFOON */
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    header { padding: 8px 0; }
+    header h1 { font-size: 1.3em; }
+    header h2 { font-size: 0.7em; }
+
+    .scroll-nav { height: 45px; }
+    .top-nav, .bottom-nav { margin-top: 5px; }
+    
+    .container { 
+        flex-grow: 1;
+        min-height: 0;
+        margin: 5px auto;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .top-section { margin-bottom: 5px; padding-bottom: 5px; }
+    .img-holder { height: 90px; }
+    .fish-img-uniform { height: 80px; }
+    .fish-title { font-size: 1.1em; margin: 2px 0; }
+    .fish-bio { font-size: 0.75em; }
+
+    .info-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+    .info-grid::after { display: none; } /* Geen grid-lijn op mobiel */
+
+    .detail-block { 
+        height: 140px; 
+        padding: 8px; 
+        border-width: 2px;
+    }
+    .detail-block h4 { font-size: 0.75em; margin-bottom: 3px; }
+    .detail-text { font-size: 0.65em; line-height: 1.1; }
+    .gear-list { padding: 4px; margin-top: 2px; }
+    .gear-row { margin-bottom: 1px; }
+
+    .technique-box { 
+        margin-top: 5px; 
+        height: 45px; 
+        padding: 5px; 
+        font-size: 0.75em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer { 
+        margin-top: 15px; 
+        margin-bottom: 10px; 
+        font-size: 0.7em; 
+    }
 }
