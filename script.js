@@ -1,4 +1,6 @@
 // --- CONFIGURATIE DATABASE ---
+// Hier definieer je per meer welke vissen er zijn.
+// De 'key' (bv 'lonestar') moet matchen met een woord in de <title> van je HTML pagina.
 const fishData = {
     "Lone Star": [
         { id: 'bass', name: 'Spotted Bass' },
@@ -387,11 +389,13 @@ const fishData = {
 
 // --- VARIABELEN VOOR ATTRACT MODE ---
 let attractTimer;
-const IDLE_TIME = 45000; 
-const SLIDE_TIME = 15000; 
+const IDLE_TIME = 45000; // 45 seconden wachten bij inactiviteit
+const SLIDE_TIME = 15000; // 15 seconden tonen voordat we wisselen
 
 // --- BEPAAL WELKE LIJST WE MOETEN GEBRUIKEN ---
 let currentFishList = [];
+
+// We kijken naar de paginatitel (document.title) om te weten waar we zijn
 const pageTitle = document.title; 
 
 if (pageTitle.includes("Lone Star")) {
@@ -451,17 +455,28 @@ if (pageTitle.includes("Lone Star")) {
 } else if (pageTitle.includes("Gent")) {
     currentFishList = fishData["Gent"];
 } else {
+    // Fallback
+    console.warn("Geen meer herkend in de titel! Zorg dat de <title> tag klopt.");
     currentFishList = [];
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Initialiseer de Vis Balk met de JUISTE lijst
     setupFishNav();
+
+    // 2. Maak BEIDE balken oneindig scrollbaar
     setupInfiniteScroll("#location-nav");
     setupInfiniteScroll("#fish-nav");
+
+    // 3. START ATTRACT MODE LOGICA
     startAttractModeLogic();
+
+    // 4. START MOUSE HIDER (3 SEC)
     setupCursorHider();
-    
-    // Standaard eerste vis selecteren
+
+    // 5. Als we NIET in attract mode zijn, selecteer de eerste vis
+    // (Als we WEL in attract mode zijn, kiest de logica al een random vis)
     if (sessionStorage.getItem('attractMode') !== 'on') {
         setTimeout(() => {
             if (currentFishList.length > 0) {
@@ -471,21 +486,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
 /* --- FUNCTIE: VIS BALK VULLEN --- */
 function setupFishNav() {
     const nav = document.getElementById('fish-nav');
     if(!nav) return;
+
     nav.innerHTML = '';
+
     currentFishList.forEach(fish => {
         const link = document.createElement('a');
         link.href = "#"; 
         link.dataset.id = fish.id; 
         link.textContent = fish.name;
+        
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            // Als de gebruiker klikt, stoppen we de attract mode
             resetInactivityTimer();
             selectFish(fish.id);
         });
+
         nav.appendChild(link);
     });
 }
@@ -495,41 +516,62 @@ function selectFish(fishId) {
     document.querySelectorAll('.fish-card').forEach(card => {
         card.style.display = 'none';
     });
+    
     const targetCard = document.getElementById(fishId);
     if(targetCard) {
         targetCard.style.display = 'block';
+    } else {
+        console.warn("Kan vis-kaart niet vinden met ID:", fishId);
     }
+
     const nav = document.getElementById('fish-nav');
     const allLinks = Array.from(nav.querySelectorAll('a'));
+
     allLinks.forEach(link => link.classList.remove('active'));
+
     const originalIndex = currentFishList.findIndex(f => f.id === fishId);
     if (originalIndex === -1) return;
+
     const totalItems = currentFishList.length; 
     let targetLinkIndex = originalIndex;
+    
     if (allLinks.length > totalItems) {
         targetLinkIndex = totalItems + originalIndex; 
     }
+
     const targetLink = allLinks[targetLinkIndex];
+
     if (targetLink) {
         targetLink.classList.add('active');
+        
         const navWidth = nav.clientWidth;
         const itemLeft = targetLink.offsetLeft;
         const itemWidth = targetLink.clientWidth;
+
         const scrollPos = itemLeft - (navWidth / 2) + (itemWidth / 2);
-        nav.scrollTo({ left: scrollPos, behavior: 'smooth' });
+
+        nav.scrollTo({
+            left: scrollPos,
+            behavior: 'smooth'
+        });
     }
 }
+
 
 /* --- FUNCTIE: ONEINDIGE SCROLL SETUP --- */
 function setupInfiniteScroll(selector) {
     const nav = document.querySelector(selector);
     if (!nav) return;
+
     const originalLinks = Array.from(nav.children);
     if (originalLinks.length === 0) return;
+
     nav.innerHTML = '';
+
     const appendItems = (items) => {
         items.forEach(link => {
             let clone = link.cloneNode(true);
+            
             if (selector === '#fish-nav') {
                 clone.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -537,30 +579,41 @@ function setupInfiniteScroll(selector) {
                     selectFish(clone.dataset.id);
                 });
             } else {
+                // Locatie balk links ook klikbaar laten resetten
                 clone.addEventListener('click', () => {
                    sessionStorage.setItem('attractMode', 'off');
                 });
             }
+            
             nav.appendChild(clone);
         });
     };
+
     appendItems(originalLinks); 
     appendItems(originalLinks); 
     appendItems(originalLinks); 
+
     setTimeout(() => {
         const singleSetWidth = nav.scrollWidth / 3;
+        
         if (selector === '#location-nav') {
             const activeLink = originalLinks.find(l => l.classList.contains('active'));
             if (activeLink) {
                 const index = originalLinks.indexOf(activeLink);
                 const currentLinks = nav.querySelectorAll('a');
                 const target = currentLinks[originalLinks.length + index]; 
+                
                 if(target) {
                     const scrollPos = target.offsetLeft - (nav.clientWidth / 2) + (target.clientWidth / 2);
                     nav.scrollLeft = scrollPos;
                 }
-            } else { nav.scrollLeft = singleSetWidth; }
-        } else { nav.scrollLeft = singleSetWidth; }
+            } else {
+                nav.scrollLeft = singleSetWidth;
+            }
+        } else {
+             nav.scrollLeft = singleSetWidth;
+        }
+
         nav.addEventListener('scroll', function() {
             if (nav.scrollLeft >= singleSetWidth * 2) {
                 nav.scrollLeft -= singleSetWidth; 
@@ -571,58 +624,107 @@ function setupInfiniteScroll(selector) {
     }, 50);
 }
 
-/* --- ATTRACT MODE LOGICA --- */
+
+/* --------------------------------------------------------------------------
+   NIEUW: AUTOMATISCHE ATTRACT MODE LOGICA
+-------------------------------------------------------------------------- */
+
 function startAttractModeLogic() {
+    // 1. Luisteraars toevoegen om activiteit te detecteren (reset timer)
     const events = ['mousemove', 'mousedown', 'touchstart', 'scroll', 'keydown'];
     events.forEach(evt => document.addEventListener(evt, resetInactivityTimer));
+
+    // 2. Check bij laden: Was de automatische show al bezig?
     const status = sessionStorage.getItem('attractMode');
+
     if (status === 'on') {
+        // JA: We zitten midden in de show op een nieuwe pagina.
+        
+        // Kies direct een willekeurige vis om te tonen
         pickRandomFish();
+        
+        // Wacht 10 seconden en ga dan naar de volgende locatie
         attractTimer = setTimeout(triggerNextSlide, SLIDE_TIME);
+        
     } else {
+        // NEE: Normale gebruiker. Wacht 30 seconden inactiviteit.
         attractTimer = setTimeout(triggerNextSlide, IDLE_TIME);
     }
 }
 
+// Reset timer bij gebruikersactie
 function resetInactivityTimer() {
+    // Zet vlag uit
     sessionStorage.setItem('attractMode', 'off');
+    
+    // Stop lopende timers
     clearTimeout(attractTimer);
+    
+    // Start nieuwe timer van 30 seconden
     attractTimer = setTimeout(triggerNextSlide, IDLE_TIME);
 }
 
+// Kies een willekeurige vis uit de huidige lijst
 function pickRandomFish() {
     if (currentFishList.length > 0) {
         const randomIndex = Math.floor(Math.random() * currentFishList.length);
         const randomFish = currentFishList[randomIndex];
+        // Selecteer vis (selectFish functie regelt de UI)
         setTimeout(() => selectFish(randomFish.id), 200);
     }
 }
 
+// Trigger de volgende stap (Nieuwe Locatie)
 function triggerNextSlide() {
+    // Zet vlag aan voor de volgende pagina
     sessionStorage.setItem('attractMode', 'on');
+    
+    // Kies willekeurige vis op huidige pagina (voor het geval de pagina niet herlaadt)
     pickRandomFish();
+
+    // Kies willekeurige locatie uit de bovenbalk
     const locationNav = document.getElementById('location-nav');
     if (locationNav) {
+        // We pakken alle links (ook de clones)
         const links = locationNav.querySelectorAll('a');
         if (links.length > 0) {
             const randomLinkIndex = Math.floor(Math.random() * links.length);
             const targetLink = links[randomLinkIndex];
+            
+            // Simuleer een klik of navigeer
             window.location.href = targetLink.href;
         }
     }
+    
+    // Timer opnieuw zetten voor de zekerheid (als pagina niet herlaadt)
     attractTimer = setTimeout(triggerNextSlide, SLIDE_TIME);
 }
 
-/* --- MUIS VERBERGEN --- */
+/* --------------------------------------------------------------------------
+   NIEUW: MUIS VERBERGEN NA 3 SECONDEN
+-------------------------------------------------------------------------- */
 function setupCursorHider() {
     let cursorTimer;
     const body = document.body;
+
+    // Functie om cursor te resetten en nieuwe timer te starten
     function resetCursor() {
+        // Maak zichtbaar
         body.classList.remove('hide-cursor');
+        
+        // Reset timer
         clearTimeout(cursorTimer);
-        cursorTimer = setTimeout(() => { body.classList.add('hide-cursor'); }, 3000);
+        
+        // Start timer van 3 seconden
+        cursorTimer = setTimeout(() => {
+            body.classList.add('hide-cursor');
+        }, 3000);
     }
+
+    // Direct starten
     resetCursor();
+
+    // Luister naar beweging
     document.addEventListener('mousemove', resetCursor);
     document.addEventListener('scroll', resetCursor);
     document.addEventListener('click', resetCursor);
