@@ -1,5 +1,5 @@
 // ==========================================
-// 1. CONFIGURATIE: MAP LINKS (28 EXACTE LINKS)
+// 1. CONFIGURATIE: MAP LINKS (Alle 28 locaties)
 // ==========================================
 const mapLinks = {
     "Lone Star": "https://fp-collective.com/place/lone-star-lake",
@@ -349,6 +349,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (sessionStorage.getItem('attractMode') !== 'on' && currentFishList.length > 0) {
         setTimeout(() => selectFish(currentFishList[0].id), 200);
     }
+
+
 });
 
 // ==========================================
@@ -381,9 +383,9 @@ function injectMapButtons() {
                 <span class="map-source">FP-COLLECTIVE: ${lakeKey.toUpperCase()}</span>
                 <button class="close-map-btn" onclick="closeMap(this)">Sluiten <i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="map-iframe-container">
-                <div class="map-overlay-tint"></div>
-                <iframe src="" class="map-iframe"></iframe>
+            <div style="position: relative; flex-grow: 1; display: flex;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.6); pointer-events: none; z-index: 5;"></div>
+                <iframe src="" class="map-iframe" style="flex-grow: 1; border: none;"></iframe>
             </div>
         `;
         grid.appendChild(wrapper);
@@ -391,18 +393,19 @@ function injectMapButtons() {
 }
 
 // ==========================================
-// 5. CENTRERING LOGICA (LOCATIE & VIS)
+// 5. CENTRERING LOGICA (BELANGRIJK!)
 // ==========================================
 
 function centerActiveLocation() {
     const nav = document.getElementById('location-nav');
     if (!nav) return;
     
+    // Zoek het 'active' item in de middelste set clones
     const allLinks = nav.querySelectorAll('a');
     const totalOriginals = allLinks.length / 3;
     const activeIndex = Array.from(allLinks).findIndex(l => l.classList.contains('active'));
     
-    // Altijd naar de middelste groep clones springen
+    // We willen het item in de middelste groep (groep 1 van 0,1,2)
     const targetIndex = (activeIndex % totalOriginals) + totalOriginals;
     const targetLink = allLinks[targetIndex];
 
@@ -426,13 +429,13 @@ function selectFish(fishId) {
     const originalIndex = currentFishList.findIndex(f => f.id === fishId);
     if (originalIndex === -1) return;
 
+    // Target altijd de middelste set clones voor perfecte centrering
     const totalOriginals = currentFishList.length;
-    // Gebruik de middelste groep clones voor perfecte centrering
     const targetLinkIndex = originalIndex + totalOriginals; 
     const targetLink = allLinks[targetLinkIndex];
 
     if (targetLink) {
-        // Markeer alle clones van dezelfde vis als active
+        // Markeer ALLE clones van deze vis als active (voor het visuele effect)
         allLinks.forEach((link, idx) => {
             if (idx % totalOriginals === originalIndex) link.classList.add('active');
         });
@@ -543,7 +546,6 @@ function setupInfiniteScroll(selector) {
         });
     };
     
-    // Maak 3 sets clones
     appendItems(originalLinks); appendItems(originalLinks); appendItems(originalLinks);
     
     setTimeout(() => {
