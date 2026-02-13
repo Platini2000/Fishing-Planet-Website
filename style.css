@@ -358,9 +358,49 @@ footer {
         margin-top: -35px !important; 
     }
 
-    .map-wrapper {
-        position: relative; 
-        height: 450px;
-        margin-top: 15px;
+    /* De container die de 4 kolommen volledig bedekt */
+.map-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / -1; /* Zorgt voor de volledige breedte */
+    background: #1a1a1d;
+    z-index: 1100; /* Hoger dan de zwarte lijn */
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #4ca1af;
+    border-radius: 4px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Container voor iframe + tint */
+.map-iframe-container {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+}
+
+/* DE KLEUR FILTER (Tint) */
+.map-overlay-tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 29, 0.25); /* Jouw kleur met 25% dekking */
+    pointer-events: none; /* Cruciaal: je kunt door de kleur heen klikken */
+    z-index: 10; /* Ligt boven het iframe */
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    z-index: 1; /* Ligt onder de tint */
     }
 }
