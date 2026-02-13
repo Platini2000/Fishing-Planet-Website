@@ -166,7 +166,7 @@ header h2 { margin: 5px 0 0 0; font-weight: 300; color: #a8d8e6; }
         position: absolute;
         left: 0;
         right: 0;
-        top: 51%;
+        top: 52%;
         height: 8px;
         background: #1a1a1d;
         z-index: 10; /* Ligt boven de blokken, maar onder de kaart */
