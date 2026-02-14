@@ -349,8 +349,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (sessionStorage.getItem('attractMode') !== 'on' && currentFishList.length > 0) {
         setTimeout(() => selectFish(currentFishList[0].id), 200);
     }
-
-
 });
 
 // ==========================================
@@ -364,9 +362,13 @@ function injectMapButtons() {
     const grids = document.querySelectorAll('.info-grid');
 
     grids.forEach(grid => {
+        // Zoek de ouder .fish-card
+        const fishCard = grid.closest('.fish-card');
+        if (!fishCard) return;
+
         const detailBlocks = grid.querySelectorAll('.detail-block');
         detailBlocks.forEach(block => {
-            if (block.innerHTML.includes('Coördinaten')) {
+            if (block.innerHTML.includes('Coördinaten') || block.innerHTML.includes('CoÃ¶rdinaten')) {
                 const btn = document.createElement('button');
                 btn.className = 'map-toggle-btn';
                 btn.innerHTML = `<i class="fa-solid fa-map-location-dot"></i> Interactieve Kaart`;
@@ -388,24 +390,22 @@ function injectMapButtons() {
                 <iframe src="" class="map-iframe" style="flex-grow: 1; border: none;"></iframe>
             </div>
         `;
-        grid.appendChild(wrapper);
+        // HIER AANGEPAST: append naar fish-card in plaats van grid
+        fishCard.appendChild(wrapper);
     });
 }
 
 // ==========================================
-// 5. CENTRERING LOGICA (BELANGRIJK!)
+// 5. CENTRERING LOGICA
 // ==========================================
-
 function centerActiveLocation() {
     const nav = document.getElementById('location-nav');
     if (!nav) return;
     
-    // Zoek het 'active' item in de middelste set clones
     const allLinks = nav.querySelectorAll('a');
     const totalOriginals = allLinks.length / 3;
     const activeIndex = Array.from(allLinks).findIndex(l => l.classList.contains('active'));
     
-    // We willen het item in de middelste groep (groep 1 van 0,1,2)
     const targetIndex = (activeIndex % totalOriginals) + totalOriginals;
     const targetLink = allLinks[targetIndex];
 
@@ -429,13 +429,11 @@ function selectFish(fishId) {
     const originalIndex = currentFishList.findIndex(f => f.id === fishId);
     if (originalIndex === -1) return;
 
-    // Target altijd de middelste set clones voor perfecte centrering
     const totalOriginals = currentFishList.length;
     const targetLinkIndex = originalIndex + totalOriginals; 
     const targetLink = allLinks[targetLinkIndex];
 
     if (targetLink) {
-        // Markeer ALLE clones van deze vis als active (voor het visuele effect)
         allLinks.forEach((link, idx) => {
             if (idx % totalOriginals === originalIndex) link.classList.add('active');
         });
