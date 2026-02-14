@@ -386,7 +386,7 @@ function injectMapButtons() {
                 <button class="close-map-btn" onclick="closeMap(this)">Sluiten <i class="fa-solid fa-xmark"></i></button>
             </div>
             <div style="position: relative; flex-grow: 1; display: flex;">
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.6); pointer-events: none; z-index: 5; mix-blend-mode: multiply;"></div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.2); pointer-events: none; z-index: 5; mix-blend-mode: multiply;"></div>
                 <iframe src="" class="map-iframe" style="flex-grow: 1; border: none;"></iframe>
             </div>
         `;
